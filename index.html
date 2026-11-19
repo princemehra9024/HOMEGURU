@@ -104,7 +104,10 @@
       <!-- Top Header Row -->
       <header class="app-header">
         <div class="header-greeting">
-          <h1>Hello, Aryan 👋</h1>
+          <h1 style="display:flex; align-items:center; gap:8px;">
+            <span>Hello, Aryan</span>
+            <span class="animated-wave-hand">👋</span>
+          </h1>
           <p>Welcome back! Choose the right tutor in your own city.</p>
         </div>
 
@@ -164,20 +167,71 @@
               </a>
             </div>
 
-            <!-- Graphic / Avatar -->
-            <div class="hero-banner-graphic">
-              <img 
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" 
-                alt="Happy Student" 
-                class="hero-3d-avatar"
-              >
+            <!-- Interactive Animated 3D Study Desk SVG Illustration -->
+            <div class="hero-banner-graphic" title="Safe study desk at home in Jaipur">
+              <svg class="hero-svg-illustration" viewBox="0 0 180 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="heroDeskGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="100%" stop-color="#E2EAF2"/>
+                  </linearGradient>
+                  <linearGradient id="heroScreenGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#123C32"/>
+                    <stop offset="100%" stop-color="#1A5446"/>
+                  </linearGradient>
+                  <linearGradient id="heroGoldGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FCD34D"/>
+                    <stop offset="100%" stop-color="#D4A437"/>
+                  </linearGradient>
+                </defs>
+                
+                <!-- Ambient Glow Circle -->
+                <circle cx="90" cy="80" r="54" fill="rgba(212,164,55,0.12)"/>
+                <circle cx="90" cy="80" r="44" fill="#FFFFFF" fill-opacity="0.9"/>
+                
+                <!-- Floating Stars (Twinkle Animation) -->
+                <g class="floating-star-svg" style="transform-origin: 35px 35px;">
+                  <polygon points="35,26 37,32 43,33 38,37 40,43 35,39 30,43 32,37 27,33 33,32" fill="#D4A437"/>
+                </g>
+                <g class="floating-star-svg" style="animation-delay: 1.2s; transform-origin: 148px 45px;">
+                  <polygon points="148,38 150,43 155,44 151,47 152,52 148,49 144,52 145,47 141,44 146,43" fill="#D4A437"/>
+                </g>
+
+                <!-- Study Laptop Terminal Base -->
+                <rect x="52" y="84" width="76" height="42" rx="6" fill="url(#heroDeskGrad)" stroke="#CAD5E2" stroke-width="1.8"/>
+                <rect x="58" y="88" width="64" height="34" rx="4" fill="url(#heroScreenGrad)"/>
+                <!-- Formula and code lines -->
+                <rect x="64" y="94" width="28" height="3" rx="1.5" fill="#34D399"/>
+                <rect x="64" y="100" width="46" height="2.5" rx="1.2" fill="#93C5FD"/>
+                <rect x="64" y="106" width="36" height="2.5" rx="1.2" fill="#FCD34D"/>
+                <rect x="64" y="112" width="22" height="2" rx="1" fill="#FFFFFF" opacity="0.6"/>
+
+                <!-- Laptop Base / Keyboard -->
+                <polygon points="40,130 140,130 134,122 46,122" fill="#E2EAF2" stroke="#CBD5E1" stroke-width="1.5"/>
+                <rect x="78" y="124" width="24" height="4" rx="1" fill="#94A3B8"/>
+
+                <!-- Floating Graduation Cap (Bobs with CSS animation) -->
+                <g class="floating-cap-svg" style="transform-origin: 90px 48px;">
+                  <polygon points="90,28 134,44 90,60 46,44" fill="url(#heroGoldGrad)" stroke="#B88B28" stroke-width="1.8"/>
+                  <path d="M64 52V64C64 71 90 75 90 75C90 75 116 71 116 64V52" fill="#123C32" stroke="#0A241E" stroke-width="1.5"/>
+                  <path d="M134 44V68" stroke="#123C32" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="134" cy="70" r="3" fill="#D4A437"/>
+                  <circle cx="90" cy="44" r="3.5" fill="#123C32"/>
+                </g>
+
+                <!-- Verified Seal Badge -->
+                <g transform="translate(112, 100)">
+                  <rect x="0" y="0" width="60" height="22" rx="11" fill="#10B981"/>
+                  <text x="30" y="15" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800" font-family="'Plus Jakarta Sans', sans-serif">100% ID ✓</text>
+                </g>
+              </svg>
             </div>
           </section>
 
           <!-- Bento Lower Row (Top Activities + Tutor Pass Cards) -->
           <div class="bento-lower-row">
             
-            <!-- Card 1: Top Rated City Tutors List (with Donut percentages) -->
+            <!-- Card 1: Top Rated City Tutors List (with Interactive SVG Radial Rings) -->
             <div class="dashboard-card">
               <div class="card-header-row">
                 <h3 class="card-header-title">Top Tutors In Jaipur</h3>
@@ -191,12 +245,15 @@
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Dr. Rajeshwar">
                     <div>
                       <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-1" style="text-decoration:none; color:inherit;">Dr. Rajeshwar Sharma</a></h4>
-                      <p class="activity-meta">#1 Physics • Malviya Nagar</p>
+                      <p class="activity-meta">👑 #1 Physics • Malviya Nagar</p>
                     </div>
                   </div>
-                  <div class="circular-progress-pill" title="98% City Ranking Score">
-                    98%
-                  </div>
+                  <!-- Animated SVG Radial Ring -->
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="98.2% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 2.1;"></circle>
+                    <text x="22" y="26" text-anchor="middle" class="radial-ring-text">98%</text>
+                  </svg>
                 </div>
 
                 <!-- Activity 2 -->
@@ -208,9 +265,11 @@
                       <p class="activity-meta">#2 Biology • Raja Park</p>
                     </div>
                   </div>
-                  <div class="circular-progress-pill" title="95% City Ranking Score">
-                    95%
-                  </div>
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="95.4% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 5.3;"></circle>
+                    <text x="22" y="26" text-anchor="middle" class="radial-ring-text">95%</text>
+                  </svg>
                 </div>
 
                 <!-- Activity 3 -->
@@ -219,12 +278,14 @@
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Er. Ananya">
                     <div>
                       <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-2" style="text-decoration:none; color:inherit;">Er. Ananya Sengupta</a></h4>
-                      <p class="activity-meta">#1 Maths • Delhi NCR</p>
+                      <p class="activity-meta">👑 #1 Maths • Delhi NCR</p>
                     </div>
                   </div>
-                  <div class="circular-progress-pill" title="97% City Ranking Score">
-                    97%
-                  </div>
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="97.4% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 3.2;"></circle>
+                    <text x="22" y="26" text-anchor="middle" class="radial-ring-text">97%</text>
+                  </svg>
                 </div>
 
                 <!-- Activity 4 -->
@@ -233,12 +294,14 @@
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Prof Vikas">
                     <div>
                       <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-3" style="text-decoration:none; color:inherit;">Prof. Vikas Deshmukh</a></h4>
-                      <p class="activity-meta">#1 Chemistry • Pune</p>
+                      <p class="activity-meta">👑 #1 Chemistry • Pune</p>
                     </div>
                   </div>
-                  <div class="circular-progress-pill" title="96% City Ranking Score">
-                    96%
-                  </div>
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="96.1% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 4.2;"></circle>
+                    <text x="22" y="26" text-anchor="middle" class="radial-ring-text">96%</text>
+                  </svg>
                 </div>
               </div>
             </div>
@@ -252,30 +315,39 @@
                     <span class="pass-card-label">Home Study Pass</span>
                     <div class="pass-card-balance">₹ 8,670.00</div>
                   </div>
-                  <span class="pass-card-badge">● Active</span>
+                  <span class="pass-card-badge">● Active Balance</span>
                 </div>
                 <div class="pass-card-number">5894 •••• •••• 5624</div>
                 <div class="pass-card-bottom">
                   <span style="font-size:0.75rem; color:var(--gold-light);">Student: Aryan Sharma</span>
-                  <a href="profile.html" style="font-size:0.75rem; color:#FFF; font-weight:700; text-decoration:none;">View Profile →</a>
+                  <a href="profile.html" style="font-size:0.75rem; color:#FFF; font-weight:700; text-decoration:none;">My Subjects →</a>
                 </div>
               </div>
 
-              <!-- Pass Card 2: Hired Teacher & Next Lesson -->
+              <!-- Pass Card 2: Hired Teacher & Next Lesson with Live Radar Pulse & Countdown -->
               <div class="dark-pass-card" style="background: linear-gradient(135deg, #1A4237 0%, #0E2821 100%);">
                 <div class="pass-card-top">
                   <div>
                     <span class="pass-card-label">Next Home Session</span>
                     <div class="pass-card-balance" style="font-size:1.15rem; margin-top:4px;">Tomorrow, 5:30 PM</div>
                   </div>
-                  <span class="pass-card-badge" style="background: rgba(212,164,55,0.2); color:var(--gold);">Dr. Rajeshwar</span>
+                  <span class="pass-card-badge" style="background: rgba(212,164,55,0.25); color:var(--gold); border:1px solid rgba(212,164,55,0.4);">Dr. Rajeshwar</span>
                 </div>
-                <p style="font-size:0.78rem; color:rgba(247,243,234,0.8); margin-top:8px;">
+                
+                <div style="display:flex; align-items:center; gap:8px; margin:8px 0 10px 0;">
+                  <span class="radar-live-dot"></span>
+                  <span id="liveCountdownText" style="font-size:0.78rem; font-weight:800; color:#34D399; font-family:monospace;">
+                    Starts in 16h 38m 22s
+                  </span>
+                </div>
+
+                <p style="font-size:0.78rem; color:rgba(247,243,234,0.85); margin-bottom:12px;">
                   Physics • Wave Optics Numerical Concept Session
                 </p>
+
                 <div class="pass-card-bottom">
-                  <a href="profile.html" style="color:var(--gold); font-size:0.75rem; text-decoration:none; font-weight:700;">Visit Teacher Profile →</a>
-                  <span style="font-size:0.75rem; color:#6EE7B7;">100% Attendance</span>
+                  <a href="tutor-profile.html?id=tutor-1" style="color:var(--gold); font-size:0.75rem; text-decoration:none; font-weight:800;">Visit Teacher Profile →</a>
+                  <span style="font-size:0.75rem; color:#6EE7B7; font-weight:700;">100% Attendance</span>
                 </div>
               </div>
             </div>
@@ -287,57 +359,61 @@
         <!-- Right Rail Column (Reports Wave Curve + Wellbeing Donut) -->
         <div class="bento-right-column">
           
-          <!-- Reports Spline Curve Chart Card -->
+          <!-- Reports Spline Curve Chart Card (Fully Interactive SVG) -->
           <div class="reports-card">
             <div class="card-header-row">
-              <h3 class="card-header-title">Mood Reports</h3>
-              <select class="reports-select">
-                <option>Week</option>
-                <option selected>Month</option>
-                <option>Quarter</option>
+              <h3 class="card-header-title">Mood &amp; Stress Reports</h3>
+              <select class="reports-select" id="timeframeSelect" onchange="handleTimeframeChange(this.value)">
+                <option value="week">Week</option>
+                <option value="month" selected>Month</option>
+                <option value="quarter">Quarter</option>
               </select>
             </div>
 
             <!-- Wave Line SVG Graphic with Tooltip Pill -->
             <div class="chart-container">
-              <div class="chart-tooltip-badge">Stress: Low (94%)</div>
-              <svg class="chart-svg" viewBox="0 0 300 120" fill="none">
-                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20 L 300 120 L 0 120 Z" fill="url(#chartGrad)" opacity="0.15"></path>
-                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20" stroke="var(--green-primary)" stroke-width="2.8" stroke-linecap="round"></path>
-                <circle cx="240" cy="85" r="4.5" fill="#FFFFFF" stroke="var(--green-primary)" stroke-width="2.8"></circle>
-                <circle cx="300" cy="20" r="4.5" fill="var(--gold)" stroke="#FFFFFF" stroke-width="2"></circle>
+              <div class="chart-tooltip-badge" id="chartTooltip">Mar: Stress: Low (94%)</div>
+              <svg class="chart-svg" viewBox="0 0 300 120" fill="none" id="chartSvg">
                 <defs>
                   <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="var(--green-primary)"></stop>
-                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+                    <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0"></stop>
                   </linearGradient>
                 </defs>
+                <path id="curveArea" d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20 L 300 120 L 0 120 Z" fill="url(#chartGrad)" opacity="0.18"></path>
+                <path id="curveLine" class="chart-curve-animated" d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20" stroke="var(--green-primary)" stroke-width="3" stroke-linecap="round"></path>
+                <!-- Interactive Tracker Dot -->
+                <circle id="trackerDot" cx="185" cy="30" r="5" fill="#FFFFFF" stroke="var(--green-primary)" stroke-width="3.2" style="transition:all 280ms cubic-bezier(0.16, 1, 0.3, 1);"></circle>
+                <circle id="peakDot" cx="300" cy="20" r="4" fill="var(--gold)" stroke="#FFFFFF" stroke-width="2"></circle>
               </svg>
 
-              <!-- Month Labels -->
-              <div class="chart-months-row">
-                <span>Dec</span>
-                <span>Jan</span>
-                <span>Feb</span>
-                <span class="chart-month-active">Mar</span>
-                <span>Apr</span>
-                <span>May</span>
+              <!-- Month / Period Selector Pills -->
+              <div class="chart-months-row" id="timeframePills">
+                <span class="chart-month-btn" onclick="selectTimePoint(0, 20, 80, 'Dec: 76% Baseline Stress', this)">Dec</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(1, 75, 52, 'Jan: 82% Concept Boost', this)">Jan</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(2, 130, 42, 'Feb: 89% Doubts Cleared', this)">Feb</span>
+                <span class="chart-month-btn active" onclick="selectTimePoint(3, 185, 30, 'Mar: Stress: Low (94%)', this)">Mar</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(4, 240, 55, 'Apr: 96% Calm &amp; Focused', this)">Apr</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(5, 295, 20, 'May: 98% Peak Confidence', this)">May</span>
               </div>
             </div>
           </div>
 
-          <!-- Donut Breakdown Card (Wellbeing & Progress Index) -->
+          <!-- Donut Breakdown Card (Interactive Wellbeing Index) -->
           <div class="donut-card">
             <div class="card-header-row">
               <h3 class="card-header-title">Wellbeing Index</h3>
-              <a href="wellbeing.html" class="card-header-link">Check-in →</a>
+              <button onclick="openCheckinModal()" class="card-header-link" style="background:none; border:none; cursor:pointer;">+ Check-in →</button>
             </div>
 
-            <!-- Donut SVG Ring -->
+            <!-- Donut SVG Ring with Live Hover Tooltips -->
             <div class="donut-graphic-wrap">
               <svg class="donut-circle-svg" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="38" stroke="#E2E8F0" stroke-width="9" fill="none"></circle>
+                <circle cx="50" cy="50" r="38" stroke="#EAE5D9" stroke-width="9" fill="none"></circle>
+                <!-- Green Progress Segment -->
                 <circle 
+                  id="donutGaugeGreen"
+                  class="donut-circle-animated"
                   cx="50" 
                   cy="50" 
                   r="38" 
@@ -348,8 +424,12 @@
                   stroke-linecap="round" 
                   fill="none" 
                   transform="rotate(-90 50 50)"
+                  style="transition: stroke-dashoffset 600ms ease;"
                 ></circle>
+                <!-- Gold Accent Segment -->
                 <circle 
+                  id="donutGaugeGold"
+                  class="donut-circle-animated"
                   cx="50" 
                   cy="50" 
                   r="38" 
@@ -361,12 +441,14 @@
                   fill="none" 
                   transform="rotate(60 50 50)"
                 ></circle>
-                <text x="50" y="56" text-anchor="middle" class="donut-percentage-text">85%</text>
+                <text id="donutVal" x="50" y="53" text-anchor="middle" class="donut-percentage-text" style="font-size:1.5rem; fill:var(--green-primary); font-weight:800;">85%</text>
+                <text id="donutSub" x="50" y="66" text-anchor="middle" style="font-size:0.55rem; fill:var(--text-muted); font-weight:700;">Overall Calm</text>
               </svg>
             </div>
 
+            <!-- Breakdown Interactive Rows (Hover updates gauge) -->
             <div class="breakdown-list">
-              <div class="breakdown-row">
+              <div class="breakdown-row" onmouseenter="highlightDonut('98%', 'Peace of Mind', 15)" onmouseleave="resetDonut()">
                 <span class="breakdown-label">
                   <span class="breakdown-dot" style="background:var(--green-primary);"></span>
                   Family Peace of Mind
@@ -374,7 +456,7 @@
                 <span class="breakdown-val">98%</span>
               </div>
 
-              <div class="breakdown-row">
+              <div class="breakdown-row" onmouseenter="highlightDonut('88%', 'Stress-Free', 36)" onmouseleave="resetDonut()">
                 <span class="breakdown-label">
                   <span class="breakdown-dot" style="background:var(--gold);"></span>
                   Stress-Free Atmosphere
@@ -382,7 +464,7 @@
                 <span class="breakdown-val">88%</span>
               </div>
 
-              <div class="breakdown-row">
+              <div class="breakdown-row" onmouseenter="highlightDonut('+24%', 'Score Growth', 55)" onmouseleave="resetDonut()">
                 <span class="breakdown-label">
                   <span class="breakdown-dot" style="background:#10B981;"></span>
                   Board / JEE Score Gains
@@ -400,6 +482,169 @@
 
   </div>
 
+  <!-- Interactive Quick Mood Check-In Modal -->
+  <div id="checkinModal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#FFFFFF; border-radius:24px; max-width:440px; width:100%; padding:30px; box-shadow:0 20px 60px rgba(0,0,0,0.25); text-align:center; position:relative;">
+      <button onclick="closeCheckinModal()" style="position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%; background:#FAF7F2; border:none; font-weight:800; cursor:pointer;">✕</button>
+      
+      <div style="width:54px; height:54px; border-radius:18px; background:rgba(18,60,50,0.08); margin:0 auto 14px auto; display:flex; align-items:center; justify-content:center; font-size:1.8rem;">
+        🧠
+      </div>
+      <h3 style="font-size:1.25rem; font-weight:800; color:var(--green-primary); margin-bottom:6px;">
+        Daily Wellbeing Check-In
+      </h3>
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px;">
+        Hi Aryan, how is your study mindset feeling today in Jaipur?
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; margin-bottom:20px;">
+        <button onclick="recordMood(96, '🌟 Energetic & Ready')" style="padding:14px; border-radius:14px; border:1.5px solid var(--border-light); background:#FAF7F2; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="font-size:1.6rem; margin-bottom:4px;">🌟</div>
+          <strong style="font-size:0.82rem; color:var(--green-primary); display:block;">Energetic</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Ready to solve</span>
+        </button>
+
+        <button onclick="recordMood(90, '😌 Calm & Focused')" style="padding:14px; border-radius:14px; border:1.5px solid var(--border-light); background:#FAF7F2; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="font-size:1.6rem; margin-bottom:4px;">😌</div>
+          <strong style="font-size:0.82rem; color:var(--green-primary); display:block;">Calm &amp; Steady</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Paced revision</span>
+        </button>
+
+        <button onclick="recordMood(75, '😴 A bit tired')" style="padding:14px; border-radius:14px; border:1.5px solid var(--border-light); background:#FAF7F2; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="font-size:1.6rem; margin-bottom:4px;">😴</div>
+          <strong style="font-size:0.82rem; color:var(--green-primary); display:block;">Mild Fatigue</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Need short break</span>
+        </button>
+
+        <button onclick="recordMood(60, '😟 High Exam Stress')" style="padding:14px; border-radius:14px; border:1.5px solid var(--border-light); background:#FAF7F2; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="font-size:1.6rem; margin-bottom:4px;">😟</div>
+          <strong style="font-size:0.82rem; color:#EF4444; display:block;">Exam Anxiety</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Need mentor chat</span>
+        </button>
+      </div>
+
+      <div style="font-size:0.72rem; color:var(--text-muted);">
+        🛡️ If stress continues 3 days in a row, HomeGuru alerts your parent &amp; verified counselor confidentially.
+      </div>
+    </div>
+  </div>
+
   <script src="shared-data.js"></script>
+  <script>
+    // Live Ticking Countdown for Tomorrow's Session
+    function updateCountdown() {
+      const now = new Date();
+      const target = new Date();
+      target.setDate(target.getDate() + 1);
+      target.setHours(17, 30, 0, 0); // Tomorrow at 5:30 PM
+
+      const diff = target - now;
+      if (diff <= 0) {
+        document.getElementById('liveCountdownText').innerText = 'Session Starting Now!';
+        return;
+      }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const formatted = 'Starts in ' + hours + 'h ' + mins + 'm ' + (secs < 10 ? '0' : '') + secs + 's';
+      const elem = document.getElementById('liveCountdownText');
+      if (elem) elem.innerText = formatted;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Interactive Spline Curve Points
+    function selectTimePoint(idx, cx, cy, label, btnElem) {
+      document.getElementById('trackerDot').setAttribute('cx', cx);
+      document.getElementById('trackerDot').setAttribute('cy', cy);
+      document.getElementById('chartTooltip').innerText = label;
+
+      document.querySelectorAll('.chart-month-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+    }
+
+    function handleTimeframeChange(val) {
+      const pillsContainer = document.getElementById('timeframePills');
+      const line = document.getElementById('curveLine');
+      const area = document.getElementById('curveArea');
+
+      // Trigger re-drawing animation
+      line.classList.remove('chart-curve-animated');
+      void line.offsetWidth; // trigger reflow
+      line.classList.add('chart-curve-animated');
+
+      if (val === 'week') {
+        pillsContainer.innerHTML = `
+          <span class="chart-month-btn" onclick="selectTimePoint(0, 20, 75, 'Mon: 80% Focused', this)">Mon</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(1, 65, 45, 'Tue: 92% Great Class', this)">Tue</span>
+          <span class="chart-month-btn active" onclick="selectTimePoint(2, 110, 30, 'Wed: 95% High Confidence', this)">Wed</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(3, 160, 50, 'Thu: 88% Normal Revision', this)">Thu</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(4, 210, 25, 'Fri: 96% Physics Demo', this)">Fri</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(5, 260, 20, 'Sat: 99% Weekend Rest', this)">Sat</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(6, 295, 22, 'Sun: 97% Recharged', this)">Sun</span>
+        `;
+        document.getElementById('chartTooltip').innerText = 'Wed: 95% High Confidence';
+        document.getElementById('trackerDot').setAttribute('cx', '110');
+        document.getElementById('trackerDot').setAttribute('cy', '30');
+      } else if (val === 'quarter') {
+        pillsContainer.innerHTML = `
+          <span class="chart-month-btn" onclick="selectTimePoint(0, 40, 80, 'Q1: 75% Initial Setup', this)">Q1</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(1, 120, 50, 'Q2: 86% Tutors Hired', this)">Q2</span>
+          <span class="chart-month-btn active" onclick="selectTimePoint(2, 200, 30, 'Q3: 94% Consistent Scores', this)">Q3</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(3, 280, 20, 'Q4: 98% Finals Ready', this)">Q4</span>
+        `;
+        document.getElementById('chartTooltip').innerText = 'Q3: 94% Consistent Scores';
+        document.getElementById('trackerDot').setAttribute('cx', '200');
+        document.getElementById('trackerDot').setAttribute('cy', '30');
+      } else {
+        // Month default
+        pillsContainer.innerHTML = `
+          <span class="chart-month-btn" onclick="selectTimePoint(0, 20, 80, 'Dec: 76% Baseline Stress', this)">Dec</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(1, 75, 52, 'Jan: 82% Concept Boost', this)">Jan</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(2, 130, 42, 'Feb: 89% Doubts Cleared', this)">Feb</span>
+          <span class="chart-month-btn active" onclick="selectTimePoint(3, 185, 30, 'Mar: Stress: Low (94%)', this)">Mar</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(4, 240, 55, 'Apr: 96% Calm & Focused', this)">Apr</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(5, 295, 20, 'May: 98% Peak Confidence', this)">May</span>
+        `;
+        document.getElementById('chartTooltip').innerText = 'Mar: Stress: Low (94%)';
+        document.getElementById('trackerDot').setAttribute('cx', '185');
+        document.getElementById('trackerDot').setAttribute('cy', '30');
+      }
+    }
+
+    // Donut Gauge Hover Inspections
+    function highlightDonut(val, sub, offset) {
+      document.getElementById('donutVal').innerText = val;
+      document.getElementById('donutSub').innerText = sub;
+      document.getElementById('donutGaugeGreen').style.strokeDashoffset = offset;
+    }
+
+    function resetDonut() {
+      document.getElementById('donutVal').innerText = '85%';
+      document.getElementById('donutSub').innerText = 'Overall Calm';
+      document.getElementById('donutGaugeGreen').style.strokeDashoffset = '36';
+    }
+
+    // Quick Mood Check-In Modal Functions
+    function openCheckinModal() {
+      document.getElementById('checkinModal').style.display = 'flex';
+    }
+
+    function closeCheckinModal() {
+      document.getElementById('checkinModal').style.display = 'none';
+    }
+
+    function recordMood(score, label) {
+      document.getElementById('donutVal').innerText = score + '%';
+      document.getElementById('donutSub').innerText = 'Logged Today!';
+      document.getElementById('donutGaugeGreen').style.strokeDashoffset = (238 - (score / 100) * 238);
+      
+      closeCheckinModal();
+      alert('✅ Mood check-in recorded: ' + label + ' (' + score + '%). Your parents and verified mentor can see your calm progress.');
+    }
+  </script>
 </body>
 </html>

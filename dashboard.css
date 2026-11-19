@@ -401,7 +401,185 @@ body {
   gap: 26px;
 }
 
-/* Hero Banner Card (Soft Ice-Slate Tint #EDF2F8) */
+/* Interactive SVG Animations & Visual Styles */
+@keyframes drawPath {
+  0% { stroke-dashoffset: 600; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes spinDonut {
+  from { stroke-dashoffset: 238; }
+}
+
+@keyframes fillRadialRing {
+  from { stroke-dashoffset: 106.8; }
+}
+
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(1.5deg); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.25); opacity: 1; filter: drop-shadow(0 0 8px rgba(212, 164, 55, 0.8)); }
+}
+
+@keyframes waveHand {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(14deg); }
+  40% { transform: rotate(-8deg); }
+  60% { transform: rotate(14deg); }
+  80% { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes liveRadarPulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.animated-wave-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: waveHand 2.4s infinite ease-in-out;
+}
+
+.radar-live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10B981;
+  border-radius: 50%;
+  display: inline-block;
+  animation: liveRadarPulse 1.8s infinite;
+  margin-right: 6px;
+}
+
+/* SVG Radial Rings for Top Tutors */
+.radial-ring-svg {
+  width: 44px;
+  height: 44px;
+  transform: rotate(-90deg);
+  overflow: visible;
+  flex-shrink: 0;
+  transition: transform 220ms ease;
+}
+
+.radial-ring-bg {
+  stroke: #E8E3D7;
+  stroke-width: 3.8;
+  fill: none;
+}
+
+.radial-ring-fill {
+  stroke: url(#radialGradGold);
+  stroke-width: 4;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 106.8;
+  stroke-dashoffset: 106.8;
+  animation: fillRadialRing 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: stroke-dashoffset 600ms ease;
+}
+
+.radial-ring-text {
+  font-size: 0.74rem;
+  font-weight: 800;
+  fill: var(--green-primary);
+  transform: rotate(90deg);
+  transform-origin: 22px 22px;
+}
+
+.activity-item {
+  transition: transform 200ms ease, background 200ms ease;
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+.activity-item:hover {
+  background: rgba(18, 60, 50, 0.03);
+  transform: translateX(4px);
+}
+
+.activity-item:hover .radial-ring-svg {
+  transform: rotate(-90deg) scale(1.12);
+  filter: drop-shadow(0 4px 10px rgba(212, 164, 55, 0.35));
+}
+
+/* Hero SVG Illustration */
+.hero-svg-illustration {
+  width: 175px;
+  height: 145px;
+  overflow: visible;
+  filter: drop-shadow(0 14px 28px rgba(18, 60, 50, 0.12));
+  transition: transform 300ms ease;
+}
+
+.bento-hero-banner:hover .hero-svg-illustration {
+  transform: scale(1.06) translateY(-4px);
+}
+
+.floating-cap-svg {
+  animation: floatBob 3.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.floating-star-svg {
+  animation: starTwinkle 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.chart-curve-animated {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawPath 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.chart-point {
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.chart-point:hover {
+  r: 7;
+  filter: drop-shadow(0 0 6px rgba(18, 60, 50, 0.5));
+}
+
+.chart-month-btn {
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 180ms ease;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.chart-month-btn:hover {
+  background: rgba(18, 60, 50, 0.08);
+  color: var(--green-primary);
+}
+
+.chart-month-btn.active {
+  background: var(--green-primary);
+  color: #FFFFFF;
+}
+
+.donut-circle-animated {
+  animation: spinDonut 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.breakdown-row {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: all 180ms ease;
+}
+
+.breakdown-row:hover {
+  background: rgba(18, 60, 50, 0.05);
+  transform: translateX(4px);
+}
 .bento-hero-banner {
   background: linear-gradient(135deg, #EEF3F8 0%, #E3EBF5 100%);
   border-radius: var(--radius-xl);
