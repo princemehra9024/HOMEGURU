@@ -3,1267 +3,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Primary Meta Tags -->
-  <title>HomeGuru | Find Verified Home Tutors Near You</title>
-  <meta name="title" content="HomeGuru | Find Verified Home Tutors Near You">
-  <meta name="description" content="Find trusted, verified home tutors in your city with HomeGuru. Compare ratings, experience, fees and reviews to find the right tutor for your child so they don't have to leave home.">
-  <meta name="keywords" content="home tutors near me, home tutor in Jaipur, home tutor in Kota, verified tutors, best home tutors, private tutors, local tutors, maths tutor near me, science tutor near me, English tutor near me, home tuition, private home tuition, tutor marketplace India, online tutor, offline tutor, student wellbeing, verified teacher, best tutor in city, home tutoring India">
-  <meta name="author" content="HomeGuru Technologies">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://homeguru.in/">
-  <meta property="og:title" content="HomeGuru | Study close to home. Grow close to family.">
-  <meta property="og:description" content="A local tutor discovery platform connecting students and parents with vetted, high-performing home educators and holistic student wellbeing support.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80">
-
-  <!-- Google Fonts: Playfair Display & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+  <title>NearTutor Dashboard | Verified Local Home Tutors</title>
+  <link rel="stylesheet" href="dashboard.css">
 </head>
-<body class="theme-cream">
+<body>
 
-  <!-- Subtle Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR (Matching reference image 2) -->
+    <aside class="app-sidebar">
+      
+      <!-- Geometric Logo: ■ ● ▶ -->
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-symbols">
+          <div class="sym-square"></div>
+          <div class="sym-circle"></div>
+          <div class="sym-triangle"></div>
+        </div>
+        <span class="logo-brand-text">NearTutor</span>
+      </a>
 
-  <!-- Background Ambient Brand Elements -->
-  <div class="ambient-watermark" aria-hidden="true">
-    <span>HOME</span>
-    <span>GURU</span>
-  </div>
-
-  <!-- ================================================== -->
-  <!-- 5. FLOATING NAVBAR -->
-  <!-- ================================================== -->
-  <header class="navbar-wrapper">
-    <nav class="navbar" id="mainNavbar" aria-label="Main Navigation">
-      <div class="nav-container">
-        
-        <!-- Logo -->
-        <a href="#hero" class="brand-logo" aria-label="HomeGuru Home">
-          <div class="logo-mark">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-              <!-- House + Graduation Cap stylized icon -->
-              <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="var(--gold)" fill-opacity="0.25" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M30 18.5V26.5" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="18" cy="17.5" r="2.5" fill="var(--gold)"/>
-            </svg>
-          </div>
-          <span class="logo-text">HomeGuru</span>
+      <!-- Menu Navigation -->
+      <nav class="sidebar-nav">
+        <!-- Active Dashboard Pill -->
+        <a href="index.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <ul class="nav-menu" id="navMenu">
-          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="#tutors" class="nav-link">Find Tutors</a></li>
-          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
-          <li class="nav-item"><a href="#rankings" class="nav-link">City Rankings</a></li>
-          <li class="nav-item"><a href="#wellbeing" class="nav-link">Wellbeing</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-        </ul>
+        <!-- Find Tutors (Search Page) -->
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
 
-        <!-- Right Action Items -->
-        <div class="nav-actions">
-          <button class="nav-search-btn" id="navSearchTrigger" aria-label="Quick Search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Tutor Profile Opening Page -->
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Tutor Profile</span>
+        </a>
+
+        <!-- Wellbeing Shield -->
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <!-- City Rankings -->
+        <a href="search.html#rankings" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Settings -->
+        <a href="#settings" onclick="alert('Settings modal open!')" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Bottom Dark Promo Card (Exact styling from image 1) -->
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">🚀</div>
+        <h4 class="promo-title">Zero Hostel Isolation!</h4>
+        <p class="promo-sub">Study at home with family love and verified 1-on-1 tutors.</p>
+        <a href="search.html" class="promo-btn">Book Free Demo</a>
+      </div>
+
+    </aside>
+
+    <!-- 2. MAIN BENTO WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header Row -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <h1>Hello, Aryan 👋</h1>
+          <p>Welcome back! Choose the right tutor in your own city.</p>
+        </div>
+
+        <div class="header-actions">
+          <!-- Search Pill -->
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-          </button>
-          
-          <button class="btn btn-outline nav-btn-teacher" id="openTeacherModalBtn">
-            For Teachers
-          </button>
-
-          <a href="#tutors" class="btn btn-primary nav-cta">
-            <span>Find a Tutor</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-
-          <!-- Mobile Hamburger Toggle -->
-          <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-        </div>
-
-      </div>
-    </nav>
-
-    <!-- Mobile Slide Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-      <div class="drawer-header">
-        <span class="drawer-logo">HomeGuru</span>
-        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
-      </div>
-      <ul class="drawer-menu">
-        <li><a href="#hero" class="drawer-link active">Home</a></li>
-        <li><a href="#tutors" class="drawer-link">Find Tutors</a></li>
-        <li><a href="#how-it-works" class="drawer-link">How It Works</a></li>
-        <li><a href="#rankings" class="drawer-link">City Rankings</a></li>
-        <li><a href="#wellbeing" class="drawer-link">Student Wellbeing</a></li>
-        <li><a href="#about" class="drawer-link">About Project</a></li>
-      </ul>
-      <div class="drawer-footer">
-        <button class="btn btn-outline w-full mb-3" id="mobileTeacherBtn">For Teachers</button>
-        <a href="#tutors" class="btn btn-primary w-full" id="mobileFindTutorBtn">Find a Tutor &rarr;</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- ================================================== -->
-    <!-- 6. HERO SECTION -->
-    <!-- ================================================== -->
-    <section class="hero-section" id="hero">
-      <div class="container hero-grid">
-        
-        <!-- Left Editorial Content -->
-        <div class="hero-content reveal-on-scroll">
-          <div class="hero-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>VERIFIED LOCAL TUTORS</span>
-          </div>
-
-          <h1 class="hero-title">
-            Top home tutors<br>
-            in your own city.
-            <span class="hero-title-highlight">so students don't have to leave home.</span>
-          </h1>
-
-          <p class="hero-description">
-            Find trusted, background-checked tutors near you — and give your child an empowering, focused learning experience without moving away to stressful coaching factories.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="#tutors" class="btn btn-primary btn-large">
-              <span>Find a Tutor</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            
-            <button class="btn btn-secondary btn-large" id="heroTeacherBtn">
-              <span>For Teachers</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-              </svg>
-            </button>
-          </div>
-
-          <div class="hero-trust-metrics">
-            <div class="trust-avatar-stack">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80" alt="Parent Priya" class="trust-avatar">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="Tutor Rajesh" class="trust-avatar">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&h=100&q=80" alt="Parent Sunita" class="trust-avatar">
-              <div class="trust-avatar-more">10k+</div>
-            </div>
-            <div class="trust-text">
-              <strong>98.4% Parent Trust Rating</strong>
-              <span>10,000+ local home classes completed</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Asymmetric Visual Composition -->
-        <div class="hero-visual reveal-on-scroll">
-          <div class="hero-image-frame">
-            <img 
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=85" 
-              alt="Dedicated home tutor teaching a student at a study desk in a calm home environment"
-              class="hero-main-img"
-              loading="eager"
+            <input 
+              type="text" 
+              class="search-pill-input" 
+              placeholder="Search tutor, subject, area..." 
+              onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + encodeURIComponent(this.value)"
             >
-            <div class="hero-image-overlay"></div>
           </div>
 
-          <!-- Floating Badge 1: Verified Tutor Card -->
-          <div class="floating-card float-badge-tutor" data-depth="1">
-            <div class="float-icon-check">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <div class="float-content">
-              <span class="float-tag">Verified Home Tutor</span>
-              <h4 class="float-name">Priya Verma, M.Sc.</h4>
-              <p class="float-sub">8 yrs experience · ₹500/hr</p>
-            </div>
-          </div>
-
-          <!-- Floating Badge 2: City Ranking -->
-          <div class="floating-card float-badge-ranking" data-depth="2">
-            <div class="ranking-pill">
-              <span class="rank-hash">#3</span>
-              <span class="rank-title">Maths Tutor in Jaipur</span>
-            </div>
-            <div class="rating-strip">
-              <div class="stars">★★★★★</div>
-              <span class="score">4.8 / 5.0</span>
-            </div>
-          </div>
-
-          <!-- Floating Badge 3: Wellbeing Stat -->
-          <div class="floating-card float-badge-wellbeing" data-depth="1.5">
-            <div class="wellbeing-dot"></div>
-            <span>Zero Relocation Anxiety</span>
-          </div>
-
-          <!-- Decorative Thin Golden Accent Ring -->
-          <div class="hero-gold-ring" aria-hidden="true"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- 7. STATS STRIP -->
-    <!-- ================================================== -->
-    <section class="stats-section" id="stats">
-      <div class="container">
-        <div class="stats-grid">
-          
-          <div class="stat-item reveal-on-scroll">
-            <div class="stat-number-wrap">
-              <span class="stat-number" data-target="10000" data-suffix="+">10K+</span>
-            </div>
-            <p class="stat-label">Students Helped</p>
-            <span class="stat-sub">Studying at home</span>
-          </div>
-
-          <div class="stat-divider" aria-hidden="true"></div>
-
-          <div class="stat-item reveal-on-scroll">
-            <div class="stat-number-wrap">
-              <span class="stat-number" data-target="50" data-suffix="+">50+</span>
-            </div>
-            <p class="stat-label">Top Tutors</p>
-            <span class="stat-sub">Vetted &amp; Verified</span>
-          </div>
-
-          <div class="stat-divider" aria-hidden="true"></div>
-
-          <div class="stat-item reveal-on-scroll">
-            <div class="stat-number-wrap">
-              <span class="stat-number" data-target="100" data-suffix="+">100+</span>
-            </div>
-            <p class="stat-label">Cities Covered</p>
-            <span class="stat-sub">Across Rajasthan &amp; India</span>
-          </div>
-
-          <div class="stat-divider" aria-hidden="true"></div>
-
-          <div class="stat-item reveal-on-scroll">
-            <div class="stat-number-wrap">
-              <span class="stat-number" data-target="4.8" data-decimal="true" data-suffix="/5">4.8/5</span>
-            </div>
-            <p class="stat-label">Average Rating</p>
-            <span class="stat-sub">From 3,400+ parents</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- PROBLEM STATEMENT / PHILOSOPHY STRIP -->
-    <!-- ================================================== -->
-    <section class="problem-solution-section" id="about">
-      <div class="container">
-        <div class="editorial-quote-card reveal-on-scroll">
-          <div class="quote-tag">THE HOMETOWN EDUCATION CRISIS</div>
-          <h2 class="editorial-quote">
-            "Every year, over 2.5 lakh young students leave their families to live in congested coaching hubs — battling loneliness, extreme pressure, and poor food. 
-            <em>We believe the best mentorship belongs right in your living room.</em>"
-          </h2>
-          <div class="quote-signature">
-            <span class="sig-title">HomeGuru Foundation Manifesto</span>
-            <span class="sig-bullet">•</span>
-            <span class="sig-desc">Building local academic resilience since day one</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- 8. HOW IT WORKS SECTION (TWO JOURNEYS TOGGLE) -->
-    <!-- ================================================== -->
-    <section class="how-it-works-section" id="how-it-works">
-      <div class="container">
-        
-        <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">SIMPLIFIED WORKFLOW</span>
-          <h2 class="section-title">
-            Two simple journeys:<br>
-            <span class="serif-italic">one for teachers, one for families.</span>
-          </h2>
-          <p class="section-subtitle">
-            A frictionless, transparent experience designed to guarantee safety, pedagogical quality, and parent peace of mind.
-          </p>
-
-          <!-- Interactive Toggle Pill -->
-          <div class="journey-toggle-container">
-            <div class="journey-toggle-bg" id="toggleIndicator"></div>
-            <button class="journey-toggle-btn active" id="toggleFamiliesBtn" data-target="families">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              <span>For Families</span>
-            </button>
-            <button class="journey-toggle-btn" id="toggleTeachersBtn" data-target="teachers">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
-              <span>For Teachers</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Journey 1: Families -->
-        <div class="journey-panel active" id="familiesPanel">
-          <div class="steps-grid">
-            
-            <div class="step-card reveal-on-scroll">
-              <div class="step-num-badge">01</div>
-              <h3 class="step-title">Choose City &amp; Area</h3>
-              <p class="step-desc">Select your locality to find educators who can teach in-person at your residence or hybrid.</p>
-              <div class="step-detail-tag">Jaipur, Kota, Delhi &amp; more</div>
-            </div>
-
-            <div class="step-card reveal-on-scroll">
-              <div class="step-num-badge">02</div>
-              <h3 class="step-title">Pick Subject &amp; Budget</h3>
-              <p class="step-desc">Filter by exact grades (CBSE, ICSE, State, JEE/NEET), hourly fees, and tutor experience.</p>
-              <div class="step-detail-tag">Transparent hourly rates</div>
-            </div>
-
-            <div class="step-card reveal-on-scroll">
-              <div class="step-num-badge">03</div>
-              <h3 class="step-title">Compare &amp; Verify</h3>
-              <p class="step-desc">Inspect credentials, verified student ratings, parent testimonials, and watch tutor demo videos.</p>
-              <div class="step-detail-tag">100% verified track records</div>
-            </div>
-
-            <div class="step-card reveal-on-scroll">
-              <div class="step-num-badge">04</div>
-              <h3 class="step-title">Book a Free Demo</h3>
-              <p class="step-desc">Experience a 30-minute diagnostic session right at home before making any final commitment.</p>
-              <div class="step-detail-tag">Zero upfront obligation</div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Journey 2: Teachers -->
-        <div class="journey-panel" id="teachersPanel">
-          <div class="steps-grid">
-            
-            <div class="step-card">
-              <div class="step-num-badge">01</div>
-              <h3 class="step-title">Sign Up</h3>
-              <p class="step-desc">Create your educator profile with your academic background, teaching style, and preferred localities.</p>
-              <div class="step-detail-tag">Takes less than 3 minutes</div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-num-badge">02</div>
-              <h3 class="step-title">Verify Credentials</h3>
-              <p class="step-desc">Our team conducts government ID checks, degree validation, and address authentication.</p>
-              <div class="step-detail-tag">Strict safety standard</div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-num-badge">03</div>
-              <h3 class="step-title">Build Profile &amp; Demo</h3>
-              <p class="step-desc">List your subjects, custom hourly fee, weekly available slots, and a 2-minute sample teaching video.</p>
-              <div class="step-detail-tag">Total control over pricing</div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-num-badge">04</div>
-              <h3 class="step-title">Get Verified Badge</h3>
-              <p class="step-desc">Appear on city leaderboards, receive direct home-tutoring inquiries, and earn respected local income.</p>
-              <div class="step-detail-tag">Keep 100% of your earnings</div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- 9. FIND TUTORS SECTION (INTERACTIVE SEARCH & FILTERS) -->
-    <!-- ================================================== -->
-    <section class="find-tutors-section" id="tutors">
-      <div class="container">
-        
-        <div class="section-header reveal-on-scroll">
-          <span class="section-tag">CURATED ROSTER</span>
-          <h2 class="section-title">
-            Find someone who teaches<br>
-            <span class="serif-italic">like they genuinely care.</span>
-          </h2>
-          <p class="section-subtitle">
-            Every tutor undergoes identity verification, qualification verification, and pedagogical review.
-          </p>
-        </div>
-
-        <!-- Interactive Search & Filtering Bar -->
-        <div class="search-filter-card reveal-on-scroll" id="searchFilterCard">
-          <div class="search-bar-row">
-            
-            <!-- Text Search Input -->
-            <div class="search-field flex-grow">
-              <label for="searchInput" class="field-label">Search</label>
-              <div class="field-input-wrap">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input 
-                  type="text" 
-                  id="searchInput" 
-                  placeholder="Subject, tutor name, or area (e.g. Calculus, Priya, Malviya Nagar)..." 
-                  aria-label="Search tutors"
-                >
-                <button type="button" class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search text">&times;</button>
-              </div>
-            </div>
-
-            <!-- City Dropdown -->
-            <div class="search-field">
-              <label for="citySelect" class="field-label">City</label>
-              <div class="select-wrapper">
-                <select id="citySelect" aria-label="Select City">
-                  <option value="all">All Cities</option>
-                  <option value="Jaipur">Jaipur</option>
-                  <option value="Kota">Kota</option>
-                  <option value="Delhi NCR">Delhi NCR</option>
-                  <option value="Bangalore">Bangalore</option>
-                  <option value="Ahmedabad">Ahmedabad</option>
-                  <option value="Indore">Indore</option>
-                </select>
-                <div class="select-chevron">&#9662;</div>
-              </div>
-            </div>
-
-            <!-- Subject Dropdown -->
-            <div class="search-field">
-              <label for="subjectSelect" class="field-label">Subject</label>
-              <div class="select-wrapper">
-                <select id="subjectSelect" aria-label="Select Subject">
-                  <option value="all">All Subjects</option>
-                  <option value="Mathematics">Mathematics</option>
-                  <option value="Physics">Physics</option>
-                  <option value="Chemistry">Chemistry</option>
-                  <option value="Biology">Biology</option>
-                  <option value="English">English Literature</option>
-                  <option value="Accountancy">Accountancy &amp; Economics</option>
-                  <option value="Computer Science">Computer Science</option>
-                </select>
-                <div class="select-chevron">&#9662;</div>
-              </div>
-            </div>
-
-            <!-- Budget Dropdown -->
-            <div class="search-field">
-              <label for="budgetSelect" class="field-label">Budget</label>
-              <div class="select-wrapper">
-                <select id="budgetSelect" aria-label="Select Budget">
-                  <option value="all">Any Budget</option>
-                  <option value="under500">Under ₹500/hr</option>
-                  <option value="500-700">₹500 – ₹700/hr</option>
-                  <option value="above700">₹700+/hr</option>
-                </select>
-                <div class="select-chevron">&#9662;</div>
-              </div>
-            </div>
-
-            <!-- Submit CTA -->
-            <div class="search-field search-action">
-              <button class="btn btn-primary w-full" id="searchSubmitBtn">
-                <span>Find Tutors</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-            </div>
-
-          </div>
-
-          <!-- Quick Filters & Active Counts -->
-          <div class="search-meta-row">
-            <div class="results-count" id="resultsCount">
-              Showing <strong>8 verified tutors</strong> in your region
-            </div>
-            
-            <div class="quick-tags">
-              <span class="quick-tag-label">Popular tags:</span>
-              <button class="quick-filter-chip" data-filter="Mathematics">Maths</button>
-              <button class="quick-filter-chip" data-filter="Physics">Physics</button>
-              <button class="quick-filter-chip" data-filter="Kota">Kota Home Tutors</button>
-              <button class="quick-filter-chip" data-filter="Jaipur">Jaipur</button>
-              <button class="quick-filter-chip reset-chip" id="resetFiltersBtn">Reset All</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dynamic Tutor Cards Grid -->
-        <div class="tutors-grid" id="tutorsContainer">
-          <!-- Dynamically populated via script.js -->
-        </div>
-
-        <!-- No Results Fallback State -->
-        <div class="no-results-card hidden" id="noResultsCard">
-          <div class="no-results-icon">🔍</div>
-          <h3>No tutors match your specific filters</h3>
-          <p>Try resetting the city or budget range to explore tutors offering hybrid sessions in your surrounding areas.</p>
-          <button class="btn btn-outline" id="fallbackResetBtn">Reset All Filters</button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- 10. CITY RANKINGS SECTION -->
-    <!-- ================================================== -->
-    <section class="rankings-section" id="rankings">
-      <div class="container">
-        
-        <div class="rankings-header-split reveal-on-scroll">
-          <div>
-            <span class="section-tag">MERIT-BASED ACCREDITATION</span>
-            <h2 class="section-title">
-              The best teachers rise to the top.<br>
-              <span class="serif-italic">Measured by real learning, not marketing spend.</span>
-            </h2>
-            <p class="section-subtitle">
-              Unlike traditional lead-gen directories where tutors pay for sponsored spots, HomeGuru ranks teachers purely on pedagogical merit.
-            </p>
-          </div>
-
-          <!-- City Selector for Rankings -->
-          <div class="ranking-city-tabs" id="rankingCityTabs">
-            <button class="city-tab-btn active" data-city="Jaipur">Jaipur</button>
-            <button class="city-tab-btn" data-city="Kota">Kota</button>
-            <button class="city-tab-btn" data-city="Delhi NCR">Delhi NCR</button>
-          </div>
-        </div>
-
-        <!-- Top 3 Podium Cards -->
-        <div class="podium-grid" id="podiumContainer">
-          <!-- Dynamically rendered via script.js -->
-        </div>
-
-        <!-- Ranking Formula & No-Fake-Reviews Manifesto -->
-        <div class="ranking-formula-card reveal-on-scroll">
-          <div class="formula-header">
-            <div class="formula-title-group">
-              <span class="formula-pill">TRANSPARENT ALGORITHM</span>
-              <h3 class="formula-heading">How HomeGuru Ranks Educators</h3>
-            </div>
-            <div class="verified-seal">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-              <span>100% Tamper-Proof</span>
-            </div>
-          </div>
-
-          <div class="factors-grid">
-            
-            <div class="factor-item">
-              <div class="factor-meter-wrap">
-                <div class="factor-percentage">35%</div>
-                <div class="factor-bar"><div class="factor-fill" style="width: 35%;"></div></div>
-              </div>
-              <h4 class="factor-name">Student Concept Rating</h4>
-              <p class="factor-desc">Evaluated on clarity of doubt resolution, encouragement, and patience.</p>
-            </div>
-
-            <div class="factor-item">
-              <div class="factor-meter-wrap">
-                <div class="factor-percentage">25%</div>
-                <div class="factor-bar"><div class="factor-fill" style="width: 25%;"></div></div>
-              </div>
-              <h4 class="factor-name">Parent Feedback</h4>
-              <p class="factor-desc">Discipline, child mental comfort, syllabus completion, and communication.</p>
-            </div>
-
-            <div class="factor-item">
-              <div class="factor-meter-wrap">
-                <div class="factor-percentage">20%</div>
-                <div class="factor-bar"><div class="factor-fill" style="width: 20%;"></div></div>
-              </div>
-              <h4 class="factor-name">Teaching Regularity</h4>
-              <p class="factor-desc">Punctuality of home sessions, zero erratic cancellations, and consistency.</p>
-            </div>
-
-            <div class="factor-item">
-              <div class="factor-meter-wrap">
-                <div class="factor-percentage">20%</div>
-                <div class="factor-bar"><div class="factor-fill" style="width: 20%;"></div></div>
-              </div>
-              <h4 class="factor-name">Result Improvement</h4>
-              <p class="factor-desc">Tangible score progression in school periodic tests and board examinations.</p>
-            </div>
-
-          </div>
-
-          <div class="anti-fake-notice">
-            <div class="notice-icon">🛡️</div>
-            <div class="notice-text">
-              <strong>Zero Fake Reviews Guarantee:</strong>
-              Reviews can only be submitted by parents and students who have verified attendance of at least 8 completed sessions with an active home contract. No anonymous bot reviews, ever.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- 11. STUDENT WELLBEING SECTION (BACKGROUND B: #123C32) -->
-    <!-- ================================================== -->
-    <section class="wellbeing-section" id="wellbeing">
-      
-      <!-- Subtle Decorative Background Wave Pattern -->
-      <div class="wellbeing-bg-pattern" aria-hidden="true"></div>
-
-      <div class="container relative-z">
-        
-        <div class="wellbeing-header text-center reveal-on-scroll">
-          <div class="wellbeing-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          <!-- Notification Pill -->
+          <button class="icon-pill-btn" aria-label="Notifications" onclick="alert('Notification: Dr. Rajeshwar Sharma confirmed demo class for tomorrow at 5:00 PM.')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
             </svg>
-            <span>HOLISTIC CARE &bull; OUR CORE DIFFERENTIATOR</span>
-          </div>
+            <span class="badge-dot"></span>
+          </button>
 
-          <h2 class="wellbeing-title">
-            Learning should feel<br>
-            <span class="wellbeing-highlight">supported, not stressful.</span>
-          </h2>
-          
-          <p class="wellbeing-subtitle">
-            Relocating teenagers to high-pressure coaching hubs often creates acute isolation and anxiety. HomeGuru integrates comprehensive mental health monitoring and empathetic teaching into the tutoring routine.
-          </p>
+          <!-- User Avatar Pill -->
+          <img 
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" 
+            alt="Student Avatar" 
+            class="user-avatar-pill" 
+            title="Aryan Sharma (Class 12 - Jaipur)"
+          >
         </div>
+      </header>
 
-        <!-- 3 Major Wellbeing Feature Cards -->
-        <div class="wellbeing-cards-grid">
-          
-          <!-- Card 1: Weekly Mood Check-in -->
-          <div class="wellbeing-card reveal-on-scroll">
-            <div class="wb-card-header">
-              <span class="wb-num">01</span>
-              <div class="wb-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                </svg>
-              </div>
-            </div>
-
-            <h3 class="wb-card-title">Weekly Check-in</h3>
-            <p class="wb-card-quote">"How are you feeling about your studies today?"</p>
-            <p class="wb-card-desc">
-              A light 30-second weekly reflection. Tracks academic confidence, sleep rhythm, and mental fatigue without feeling like a formal exam.
-            </p>
-
-            <!-- Interactive In-Card Mood Simulator -->
-            <div class="interactive-mood-picker">
-              <span class="mood-picker-label">Test the 30-sec check-in:</span>
-              <div class="mood-buttons" id="moodButtonsGroup">
-                <button class="mood-btn" data-mood="Confident" title="Feeling confident">😊</button>
-                <button class="mood-btn" data-mood="Calm" title="Peaceful & balanced">😌</button>
-                <button class="mood-btn" data-mood="Tired" title="A bit tired">🥱</button>
-                <button class="mood-btn" data-mood="Overwhelmed" title="Feeling overwhelmed">😰</button>
-              </div>
-              <div class="mood-feedback-banner hidden" id="moodFeedback">
-                <span class="feedback-text"></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Warning Alert System -->
-          <div class="wellbeing-card reveal-on-scroll">
-            <div class="wb-card-header">
-              <span class="wb-num">02</span>
-              <div class="wb-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                  <line x1="12" y1="9" x2="12" y2="13"></line>
-                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-              </div>
-            </div>
-
-            <h3 class="wb-card-title">Warning Alert System</h3>
-            <p class="wb-card-quote">"Intervention before quiet burnout turns into crisis."</p>
-            <p class="wb-card-desc">
-              If low mood, acute anxiety, or missed goals persist for 2 consecutive weeks, an automated gentle alert prompts the tutor and parents to recalibrate the weekly study load.
-            </p>
-
-            <div class="wb-feature-pill">
-              <span class="pill-dot"></span>
-              <span>Gentle, non-punitive guardian notification</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Counselor Connect -->
-          <div class="wellbeing-card reveal-on-scroll">
-            <div class="wb-card-header">
-              <span class="wb-num">03</span>
-              <div class="wb-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-              </div>
-            </div>
-
-            <h3 class="wb-card-title">Counselor Connect</h3>
-            <p class="wb-card-quote">"Compassionate experts who understand student pressures."</p>
-            <p class="wb-card-desc">
-              Direct access to verified youth psychologists and adolescent counselors for 1-on-1 confidential consultations at heavily subsidized rates.
-            </p>
-
-            <button class="btn btn-gold btn-small w-full mt-auto" id="openCounselorModalBtn">
-              <span>Book a Confidential Chat</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </div>
-
-        </div>
-
-        <!-- Secondary Supporting Pillars (Tutor Training & Pressure-Reduction Tools) -->
-        <div class="wellbeing-subpillars reveal-on-scroll">
-          
-          <div class="subpillar-card">
-            <div class="subpillar-icon">🎓</div>
-            <div class="subpillar-body">
-              <h4 class="subpillar-title">Mandatory Tutor Sensitivity Training</h4>
-              <p class="subpillar-desc">
-                Every HomeGuru educator completes basic pedagogical psychology modules to detect silent signs of student withdrawal, panic, or fear of failure.
-              </p>
-            </div>
-          </div>
-
-          <div class="subpillar-card">
-            <div class="subpillar-icon">⏳</div>
-            <div class="subpillar-body">
-              <h4 class="subpillar-title">Pressure-Reducing Study Planner</h4>
-              <p class="subpillar-desc">
-                Integrated calendar with automated 15-minute restorative break timers, balanced weekend pacing, and realistic exam milestone setting.
-              </p>
-              <button class="subpillar-link" id="openStudyPlannerBtn">Preview Study Planner &rarr;</button>
-            </div>
-          </div>
-
-          <div class="subpillar-card">
-            <div class="subpillar-icon">👨‍👩‍👧</div>
-            <div class="subpillar-body">
-              <h4 class="subpillar-title">Parent Guidance Handbook</h4>
-              <p class="subpillar-desc">
-                Practical guides for Indian households on how to encourage children without toxic peer comparisons or unrealistic score expectations.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- TESTIMONIALS SECTION -->
-    <!-- ================================================== -->
-    <section class="testimonials-section" id="testimonials">
-      <div class="container">
+      <!-- 3. BENTO GRID CONTAINER (Matching Image 1) -->
+      <div class="bento-grid">
         
-        <div class="section-header text-center reveal-on-scroll">
-          <span class="section-tag">REAL FAMILIES, REAL PEACE OF MIND</span>
-          <h2 class="section-title">
-            The comfort of home.<br>
-            <span class="serif-italic">The rigor of premier coaching.</span>
-          </h2>
-        </div>
-
-        <div class="testimonials-grid">
+        <!-- Left & Center Column -->
+        <div class="bento-left-column">
           
-          <div class="testimonial-card reveal-on-scroll">
-            <div class="test-stars">★★★★★</div>
-            <p class="test-body">
-              "We were preparing to send our 16-year-old son to Kota for IIT-JEE. The anxiety was keeping my wife awake every night. Finding Dr. Rajesh Sharma through HomeGuru in our own city changed everything. My son gets home-cooked food, our emotional support, and 99 percentile guidance."
-            </p>
-            <div class="test-author">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Suresh Mathur" class="test-avatar">
-              <div>
-                <h4 class="author-name">Suresh &amp; Kavita Mathur</h4>
-                <p class="author-sub">Parents of Class 11 Student · Jaipur</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card reveal-on-scroll">
-            <div class="test-stars">★★★★★</div>
-            <p class="test-body">
-              "As a tutor with 8 years of experience, HomeGuru gave me direct dignity and fair pricing. I don't work for exploitative coaching franchises anymore. I teach 4 dedicated students in Vaishali Nagar, and their parents treat me like family."
-            </p>
-            <div class="test-author">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Priya Verma" class="test-avatar">
-              <div>
-                <h4 class="author-name">Priya Verma, M.Sc.</h4>
-                <p class="author-sub">Senior Mathematics Tutor · Jaipur</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card reveal-on-scroll">
-            <div class="test-stars">★★★★★</div>
-            <p class="test-body">
-              "The weekly mood check-in is not a gimmick. When my daughter was struggling with organic chemistry, her tutor saw her stress score dip and spent two extra sessions clarifying basic reaction mechanisms without making her feel guilty."
-            </p>
-            <div class="test-author">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80" alt="Dr. Neha Saxena" class="test-avatar">
-              <div>
-                <h4 class="author-name">Dr. Neha Saxena</h4>
-                <p class="author-sub">Parent &amp; Medical Officer · Kota</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================== -->
-    <!-- CALL TO ACTION (DEEP GREEN HEROIC BANNER) -->
-    <!-- ================================================== -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-box reveal-on-scroll">
-          
-          <div class="cta-watermark" aria-hidden="true">HOMEGURU</div>
-
-          <div class="cta-content">
-            <span class="cta-tag">GET STARTED TODAY</span>
-            <h2 class="cta-heading">
-              Give your child the best mentors.<br>
-              <span class="serif-italic">Keep your child where they thrive: Home.</span>
-            </h2>
-            <p class="cta-desc">
-              Book a verified 30-minute diagnostic session with a top local home educator. No advance contracts, no hidden placement fees.
-            </p>
-
-            <div class="cta-actions">
-              <a href="#tutors" class="btn btn-gold btn-large">
+          <!-- Bento Hero Banner Card -->
+          <section class="bento-hero-banner">
+            <div class="hero-banner-content">
+              <span class="hero-banner-tag">★ Verified Local Mentorship</span>
+              <h2 class="hero-banner-title">Top home tutors in your own city.</h2>
+              <p class="hero-banner-sub">
+                Students don’t have to leave home for Kota. Compare city rankings, watch demo lectures, and study peacefully.
+              </p>
+              <a href="search.html" class="hero-banner-cta">
                 <span>Explore City Tutors</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <span>→</span>
               </a>
-
-              <button class="btn btn-ghost-light btn-large" id="ctaTeacherBtn">
-                <span>Join as a Home Educator</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </button>
             </div>
 
-            <div class="cta-guarantees">
-              <span>✓ Verified Background &amp; Degree</span>
-              <span>✓ Free 30-min Trial Class</span>
-              <span>✓ Guaranteed Tutor Replacement</span>
+            <!-- 3D Graphic / Avatar Cluster -->
+            <div class="hero-banner-graphic">
+              <img 
+                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" 
+                alt="Happy Student" 
+                class="hero-3d-avatar"
+              >
             </div>
+          </section>
+
+          <!-- Bento Lower Row (Top Activities + Tutor Pass Cards) -->
+          <div class="bento-lower-row">
+            
+            <!-- Card 1: Top Rated City Tutors List (with Donut percentages) -->
+            <div class="dashboard-card">
+              <div class="card-header-row">
+                <h3 class="card-header-title">Top Tutors In Jaipur</h3>
+                <a href="search.html?city=jaipur" class="card-header-link">View All →</a>
+              </div>
+
+              <div class="activity-list">
+                <!-- Activity 1 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Dr. Rajeshwar">
+                    <div>
+                      <h4 class="activity-name"><a href="profile.html?id=tutor-1" style="text-decoration:none; color:inherit;">Dr. Rajeshwar Sharma</a></h4>
+                      <p class="activity-meta">#1 Physics • Malviya Nagar</p>
+                    </div>
+                  </div>
+                  <div class="circular-progress-pill" title="98% City Ranking Score">
+                    98%
+                  </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Er. Ananya">
+                    <div>
+                      <h4 class="activity-name"><a href="profile.html?id=tutor-2" style="text-decoration:none; color:inherit;">Er. Ananya Sengupta</a></h4>
+                      <p class="activity-meta">#1 Maths • South Ex</p>
+                    </div>
+                  </div>
+                  <div class="circular-progress-pill" title="97% City Ranking Score">
+                    97%
+                  </div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Prof Vikas">
+                    <div>
+                      <h4 class="activity-name"><a href="profile.html?id=tutor-3" style="text-decoration:none; color:inherit;">Prof. Vikas Deshmukh</a></h4>
+                      <p class="activity-meta">#1 Chemistry • Kothrud</p>
+                    </div>
+                  </div>
+                  <div class="circular-progress-pill" title="96% City Ranking Score">
+                    96%
+                  </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Pooja Rathore">
+                    <div>
+                      <h4 class="activity-name"><a href="profile.html?id=tutor-4" style="text-decoration:none; color:inherit;">Pooja Rathore, M.Sc</a></h4>
+                      <p class="activity-meta">#2 Biology • Raja Park</p>
+                    </div>
+                  </div>
+                  <div class="circular-progress-pill" title="95% City Ranking Score">
+                    95%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Dark Sleek Pass Cards (Matching reference card styling) -->
+            <div class="dark-pass-stack">
+              <!-- Pass Card 1 -->
+              <div class="dark-pass-card">
+                <div class="pass-card-top">
+                  <div>
+                    <span class="pass-card-label">Home Study Pass</span>
+                    <div class="pass-card-balance">₹ 8,670.00</div>
+                  </div>
+                  <span class="pass-card-badge">● Active</span>
+                </div>
+                <div class="pass-card-number">5894 •••• •••• 5624</div>
+                <div class="pass-card-bottom">
+                  <span style="font-size:0.75rem; color:#A0ABB9;">Valid: Class 12 Boards + JEE</span>
+                  <div class="pass-card-mastercard">
+                    <div class="mc-c1"></div>
+                    <div class="mc-c2"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pass Card 2 (Quick Lesson Summary) -->
+              <div class="dark-pass-card" style="background: linear-gradient(135deg, #1C222D 0%, #10141B 100%);">
+                <div class="pass-card-top">
+                  <div>
+                    <span class="pass-card-label">Next Scheduled Lesson</span>
+                    <div class="pass-card-balance" style="font-size:1.15rem; margin-top:4px;">Tomorrow, 5:30 PM</div>
+                  </div>
+                  <span class="pass-card-badge" style="background: rgba(59,130,246,0.2); color:#60A5FA;">Home Visit</span>
+                </div>
+                <p style="font-size:0.78rem; color:#A0ABB9; margin-top:8px;">
+                  Dr. Rajeshwar Sharma • Ray Optics Numerical Practice
+                </p>
+                <div class="pass-card-bottom">
+                  <a href="profile.html?id=tutor-1" style="color:#38BDF8; font-size:0.75rem; text-decoration:none; font-weight:700;">View Lesson Plan →</a>
+                  <span style="font-size:0.75rem; color:#6EE7B7;">100% Attendance</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
-      </div>
-    </section>
 
-  </main>
+        <!-- Right Rail Column (Reports Wave Curve + Wellbeing Donut) -->
+        <div class="bento-right-column">
+          
+          <!-- Reports Spline Curve Chart Card -->
+          <div class="reports-card">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Mood Reports</h3>
+              <select class="reports-select">
+                <option>Week</option>
+                <option selected>Month</option>
+                <option>Quarter</option>
+              </select>
+            </div>
 
-  <!-- ================================================== -->
-  <!-- 20. FOOTER (BACKGROUND B: #123C32) -->
-  <!-- ================================================== -->
-  <footer class="footer">
-    <div class="container">
-      
-      <div class="footer-top-grid">
-        
-        <!-- Brand Info -->
-        <div class="footer-col brand-col">
-          <div class="footer-logo">
-            <div class="logo-mark gold">
-              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-                <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#F7F3EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Wave Line SVG Graphic with Tooltip Pill -->
+            <div class="chart-container">
+              <div class="chart-tooltip-badge">Score: 94%</div>
+              <svg class="chart-svg" viewBox="0 0 300 120" fill="none">
+                <!-- Background subtle area fill -->
+                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20 L 300 120 L 0 120 Z" fill="url(#chartGrad)" opacity="0.12"></path>
+                <!-- Spline line -->
+                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20" stroke="#191B1F" stroke-width="2.8" stroke-linecap="round"></path>
+                <!-- Highlighted data point matching reference image -->
+                <circle cx="240" cy="85" r="4.5" fill="#FFFFFF" stroke="#191B1F" stroke-width="2.8"></circle>
+                <circle cx="300" cy="20" r="4.5" fill="#10B981" stroke="#FFFFFF" stroke-width="2"></circle>
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#191B1F"></stop>
+                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <!-- Month / Week Labels -->
+              <div class="chart-months-row">
+                <span>Dec</span>
+                <span>Jan</span>
+                <span>Feb</span>
+                <span class="chart-month-active">Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donut Breakdown Card (Wellbeing & Progress Index) -->
+          <div class="donut-card">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Wellbeing Index</h3>
+              <a href="wellbeing.html" class="card-header-link">Check-in →</a>
+            </div>
+
+            <!-- Donut SVG Ring -->
+            <div class="donut-graphic-wrap">
+              <svg class="donut-circle-svg" viewBox="0 0 100 100">
+                <!-- Track -->
+                <circle cx="50" cy="50" r="38" stroke="#E2E8F0" stroke-width="9" fill="none"></circle>
+                <!-- Progress Arc (85%) -->
+                <circle 
+                  cx="50" 
+                  cy="50" 
+                  r="38" 
+                  stroke="#191B1F" 
+                  stroke-width="9" 
+                  stroke-dasharray="238" 
+                  stroke-dashoffset="36" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                  transform="rotate(-90 50 50)"
+                ></circle>
+                <!-- Secondary Accent Arc -->
+                <circle 
+                  cx="50" 
+                  cy="50" 
+                  r="38" 
+                  stroke="#3B82F6" 
+                  stroke-width="9" 
+                  stroke-dasharray="238" 
+                  stroke-dashoffset="200" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                  transform="rotate(60 50 50)"
+                ></circle>
+                <text x="50" y="56" text-anchor="middle" class="donut-percentage-text">85%</text>
               </svg>
             </div>
-            <span class="logo-text light">HomeGuru</span>
+
+            <!-- Breakdown Rows -->
+            <div class="breakdown-list">
+              <div class="breakdown-row">
+                <span class="breakdown-label">
+                  <span class="breakdown-dot" style="background:#191B1F;"></span>
+                  Parent Peace of Mind
+                </span>
+                <span class="breakdown-val">98%</span>
+              </div>
+
+              <div class="breakdown-row">
+                <span class="breakdown-label">
+                  <span class="breakdown-dot" style="background:#3B82F6;"></span>
+                  Stress-Free Learning
+                </span>
+                <span class="breakdown-val">88%</span>
+              </div>
+
+              <div class="breakdown-row">
+                <span class="breakdown-label">
+                  <span class="breakdown-dot" style="background:#10B981;"></span>
+                  Marks Improvement
+                </span>
+                <span class="breakdown-val">+24%</span>
+              </div>
+            </div>
           </div>
 
-          <p class="footer-tagline">
-            "Study close to home.<br>Grow close to family."
-          </p>
-
-          <p class="footer-mission">
-            Empowering tier-1 and tier-2 Indian families with verified, dignified home mentorship and active student wellbeing monitoring.
-          </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-col">
-          <h4 class="footer-heading">For Parents &amp; Students</h4>
-          <ul class="footer-links">
-            <li><a href="#tutors">Find Verified Tutors</a></li>
-            <li><a href="#rankings">City Merit Rankings</a></li>
-            <li><a href="#wellbeing">Student Wellbeing System</a></li>
-            <li><a href="#how-it-works">How Booking Works</a></li>
-            <li><a href="#" id="footerDemoBookingLink">Book Diagnostic Class</a></li>
-          </ul>
-        </div>
-
-        <!-- For Educators -->
-        <div class="footer-col">
-          <h4 class="footer-heading">For Educators</h4>
-          <ul class="footer-links">
-            <li><a href="#" id="footerApplyTutorLink">Apply as a Tutor</a></li>
-            <li><a href="#how-it-works">Tutor Verification Steps</a></li>
-            <li><a href="#wellbeing">Psychology Sensitivity Training</a></li>
-            <li><a href="#">Educator Code of Conduct</a></li>
-            <li><a href="#">Fair Pricing Guarantee</a></li>
-          </ul>
-        </div>
-
-        <!-- Hubs & Coverage -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Popular Hubs</h4>
-          <ul class="footer-links">
-            <li><a href="#tutors" class="filter-city-link" data-city="Jaipur">Home Tutors in Jaipur</a></li>
-            <li><a href="#tutors" class="filter-city-link" data-city="Kota">Home Tutors in Kota</a></li>
-            <li><a href="#tutors" class="filter-city-link" data-city="Delhi NCR">Home Tutors in Delhi NCR</a></li>
-            <li><a href="#tutors" class="filter-city-link" data-city="Bangalore">Home Tutors in Bangalore</a></li>
-            <li><a href="#tutors" class="filter-city-link" data-city="Ahmedabad">Home Tutors in Ahmedabad</a></li>
-          </ul>
         </div>
 
       </div>
 
-      <div class="footer-bottom">
-        <div class="copyright">
-          &copy; 2026 HomeGuru Technologies Inc. Built with care for students and families.
-        </div>
-        <div class="footer-social-links">
-          <a href="#" aria-label="LinkedIn" class="social-icon">IN</a>
-          <a href="#" aria-label="Twitter / X" class="social-icon">X</a>
-          <a href="#" aria-label="Instagram" class="social-icon">IG</a>
-          <a href="#" aria-label="YouTube" class="social-icon">YT</a>
-        </div>
-      </div>
+    </main>
 
-    </div>
-  </footer>
-
-  <!-- ================================================== -->
-  <!-- 12. INTERACTIVE TUTOR PROFILE MODAL / DRAWER -->
-  <!-- ================================================== -->
-  <div class="modal-backdrop hidden" id="tutorModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTutorName">
-    <div class="modal-card tutor-modal-card">
-      
-      <!-- Close Button -->
-      <button class="modal-close-btn" id="closeTutorModalBtn" aria-label="Close profile modal">&times;</button>
-
-      <div class="tutor-modal-content" id="tutorModalBody">
-        <!-- Dynamically injected via script.js -->
-      </div>
-
-    </div>
   </div>
 
-  <!-- ================================================== -->
-  <!-- INTERACTIVE BOOK DEMO MODAL -->
-  <!-- ================================================== -->
-  <div class="modal-backdrop hidden" id="bookingModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
-    <div class="modal-card booking-modal-card">
-      <button class="modal-close-btn" id="closeBookingModalBtn" aria-label="Close booking modal">&times;</button>
-      
-      <div class="booking-modal-body">
-        <div class="booking-header">
-          <span class="booking-tag">ZERO UPFRONT CHARGES</span>
-          <h3 class="booking-title" id="bookingModalTitle">Book a Free 30-Min Demo Class</h3>
-          <p class="booking-desc" id="bookingModalSubtitle">Connect with your chosen tutor for an in-home or hybrid diagnostic session.</p>
-        </div>
-
-        <form id="demoBookingForm" class="booking-form">
-          <input type="hidden" id="bookingTutorId" value="">
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="studentName">Student Name *</label>
-              <input type="text" id="studentName" required placeholder="e.g. Aryan Mathur">
-            </div>
-            <div class="form-group">
-              <label for="studentGrade">Class / Grade *</label>
-              <select id="studentGrade" required>
-                <option value="Class 8">Class 8</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 10 (Board)">Class 10 (Board)</option>
-                <option value="Class 11 (JEE/NEET)">Class 11 (JEE/NEET)</option>
-                <option value="Class 12 (Board + Entr.)">Class 12 (Board + Entr.)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="parentPhone">Parent Mobile No. (WhatsApp) *</label>
-              <input type="tel" id="parentPhone" required placeholder="+91 98765 43210" pattern="[0-9+ -]{10,14}">
-            </div>
-            <div class="form-group">
-              <label for="demoPreferredDate">Preferred Date *</label>
-              <input type="date" id="demoPreferredDate" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="studentAddress">Home Area / Locality *</label>
-            <input type="text" id="studentAddress" required placeholder="e.g. Plot 42, Vaishali Nagar, Jaipur">
-          </div>
-
-          <div class="form-group">
-            <label for="learningGoals">Key Topic or Learning Focus (Optional)</label>
-            <input type="text" id="learningGoals" placeholder="e.g. Needs help with Trigonometry proofs &amp; school tests">
-          </div>
-
-          <button type="submit" class="btn btn-gold btn-large w-full mt-2" id="submitBookingBtn">
-            <span>Confirm Free Diagnostic Demo &rarr;</span>
-          </button>
-          
-          <p class="form-privacy-note">
-            🔒 Your contact details are shared only with the verified educator after your approval.
-          </p>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================================================== -->
-  <!-- INTERACTIVE "FOR TEACHERS" SIGNUP MODAL -->
-  <!-- ================================================== -->
-  <div class="modal-backdrop hidden" id="teacherModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="teacherModalTitle">
-    <div class="modal-card teacher-modal-card">
-      <button class="modal-close-btn" id="closeTeacherModalBtn" aria-label="Close teacher modal">&times;</button>
-      
-      <div class="teacher-modal-body">
-        <div class="booking-header">
-          <span class="booking-tag">JOIN THE MERIT DIRECTORY</span>
-          <h3 class="booking-title" id="teacherModalTitle">Apply to Teach with HomeGuru</h3>
-          <p class="booking-desc">Teach near your neighborhood. Keep 100% of your hourly fees. No middleman deductions.</p>
-        </div>
-
-        <form id="teacherApplicationForm" class="booking-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="tutorFullName">Full Legal Name *</label>
-              <input type="text" id="tutorFullName" required placeholder="e.g. Priya Verma">
-            </div>
-            <div class="form-group">
-              <label for="tutorHighestDegree">Highest Degree *</label>
-              <input type="text" id="tutorHighestDegree" required placeholder="e.g. M.Sc. Mathematics, B.Ed.">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="tutorCitySelect">Teaching City *</label>
-              <select id="tutorCitySelect" required>
-                <option value="Jaipur">Jaipur</option>
-                <option value="Kota">Kota</option>
-                <option value="Delhi NCR">Delhi NCR</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Ahmedabad">Ahmedabad</option>
-                <option value="Indore">Indore</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="tutorExpYears">Years of Teaching Experience *</label>
-              <input type="number" id="tutorExpYears" min="1" max="40" value="5" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="tutorSubjectList">Primary Subjects *</label>
-              <input type="text" id="tutorSubjectList" required placeholder="e.g. Mathematics, Physics (Class 9-12)">
-            </div>
-            <div class="form-group">
-              <label for="tutorDesiredFee">Desired Hourly Fee (₹) *</label>
-              <input type="number" id="tutorDesiredFee" min="200" step="50" value="600" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="tutorPhone">Mobile Number (Verification via OTP) *</label>
-            <input type="tel" id="tutorPhone" required placeholder="+91 98290 12345">
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-large w-full mt-2">
-            <span>Submit Verification Request &rarr;</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================================================== -->
-  <!-- INTERACTIVE COUNSELOR CONNECT MODAL -->
-  <!-- ================================================== -->
-  <div class="modal-backdrop hidden" id="counselorModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="counselorModalTitle">
-    <div class="modal-card counselor-modal-card">
-      <button class="modal-close-btn" id="closeCounselorModalBtn" aria-label="Close modal">&times;</button>
-      
-      <div class="counselor-modal-body">
-        <div class="counselor-badge">CONFIDENTIAL &amp; SAFE</div>
-        <h3 class="booking-title" id="counselorModalTitle">Connect with a Student Counselor</h3>
-        <p class="booking-desc">
-          Academic pressure, exam anxiety, or feeling stuck? Talk to certified adolescent counselors who specialize in reducing study stress.
-        </p>
-
-        <div class="counselor-pills-row">
-          <span class="c-pill">✓ 100% Confidential</span>
-          <span class="c-pill">✓ Free First 20 Mins</span>
-          <span class="c-pill">✓ No Stigma</span>
-        </div>
-
-        <form id="counselorBookingForm" class="booking-form mt-4">
-          <div class="form-group">
-            <label for="counselorStudentName">Student or Parent Name *</label>
-            <input type="text" id="counselorStudentName" required placeholder="e.g. Raghav Sharma">
-          </div>
-          <div class="form-group">
-            <label for="counselorContact">Preferred Contact (Phone/WhatsApp) *</label>
-            <input type="tel" id="counselorContact" required placeholder="+91 98765 43210">
-          </div>
-          <div class="form-group">
-            <label for="counselorTopic">What would you like to discuss?</label>
-            <select id="counselorTopic">
-              <option value="exam-anxiety">Exam Anxiety &amp; Performance Panic</option>
-              <option value="parent-child">Parent-Student Academic Communication</option>
-              <option value="focus-burnout">Burnout, Sleep Loss &amp; Loss of Motivation</option>
-              <option value="career-confusion">Stream Selection &amp; Career Confusion</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-gold btn-large w-full mt-2">
-            <span>Schedule Confidential Call &rarr;</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================================================== -->
-  <!-- INTERACTIVE STUDY PLANNER PREVIEW MODAL -->
-  <!-- ================================================== -->
-  <div class="modal-backdrop hidden" id="studyPlannerModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="plannerModalTitle">
-    <div class="modal-card planner-modal-card">
-      <button class="modal-close-btn" id="closePlannerModalBtn" aria-label="Close modal">&times;</button>
-      
-      <div class="planner-modal-body">
-        <div class="booking-header">
-          <span class="booking-tag">STUDY CLOSE TO HOME &bull; TOOLS</span>
-          <h3 class="booking-title" id="plannerModalTitle">Healthy Pacing Study Planner</h3>
-          <p class="booking-desc">Balanced daily schedule template designed by educators to prevent cognitive fatigue.</p>
-        </div>
-
-        <div class="planner-schedule-table">
-          <div class="schedule-slot morning">
-            <div class="slot-time">07:00 AM – 08:30 AM</div>
-            <div class="slot-activity">
-              <strong>Deep Concept Revision</strong>
-              <span>High alertness window: Solve tough mathematical proofs or chemistry problems.</span>
-            </div>
-            <div class="slot-status good">90 mins</div>
-          </div>
-
-          <div class="schedule-slot break">
-            <div class="slot-time">08:30 AM – 09:30 AM</div>
-            <div class="slot-activity">
-              <strong>Family Breakfast &amp; Sun Walk ☀️</strong>
-              <span>Mandatory screen-free break. Reconnect with parents and fresh air.</span>
-            </div>
-            <div class="slot-status break-pill">Restorative</div>
-          </div>
-
-          <div class="schedule-slot midday">
-            <div class="slot-time">04:30 PM – 06:00 PM</div>
-            <div class="slot-activity">
-              <strong>Home Tutor Interactive Session</strong>
-              <span>1-on-1 personalized doubt clearing with your verified HomeGuru mentor.</span>
-            </div>
-            <div class="slot-status good">Active Mentor</div>
-          </div>
-
-          <div class="schedule-slot break">
-            <div class="slot-time">06:00 PM – 06:30 PM</div>
-            <div class="slot-activity">
-              <strong>Hydration &amp; Sports / Music Break</strong>
-              <span>Reset dopamine levels and stretch posture.</span>
-            </div>
-            <div class="slot-status break-pill">Restorative</div>
-          </div>
-
-          <div class="schedule-slot evening">
-            <div class="slot-time">07:30 PM – 09:00 PM</div>
-            <div class="slot-activity">
-              <strong>Light Practice &amp; Homework Logging</strong>
-              <span>Self-paced questions, then lights out by 10:30 PM for 8 hours of sleep.</span>
-            </div>
-            <div class="slot-status good">Sustainable</div>
-          </div>
-        </div>
-
-        <div class="planner-cta-row mt-4 text-center">
-          <button class="btn btn-primary" id="downloadPlannerBtn">Download Printable PDF Template</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Interactive Global Toast Notifications -->
-  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="shared-data.js"></script>
 </body>
 </html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor Profile Details | NearTutor</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-symbols">
+          <div class="sym-square"></div>
+          <div class="sym-circle"></div>
+          <div class="sym-triangle"></div>
+        </div>
+        <span class="logo-brand-text">NearTutor</span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <!-- Active Tutor Profile Pill -->
+        <a href="profile.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Tutor Profile</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="search.html#rankings" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <a href="#settings" onclick="alert('Settings')" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">⭐</div>
+        <h4 class="promo-title">Verified Badges</h4>
+        <p class="promo-sub">Only tutors with verified degrees and background checks are listed.</p>
+        <a href="search.html" class="promo-btn">Explore Directory</a>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <a href="search.html" style="font-size:0.85rem; font-weight:700; color:#3B82F6; text-decoration:none;">← Back to Tutors</a>
+          </div>
+          <h1 id="tutorPageTitle" style="margin-top:4px;">Tutor Profile Details</h1>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-pill-input" placeholder="Search other tutors..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + encodeURIComponent(this.value)">
+          </div>
+
+          <button class="icon-pill-btn" onclick="alert('Notification')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </button>
+
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="User">
+        </div>
+      </header>
+
+      <!-- Profile Opening Layout (2-Column) -->
+      <div class="profile-opening-layout">
+        
+        <!-- Left Column: Rich Detail Modules -->
+        <div class="profile-main-column">
+          
+          <!-- Hero Header Card -->
+          <div class="profile-hero-card">
+            <div class="profile-header-flex">
+              <img id="tutorAvatar" src="" class="profile-large-avatar" alt="Tutor">
+              <div style="flex:1;">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                  <span id="tutorBadge" class="city-rank-pill" style="font-size:0.75rem; padding:4px 10px;"></span>
+                  <span id="tutorScorePill" style="background:#10B981; color:#FFF; font-size:0.72rem; font-weight:800; padding:3px 8px; border-radius:6px;"></span>
+                </div>
+                <h2 id="tutorName" style="font-size:1.6rem; font-weight:800; color:#121417; letter-spacing:-0.03em;"></h2>
+                <p id="tutorMeta" style="font-size:0.85rem; color:#828E9E; font-weight:500;"></p>
+              </div>
+
+              <div style="text-align:right;">
+                <div id="tutorRate" style="font-size:1.8rem; font-weight:800; color:#191B1F;"></div>
+                <span style="font-size:0.75rem; color:#828E9E; font-weight:600;">per 1-hour home visit</span>
+              </div>
+            </div>
+
+            <div style="margin-top:20px; padding-top:18px; border-top:1px solid rgba(0,0,0,0.06);">
+              <p id="tutorTagline" style="font-size:0.95rem; color:#495160; line-height:1.6; font-style:italic; font-weight:500;"></p>
+            </div>
+          </div>
+
+          <!-- 4-Factor Weighted Formula Card (The USP) -->
+          <div class="dashboard-card" style="margin-bottom:24px;">
+            <div class="card-header-row">
+              <h3 class="card-header-title">City Rank Formula Score (100% Math-Based)</h3>
+              <span style="font-size:0.75rem; font-weight:700; color:#10B981; background:rgba(16,185,129,0.1); padding:4px 10px; border-radius:6px;">
+                ✓ Verified Students Only
+              </span>
+            </div>
+
+            <p style="font-size:0.82rem; color:#828E9E; margin-bottom:16px;">
+              Fake reviews are strictly blocked. Every month, only families who hired and completed lessons vote on 4 transparent factors:
+            </p>
+
+            <div class="tutor-formula-metrics" style="padding:16px; gap:14px; background:#F8FAFD; border-radius:18px;">
+              <div class="formula-metric-item">
+                <span style="font-size:0.72rem; color:#828E9E; margin-bottom:4px;">Student Rating (35%)</span>
+                <span id="formulaStudent" style="font-size:1.15rem; color:#191B1F;"></span>
+                <span style="font-size:0.68rem; color:#495160; display:block; margin-top:2px;">Concept clarity & patience</span>
+              </div>
+              <div class="formula-metric-item">
+                <span style="font-size:0.72rem; color:#828E9E; margin-bottom:4px;">Parent Rating (25%)</span>
+                <span id="formulaParent" style="font-size:1.15rem; color:#3B82F6;"></span>
+                <span style="font-size:0.68rem; color:#495160; display:block; margin-top:2px;">Punctuality & behavior</span>
+              </div>
+              <div class="formula-metric-item">
+                <span style="font-size:0.72rem; color:#828E9E; margin-bottom:4px;">Regularity (20%)</span>
+                <span id="formulaAttendance" style="font-size:1.15rem; color:#8B5CF6;"></span>
+                <span style="font-size:0.68rem; color:#495160; display:block; margin-top:2px;">Attendance log verified</span>
+              </div>
+              <div class="formula-metric-item">
+                <span style="font-size:0.72rem; color:#828E9E; margin-bottom:4px;">Score Boost (20%)</span>
+                <span id="formulaImprovement" style="font-size:1.15rem; color:#F59E0B;"></span>
+                <span style="font-size:0.68rem; color:#495160; display:block; margin-top:2px;">Exam mark gains</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo Video Preview Section -->
+          <div class="dashboard-card" style="margin-bottom:24px;">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Demo Lecture Sample</h3>
+              <span id="demoDuration" style="font-size:0.75rem; font-weight:700; color:#828E9E;"></span>
+            </div>
+
+            <div style="position:relative; width:100%; height:260px; border-radius:18px; overflow:hidden; background:#0B0E14; display:flex; align-items:center; justify-content:center; cursor:pointer;" onclick="playDemoVideo()">
+              <img id="demoThumbnail" src="" style="width:100%; height:100%; object-fit:cover; opacity:0.6;" alt="Demo Video">
+              <div style="position:absolute; width:64px; height:64px; border-radius:50%; background:#191B1F; color:#FFF; display:flex; align-items:center; justify-content:center; font-size:1.6rem; box-shadow:0 10px 25px rgba(0,0,0,0.4); border:2px solid rgba(255,255,255,0.2);">
+                ▶
+              </div>
+              <div style="position:absolute; bottom:14px; left:16px; background:rgba(0,0,0,0.6); backdrop-filter:blur(8px); padding:4px 10px; border-radius:6px; color:#FFF; font-size:0.75rem; font-weight:600;">
+                Live 1-on-1 Concept Explanation Sample
+              </div>
+            </div>
+          </div>
+
+          <!-- About & Verification Section -->
+          <div class="dashboard-card" style="margin-bottom:24px;">
+            <h3 class="card-header-title" style="margin-bottom:12px;">Teaching Philosophy</h3>
+            <p id="tutorAbout" style="font-size:0.88rem; color:#495160; line-height:1.65; margin-bottom:18px;"></p>
+
+            <h4 style="font-size:0.85rem; font-weight:800; color:#121417; text-transform:uppercase; margin-bottom:10px;">
+              Verified Background & Degrees
+            </h4>
+            <div id="degreesList" style="display:flex; flex-direction:column; gap:8px;"></div>
+          </div>
+
+          <!-- Verified Reviews Section -->
+          <div class="dashboard-card">
+            <h3 class="card-header-title" style="margin-bottom:16px;">Verified Parent & Student Testimonials</h3>
+            <div id="reviewsList" style="display:flex; flex-direction:column; gap:16px;"></div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Sticky Booking Widget -->
+        <aside>
+          <div class="profile-sticky-booking">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:#10B981; letter-spacing:0.06em;">
+                ● 100% Free 1st Demo
+              </span>
+              <span style="font-size:0.85rem; font-weight:800; color:#191B1F;">Zero Risk</span>
+            </div>
+
+            <h3 style="font-size:1.25rem; font-weight:800; color:#121417; margin-bottom:6px;">Book Home Demo Class</h3>
+            <p style="font-size:0.8rem; color:#828E9E; line-height:1.45; margin-bottom:20px;">
+              Teacher arrives directly at your study table. No obligation to continue if not satisfied.
+            </p>
+
+            <form onsubmit="handleBookingSubmit(event)" style="display:flex; flex-direction:column; gap:14px;">
+              <div>
+                <label style="font-size:0.75rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Student Name</label>
+                <input required type="text" id="bookStudent" placeholder="e.g. Aryan Sharma" style="width:100%; padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); font-family:inherit; font-size:0.85rem; outline:none;">
+              </div>
+
+              <div>
+                <label style="font-size:0.75rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Parent WhatsApp Mobile</label>
+                <input required type="tel" id="bookPhone" placeholder="+91 98765 43210" style="width:100%; padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); font-family:inherit; font-size:0.85rem; outline:none;">
+              </div>
+
+              <div>
+                <label style="font-size:0.75rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Target Class / Board</label>
+                <select id="bookClass" style="width:100%; padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); font-family:inherit; font-size:0.85rem; outline:none; background:#FFF;">
+                  <option>Class 11 - Physics / JEE</option>
+                  <option>Class 12 - Boards + JEE Main</option>
+                  <option>Class 12 - NEET Medical Target</option>
+                  <option>Class 10 - CBSE Foundation</option>
+                </select>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Day</label>
+                  <select id="bookDate" style="width:100%; padding:10px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); font-family:inherit; font-size:0.85rem; outline:none; background:#FFF;">
+                    <option>Tomorrow</option>
+                    <option>Saturday</option>
+                    <option>Sunday</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Time</label>
+                  <select id="bookTime" style="width:100%; padding:10px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); font-family:inherit; font-size:0.85rem; outline:none; background:#FFF;">
+                    <option>5:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>10:00 AM</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label style="font-size:0.75rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Your Area / Colony</label>
+                <input required type="text" id="bookArea" placeholder="e.g. Malviya Nagar, Sector 4" style="width:100%; padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); font-family:inherit; font-size:0.85rem; outline:none;">
+              </div>
+
+              <div style="background:#F8FAFC; border-radius:10px; padding:12px; font-size:0.75rem; color:#495160; line-height:1.4;">
+                🛡️ <strong>Safety Guarantee:</strong> Teacher presents valid government photo ID upon arrival. Zero harsh speech policy.
+              </div>
+
+              <button type="submit" style="width:100%; padding:14px; border-radius:12px; background:#191B1F; color:#FFF; font-size:0.9rem; font-weight:800; border:none; cursor:pointer; box-shadow:0 6px 18px rgba(25,27,31,0.2); transition:all 180ms ease;">
+                Confirm Free Demo Lesson →
+              </button>
+            </form>
+          </div>
+        </aside>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="shared-data.js"></script>
+  <script>
+    // Load tutor data from query string
+    const params = new URLSearchParams(window.location.search);
+    const tutorId = params.get('id') || 'tutor-1';
+    const tutor = getTutorById(tutorId);
+
+    // Populate data
+    document.getElementById('tutorPageTitle').innerText = tutor.name + ' • Profile Details';
+    document.getElementById('tutorAvatar').src = tutor.avatar;
+    document.getElementById('tutorBadge').innerText = '👑 ' + tutor.badgeTitle;
+    document.getElementById('tutorScorePill').innerText = 'Score: ' + tutor.ratingBreakdown.compositeScore + '/100';
+    document.getElementById('tutorName').innerText = tutor.name;
+    document.getElementById('tutorMeta').innerText = tutor.experienceYears + ' Years Experience • ' + tutor.subjects.join(', ') + ' • ' + tutor.cityName;
+    document.getElementById('tutorRate').innerText = '₹' + tutor.hourlyRate;
+    document.getElementById('tutorTagline').innerText = '"' + tutor.tagline + '"';
+
+    // Formula Breakdown
+    document.getElementById('formulaStudent').innerText = '⭐ ' + tutor.ratingBreakdown.studentScore + ' / 5.0';
+    document.getElementById('formulaParent').innerText = '⭐ ' + tutor.ratingBreakdown.parentScore + ' / 5.0';
+    document.getElementById('formulaAttendance').innerText = tutor.ratingBreakdown.attendance + '% Regular';
+    document.getElementById('formulaImprovement').innerText = '+' + tutor.ratingBreakdown.improvement + '% Gains';
+
+    // Demo Video
+    document.getElementById('demoDuration').innerText = 'Duration: ' + tutor.demoVideoDuration;
+    document.getElementById('demoThumbnail').src = tutor.videoThumbnail;
+
+    // About & Degrees
+    document.getElementById('tutorAbout').innerText = tutor.about;
+    document.getElementById('degreesList').innerHTML = tutor.degrees.map(d => `
+      <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:#121417;">
+        <span style="color:#10B981; font-weight:900;">✓</span>
+        <span>${d}</span>
+      </div>
+    `).join('');
+
+    // Testimonials
+    document.getElementById('reviewsList').innerHTML = tutor.featuredTestimonials.map(t => `
+      <div style="background:#F8FAFD; border-radius:14px; padding:16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <strong style="font-size:0.85rem; color:#121417;">${t.author}</strong>
+          <span style="color:#F59E0B; font-size:0.8rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.82rem; color:#495160; line-height:1.5; font-style:italic;">
+          "${t.text}"
+        </p>
+      </div>
+    `).join('');
+
+    function playDemoVideo() {
+      alert(`🎬 Playing Concept Demo Lecture (${tutor.demoVideoDuration})\n\nSubject: ${tutor.subjectCategory}\nTaught by: ${tutor.name}\n\nIn this lesson, ${tutor.name.split(' ')[0]} explains how intuitive problem solving without rote formulas eliminates exam fear.`);
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const student = document.getElementById('bookStudent').value;
+      const phone = document.getElementById('bookPhone').value;
+      const day = document.getElementById('bookDate').value;
+      const time = document.getElementById('bookTime').value;
+      const area = document.getElementById('bookArea').value;
+
+      alert(`🎉 1-on-1 Home Demo Confirmed!\n\nTutor: ${tutor.name}\nStudent: ${student}\nLocation: ${area}\nTime: ${day} at ${time}\n\nConfirmation details sent to ${phone}. Thank you!`);
+    }
+  </script>
+</body>
+</html>
+

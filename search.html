@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Verified Home Tutors | NearTutor Search</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-symbols">
+          <div class="sym-square"></div>
+          <div class="sym-circle"></div>
+          <div class="sym-triangle"></div>
+        </div>
+        <span class="logo-brand-text">NearTutor</span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Active Search Pill -->
+        <a href="search.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Tutor Profile</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="search.html#rankings" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <a href="#settings" onclick="alert('Settings')" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">🛡️</div>
+        <h4 class="promo-title">Need Counseling?</h4>
+        <p class="promo-sub">Free 1-on-1 adolescent psychologist calls for student anxiety.</p>
+        <a href="wellbeing.html" class="promo-btn">Open Shield</a>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN CONTENT AREA -->
+    <main class="app-main">
+      
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <h1>Find Home Tutors</h1>
+          <p>Verified, background-checked educators ranked by mathematical student & parent scores.</p>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-pill-input" placeholder="Search by name, subject, area..." oninput="renderFilteredTutors()">
+          </div>
+
+          <button class="icon-pill-btn" onclick="alert('No new notifications')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </button>
+
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="User">
+        </div>
+      </header>
+
+      <!-- Search Page 2-Column Layout -->
+      <div class="search-page-layout">
+        
+        <!-- Left Filter Sidebar -->
+        <aside class="filter-sidebar-card">
+          <div class="filter-group">
+            <h4 class="filter-title">City Selection</h4>
+            <select id="citySelect" class="filter-select" onchange="renderFilteredTutors()">
+              <option value="all">All Cities</option>
+              <option value="jaipur" selected>Jaipur</option>
+              <option value="delhi">Delhi NCR</option>
+              <option value="pune">Pune</option>
+              <option value="kota">Kota (Local Homes)</option>
+              <option value="bengaluru">Bengaluru</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Subject Focus</h4>
+            <select id="subjectSelect" class="filter-select" onchange="renderFilteredTutors()">
+              <option value="all">All Subjects</option>
+              <option value="Physics">Physics</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Biology">Biology / NEET</option>
+              <option value="Coding">Coding & AI</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Max Hourly Fee</h4>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; margin-bottom:6px;">
+              <span>₹400</span>
+              <span id="budgetValue" style="color:#10B981;">₹1,000/hr</span>
+            </div>
+            <input 
+              type="range" 
+              id="budgetRange" 
+              min="400" 
+              max="1200" 
+              step="50" 
+              value="1000" 
+              style="width:100%; accent-color:#191B1F; cursor:pointer;"
+              oninput="document.getElementById('budgetValue').innerText = '₹' + this.value + '/hr'; renderFilteredTutors();"
+            >
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Verification Badges</h4>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="verifiedOnlyCheck" onchange="renderFilteredTutors()">
+              <span>✓ 100% ID & Degree Verified</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="wellbeingCheck" onchange="renderFilteredTutors()">
+              <span>🧠 Mental Wellbeing Certified</span>
+            </label>
+          </div>
+
+          <button 
+            onclick="resetFilters()" 
+            style="width:100%; padding:9px; border-radius:10px; border:1px solid #E2E8F0; background:#FAFAFC; font-size:0.8rem; font-weight:700; cursor:pointer;"
+          >
+            Reset All Filters
+          </button>
+        </aside>
+
+        <!-- Right Results Column -->
+        <section>
+          <!-- Results Header & Counter -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+            <div style="font-size:0.9rem; font-weight:700; color:#495160;">
+              Showing <span id="resultsCount" style="color:#121417; font-weight:800;">6</span> verified local educators
+            </div>
+            <div style="font-size:0.8rem; color:#828E9E;">
+              Sorting: <strong>City Rank (4-Factor Weighted)</strong>
+            </div>
+          </div>
+
+          <!-- Tutor Cards Grid -->
+          <div id="tutorsContainer" class="tutor-bento-grid">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="shared-data.js"></script>
+  <script>
+    function renderFilteredTutors() {
+      const city = document.getElementById('citySelect').value;
+      const subject = document.getElementById('subjectSelect').value;
+      const maxBudget = Number(document.getElementById('budgetRange').value);
+      const verifiedOnly = document.getElementById('verifiedOnlyCheck').checked;
+      const wellbeingOnly = document.getElementById('wellbeingCheck').checked;
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+      const filtered = TUTORS_DATABASE.filter(tutor => {
+        if (city !== 'all' && tutor.city !== city) return false;
+        if (subject !== 'all' && !tutor.subjects.some(s => s.toLowerCase().includes(subject.toLowerCase()))) return false;
+        if (tutor.hourlyRate > maxBudget) return false;
+        if (verifiedOnly && !tutor.verified) return false;
+        if (wellbeingOnly && !tutor.wellbeingTrained) return false;
+
+        if (query) {
+          const matchName = tutor.name.toLowerCase().includes(query);
+          const matchArea = tutor.areas.some(a => a.toLowerCase().includes(query));
+          const matchSub = tutor.subjects.some(s => s.toLowerCase().includes(query));
+          if (!matchName && !matchArea && !matchSub) return false;
+        }
+
+        return true;
+      });
+
+      document.getElementById('resultsCount').innerText = filtered.length;
+      const container = document.getElementById('tutorsContainer');
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; background:#FFFFFF; border-radius:24px; padding:48px; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+            <div style="font-size:2.5rem; margin-bottom:12px;">🔍</div>
+            <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:6px;">No tutors match this exact combination</h3>
+            <p style="font-size:0.85rem; color:#828E9E; max-width:380px; margin:0 auto 16px auto;">Try increasing your budget slider or switching to 'All Cities' to see top educators.</p>
+            <button onclick="resetFilters()" style="padding:10px 20px; background:#191B1F; color:#FFF; border-radius:12px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer;">Reset Filters</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(tutor => `
+        <div class="tutor-profile-card">
+          <div class="tutor-card-top">
+            <div class="tutor-img-wrap">
+              <img src="${tutor.avatar}" class="tutor-avatar-img" alt="${tutor.name}">
+              ${tutor.verified ? `<div class="verified-seal" title="100% ID & Degree Verified">✓</div>` : ''}
+            </div>
+            <div style="flex:1;">
+              <span class="city-rank-pill">👑 ${tutor.badgeTitle}</span>
+              <h3 class="tutor-card-name">${tutor.name}</h3>
+              <p class="tutor-card-subject">${tutor.experienceYears} Yrs Exp • ${tutor.subjects.slice(0, 2).join(', ')}</p>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:1.2rem; font-weight:800; color:#191B1F;">₹${tutor.hourlyRate}</div>
+              <span style="font-size:0.68rem; color:#828E9E; font-weight:600;">/ 1-hr lesson</span>
+            </div>
+          </div>
+
+          <!-- Formula Score Breakdown Bar -->
+          <div class="tutor-formula-metrics">
+            <div class="formula-metric-item">
+              <span>Student (35%)</span>
+              <span>⭐ ${tutor.ratingBreakdown.studentScore}</span>
+            </div>
+            <div class="formula-metric-item">
+              <span>Parent (25%)</span>
+              <span>⭐ ${tutor.ratingBreakdown.parentScore}</span>
+            </div>
+            <div class="formula-metric-item">
+              <span>Regular (20%)</span>
+              <span>${tutor.ratingBreakdown.attendance}%</span>
+            </div>
+            <div class="formula-metric-item">
+              <span>Result (20%)</span>
+              <span>+${tutor.ratingBreakdown.improvement}%</span>
+            </div>
+          </div>
+
+          <p style="font-size:0.8rem; color:#495160; line-height:1.45; margin-bottom:14px; font-style:italic;">
+            "${tutor.tagline}"
+          </p>
+
+          <div style="font-size:0.75rem; color:#828E9E; margin-bottom:14px;">
+            <strong>📍 Areas:</strong> ${tutor.areas.slice(0, 3).join(', ')}
+          </div>
+
+          <div class="tutor-card-actions">
+            <a href="profile.html?id=${tutor.id}" class="btn-view-profile">View Details →</a>
+            <button onclick="bookTutorDemo('${tutor.id}')" class="btn-book-demo">Book Free Demo</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function resetFilters() {
+      document.getElementById('citySelect').value = 'all';
+      document.getElementById('subjectSelect').value = 'all';
+      document.getElementById('budgetRange').value = 1000;
+      document.getElementById('budgetValue').innerText = '₹1,000/hr';
+      document.getElementById('verifiedOnlyCheck').checked = false;
+      document.getElementById('wellbeingCheck').checked = false;
+      document.getElementById('searchInput').value = '';
+      renderFilteredTutors();
+    }
+
+    // Check URL params on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('city')) {
+        document.getElementById('citySelect').value = params.get('city');
+      }
+      if (params.get('q')) {
+        document.getElementById('searchInput').value = params.get('q');
+      }
+      renderFilteredTutors();
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Wellbeing Shield | NearTutor</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-symbols">
+          <div class="sym-square"></div>
+          <div class="sym-circle"></div>
+          <div class="sym-triangle"></div>
+        </div>
+        <span class="logo-brand-text">NearTutor</span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Tutor Profile</span>
+        </a>
+
+        <!-- Active Wellbeing Shield Pill -->
+        <a href="wellbeing.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="search.html#rankings" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <a href="#settings" onclick="alert('Settings')" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">💙</div>
+        <h4 class="promo-title">24x7 Helpline</h4>
+        <p class="promo-sub">Govt Tele-MANAS: 14416 • Always free, always listening.</p>
+        <a href="tel:14416" class="promo-btn">Call Helpline</a>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <header class="app-header">
+        <div class="header-greeting">
+          <h1>Student Wellbeing Shield 🛡️</h1>
+          <p>Preventing youth depression, exam isolation, and academic burnout before it begins.</p>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-pill-input" placeholder="Search resources..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + encodeURIComponent(this.value)">
+          </div>
+
+          <button class="icon-pill-btn" onclick="alert('Wellbeing Alert: No active student distress alerts in your account.')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </button>
+
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="User">
+        </div>
+      </header>
+
+      <!-- Wellbeing Grid (2-Column Bento) -->
+      <div class="bento-grid">
+        
+        <!-- Left Column: Mood Check-in & Alert Trigger -->
+        <div class="bento-left-column">
+          
+          <!-- Interactive Weekly Mood Card -->
+          <div class="dashboard-card">
+            <div class="card-header-row">
+              <div>
+                <span style="font-size:0.72rem; font-weight:800; color:#3B82F6; text-transform:uppercase;">
+                  30-Second Check-in
+                </span>
+                <h3 class="card-header-title">How Are You Feeling This Week?</h3>
+              </div>
+              <span id="currentMoodEmoji" style="font-size:2rem;">🙂</span>
+            </div>
+
+            <!-- Mood Slider -->
+            <div style="margin-bottom:20px;">
+              <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; color:#495160; margin-bottom:8px;">
+                <span>Exhausted / Anxious</span>
+                <span id="moodLabelText" style="color:#191B1F; font-weight:800;">Doing Okay</span>
+                <span>Calm & Confident</span>
+              </div>
+              <input 
+                type="range" 
+                id="moodSlider" 
+                min="1" 
+                max="5" 
+                value="4" 
+                step="1" 
+                style="width:100%; accent-color:#191B1F; cursor:pointer;"
+                oninput="updateMoodState(this.value)"
+              >
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#828E9E; margin-top:4px;">
+                <span>😢 1</span>
+                <span>😟 2</span>
+                <span>😐 3</span>
+                <span>🙂 4</span>
+                <span>😄 5</span>
+              </div>
+            </div>
+
+            <!-- Context Questions -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
+              <div>
+                <label style="font-size:0.78rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Sleep in last 24h:</label>
+                <select id="sleepInput" class="filter-select">
+                  <option>Under 5 Hours (Sleep Debt)</option>
+                  <option selected>7 to 8 Hours (Healthy)</option>
+                  <option>8+ Hours (Well Rested)</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="font-size:0.78rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Biggest Worry:</label>
+                <select id="worryInput" class="filter-select">
+                  <option selected>Syllabus load before exam</option>
+                  <option>Fear of disappointing parents</option>
+                  <option>Homesickness / loneliness</option>
+                  <option>Mock test low marks</option>
+                </select>
+              </div>
+            </div>
+
+            <button onclick="submitMoodCheck()" style="width:100%; padding:14px; border-radius:12px; background:#191B1F; color:#FFF; font-weight:800; font-size:0.88rem; border:none; cursor:pointer;">
+              Submit Weekly Wellbeing Check →
+            </button>
+
+            <!-- Dynamic Alert Output Container -->
+            <div id="moodAlertOutput" style="display:none; margin-top:18px; padding:16px; border-radius:14px; font-size:0.85rem; line-height:1.5;"></div>
+          </div>
+
+          <!-- Pomodoro Study & Break Timer Card -->
+          <div class="dashboard-card">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Smart Study & Stretch Timer</h3>
+              <span id="timerBadge" style="background:#EBF1FB; color:#3B82F6; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:6px;">
+                25m Focus Block
+              </span>
+            </div>
+
+            <p style="font-size:0.8rem; color:#828E9E; margin-bottom:14px;">
+              Study in healthy 25-minute sprints. Take 5-minute family breaks to keep cortisol levels low.
+            </p>
+
+            <div style="background:#F8FAFD; border-radius:16px; padding:24px; text-align:center; margin-bottom:16px;">
+              <div id="timerDisplay" style="font-size:3.5rem; font-weight:800; color:#121417; font-family:monospace; letter-spacing:0.04em;">
+                25:00
+              </div>
+              <p id="timerMessage" style="font-size:0.8rem; color:#828E9E; margin-top:4px;">
+                Focus on 1 chapter without phone notifications.
+              </p>
+            </div>
+
+            <div style="display:flex; gap:10px;">
+              <button id="toggleTimerBtn" onclick="toggleTimer()" style="flex:1; padding:12px; border-radius:10px; background:#191B1F; color:#FFF; font-weight:700; font-size:0.85rem; border:none; cursor:pointer;">
+                ▶ Start 25m Focus
+              </button>
+              <button onclick="resetTimer()" style="padding:12px 20px; border-radius:10px; background:#F0F3F8; color:#121417; font-weight:700; font-size:0.85rem; border:none; cursor:pointer;">
+                Reset
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Counselor Connect & Parent Guide -->
+        <div class="bento-right-column">
+          
+          <!-- Counselor Connect Card -->
+          <div class="dashboard-card">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Counselor Connect</h3>
+              <span style="font-size:0.75rem; color:#10B981; font-weight:700;">● 100% Free 1st Call</span>
+            </div>
+
+            <div style="display:flex; gap:14px; align-items:center; margin-bottom:14px;">
+              <img src="https://images.unsplash.com/photo-1594824813590-482a61361c77?auto=format&fit=crop&w=150&q=80" style="width:52px; height:52px; border-radius:14px; object-fit:cover;" alt="Counselor">
+              <div>
+                <h4 style="font-size:0.95rem; font-weight:800; color:#121417;">Dr. Priya Saxena, M.Phil</h4>
+                <p style="font-size:0.75rem; color:#828E9E;">Child & Adolescent Psychologist</p>
+                <span style="font-size:0.7rem; color:#3B82F6; font-weight:700;">Specialist in Board & JEE Anxiety</span>
+              </div>
+            </div>
+
+            <p style="font-size:0.8rem; color:#495160; line-height:1.45; margin-bottom:16px;">
+              Confidential, private video sessions to dissolve fear of exams and academic burnout.
+            </p>
+
+            <button onclick="bookCounselorSession()" style="width:100%; padding:12px; border-radius:10px; background:#3B82F6; color:#FFF; font-weight:700; font-size:0.85rem; border:none; cursor:pointer; box-shadow:0 4px 14px rgba(59,130,246,0.3);">
+              Book Free 45-Min Call →
+            </button>
+          </div>
+
+          <!-- Compassionate Parent Handbook Card -->
+          <div class="dashboard-card" style="background: linear-gradient(135deg, #FFFDF8 0%, #FAF6ED 100%); border-color:#FDE68A;">
+            <h3 class="card-header-title" style="color:#92400E; margin-bottom:8px;">👨‍👩‍👧 Parent Guide: Talk Without Pressure</h3>
+            <p style="font-size:0.8rem; color:#78350F; line-height:1.5; margin-bottom:14px;">
+              5 simple phrase replacements that protect your child's mental peace:
+            </p>
+
+            <div style="font-size:0.78rem; display:flex; flex-direction:column; gap:10px;">
+              <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #EF4444;">
+                <span style="color:#EF4444; font-weight:700;">❌ Stop:</span> "Sharma ji's son studies 14 hours!"
+              </div>
+              <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+                <span style="color:#10B981; font-weight:700;">✅ Say:</span> "Your health and smile matter more than any rank in the world."
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="shared-data.js"></script>
+  <script>
+    // Mood State
+    const moodMeta = [
+      { emoji: "😢", label: "Severe Anxiety / Depressed", isHighRisk: true },
+      { emoji: "😟", label: "Overwhelmed & Lonely", isHighRisk: true },
+      { emoji: "😐", label: "Managing Okay", isHighRisk: false },
+      { emoji: "🙂", label: "Doing Good & Balanced", isHighRisk: false },
+      { emoji: "😄", label: "Confident & Happy", isHighRisk: false },
+    ];
+
+    function updateMoodState(val) {
+      const idx = Number(val) - 1;
+      const current = moodMeta[idx];
+      document.getElementById('currentMoodEmoji').innerText = current.emoji;
+      document.getElementById('moodLabelText').innerText = current.label;
+    }
+
+    function submitMoodCheck() {
+      const val = Number(document.getElementById('moodSlider').value);
+      const sleep = document.getElementById('sleepInput').value;
+      const worry = document.getElementById('worryInput').value;
+      const current = moodMeta[val - 1];
+
+      const out = document.getElementById('moodAlertOutput');
+      out.style.display = 'block';
+
+      if (current.isHighRisk) {
+        out.style.background = '#FEF2F2';
+        out.style.border = '1px solid #FCA5A5';
+        out.style.color = '#991B1B';
+        out.innerHTML = `
+          <strong>🚨 NearTutor Safeguard Triggered:</strong> You are not alone! We detected high stress regarding "${worry}". We have notified your verified home tutor to reduce pressure and reserved a priority counseling slot for you.
+          <div style="margin-top:10px;">
+            <a href="tel:14416" style="display:inline-block; padding:6px 12px; background:#DC2626; color:#FFF; font-weight:700; border-radius:6px; text-decoration:none; font-size:0.75rem;">Call Govt Tele-MANAS: 14416</a>
+          </div>
+        `;
+      } else {
+        out.style.background = '#ECFDF5';
+        out.style.border = '1px solid #A7F3D0';
+        out.style.color = '#065F46';
+        out.innerHTML = `
+          <strong>🌟 Excellent Check-in!</strong> Your wellbeing score is balanced with ${sleep}. Studying from home beside your family keeps your mind calm and your focus sharp!
+        `;
+      }
+    }
+
+    // Timer Logic
+    let timerSeconds = 25 * 60;
+    let timerRunning = false;
+    let timerInterval = null;
+
+    function toggleTimer() {
+      const btn = document.getElementById('toggleTimerBtn');
+      if (timerRunning) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        btn.innerText = '▶ Resume Focus';
+      } else {
+        timerRunning = true;
+        btn.innerText = '⏸ Pause Timer';
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            renderTimer();
+          } else {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            alert('🎉 High Five! You completed your 25m focus sprint. Take a 5m walk and drink water!');
+            timerSeconds = 25 * 60;
+            renderTimer();
+            btn.innerText = '▶ Start 25m Focus';
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerRunning = false;
+      timerSeconds = 25 * 60;
+      renderTimer();
+      document.getElementById('toggleTimerBtn').innerText = '▶ Start 25m Focus';
+    }
+
+    function renderTimer() {
+      const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+      const s = (timerSeconds % 60).toString().padStart(2, '0');
+      document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+    }
+
+    function bookCounselorSession() {
+      alert('💙 Counselor Session Reserved!\n\nDr. Priya Saxena has scheduled your free 45-minute confidential call for Today at 7:00 PM.\n\nA private Google Meet link has been sent to your WhatsApp.');
+    }
+  </script>
+</body>
+</html>
+
