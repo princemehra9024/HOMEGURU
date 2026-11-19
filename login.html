@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login &amp; Sign Up | HomeGuru</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    /* ==========================================================================
+       HomeGuru Student Auth Split-Card Page (Exact Reference Design)
+       ========================================================================== */
+    body.auth-body {
+      background-color: #FAF7F2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Watermark & Shapes */
+    .auth-bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .auth-bg-blob-1 {
+      width: 450px;
+      height: 450px;
+      background: rgba(212, 164, 55, 0.12);
+      top: -100px;
+      left: -100px;
+    }
+
+    .auth-bg-blob-2 {
+      width: 500px;
+      height: 500px;
+      background: rgba(18, 60, 50, 0.08);
+      bottom: -150px;
+      right: -100px;
+    }
+
+    /* Main Split Card */
+    .auth-card-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1020px;
+      background: #FFFFFF;
+      border-radius: 32px;
+      box-shadow: 0 25px 70px rgba(18, 60, 50, 0.12);
+      border: 1px solid rgba(18, 60, 50, 0.08);
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      overflow: hidden;
+      min-height: 640px;
+      animation: authCardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes authCardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ==========================================================================
+       LEFT PANEL: Visual Brand Sanctuary (Matching Reference Artwork)
+       ========================================================================== */
+    .auth-visual-panel {
+      background: linear-gradient(145deg, #E9F1F5 0%, #DDEBF0 100%);
+      padding: 44px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-right: 1px solid rgba(18, 60, 50, 0.06);
+    }
+
+    .auth-visual-header h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .auth-visual-header h2 span.highlight-orange {
+      color: #E65100;
+    }
+
+    .auth-visual-header h2 span.highlight-green {
+      color: var(--green-primary);
+    }
+
+    .auth-visual-header p {
+      font-size: 0.88rem;
+      color: #48625A;
+      line-height: 1.5;
+    }
+
+    /* Illustration Wrapper with Floating 3D Elements */
+    .auth-illustration-wrap {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
+    }
+
+    .auth-svg-canvas {
+      width: 100%;
+      max-width: 360px;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Floating Keyframes */
+    @keyframes floatElement {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    @keyframes pulseRing {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.35; }
+    }
+
+    .float-item-1 { animation: floatElement 4s ease-in-out infinite; }
+    .float-item-2 { animation: floatElement 3.5s ease-in-out infinite 0.7s; }
+    .float-item-3 { animation: floatElement 4.5s ease-in-out infinite 1.4s; }
+    .float-item-4 { animation: floatElement 3.8s ease-in-out infinite 2s; }
+
+    /* Visual Footer Trust Pill */
+    .auth-visual-footer {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 12px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(18, 60, 50, 0.05);
+    }
+
+    .trust-icon-shield {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #059669;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .trust-text-wrap strong {
+      font-size: 0.82rem;
+      color: var(--green-primary);
+      display: block;
+    }
+
+    .trust-text-wrap span {
+      font-size: 0.73rem;
+      color: #556B63;
+    }
+
+    /* ==========================================================================
+       RIGHT PANEL: Interactive Form & Social Auth
+       ========================================================================== */
+    .auth-form-panel {
+      padding: 44px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #FFFFFF;
+      overflow-y: auto;
+    }
+
+    /* Brand Logo on Right */
+    .auth-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      text-decoration: none;
+    }
+
+    .auth-brand-row .logo-mark {
+      width: 34px;
+      height: 34px;
+    }
+
+    .auth-brand-row .logo-brand-text {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.03em;
+    }
+
+    /* Tab Switcher (Log In vs Sign Up) */
+    .auth-tab-switcher {
+      display: flex;
+      background: #FAF7F2;
+      border-radius: 14px;
+      padding: 4px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(18, 60, 50, 0.08);
+      position: relative;
+    }
+
+    .auth-tab-btn {
+      flex: 1;
+      padding: 9px 16px;
+      border-radius: 11px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .auth-tab-btn.active {
+      background: #FFFFFF;
+      color: var(--green-primary);
+      box-shadow: 0 4px 14px rgba(18, 60, 50, 0.08);
+    }
+
+    /* Title & Subtitle */
+    .auth-form-header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .auth-form-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .auth-form-header p a {
+      color: var(--gold-hover);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .auth-form-header p a:hover {
+      text-decoration: underline;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid #E2E8F0;
+      background: #FAF7F2;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      outline: none;
+      transition: all 180ms ease;
+    }
+
+    .input-field:focus {
+      background: #FFFFFF;
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 4px rgba(18, 60, 50, 0.08);
+    }
+
+    .input-icon-btn {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .input-icon-btn:hover {
+      color: var(--text-dark);
+    }
+
+    /* Submit Button */
+    .auth-submit-btn {
+      width: 100%;
+      padding: 13px 20px;
+      background: var(--green-primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 180ms ease;
+      box-shadow: 0 6px 20px rgba(18, 60, 50, 0.22);
+      margin-top: 6px;
+    }
+
+    .auth-submit-btn:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(18, 60, 50, 0.3);
+    }
+
+    /* Quick Demo Login Pill */
+    .demo-login-pill {
+      margin-top: 12px;
+      width: 100%;
+      padding: 9px 14px;
+      background: rgba(212, 164, 55, 0.12);
+      border: 1px dashed var(--gold);
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--gold-hover);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 180ms ease;
+    }
+
+    .demo-login-pill:hover {
+      background: var(--gold);
+      color: #0A241E;
+      border-style: solid;
+    }
+
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 18px 0;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .auth-divider span {
+      padding: 0 12px;
+    }
+
+    /* Social Buttons Row */
+    .social-btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .social-btn {
+      padding: 10px;
+      border-radius: 12px;
+      border: 1.5px solid #E2E8F0;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .social-btn:hover {
+      background: #FAF7F2;
+      border-color: var(--green-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Extra row: Remember & Forgot */
+    .auth-extra-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0 16px 0;
+      font-size: 0.8rem;
+    }
+
+    .auth-remember-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-body);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .auth-remember-label input {
+      accent-color: var(--green-primary);
+      width: 16px;
+      height: 16px;
+    }
+
+    .auth-forgot-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .auth-forgot-link:hover {
+      color: var(--green-primary);
+      text-decoration: underline;
+    }
+
+    .auth-legal-footer {
+      font-size: 0.7rem;
+      color: #94A3B8;
+      text-align: center;
+      line-height: 1.4;
+      margin-top: 14px;
+    }
+
+    .auth-legal-footer a {
+      color: var(--text-body);
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .auth-card-container {
+        grid-template-columns: 1fr;
+      }
+      .auth-visual-panel {
+        display: none;
+      }
+      .auth-form-panel {
+        padding: 36px 24px;
+      }
+    }
+  </style>
+</head>
+<body class="auth-body">
+
+  <!-- Background Ambient Glows -->
+  <div class="auth-bg-blob auth-bg-blob-1"></div>
+  <div class="auth-bg-blob auth-bg-blob-2"></div>
+
+  <!-- Main Centered Split Card -->
+  <main class="auth-card-container">
+    
+    <!-- LEFT PANEL: Visual Brand Artwork -->
+    <section class="auth-visual-panel">
+      
+      <!-- Top Text Header -->
+      <div class="auth-visual-header">
+        <h2>
+          Study close to <span class="highlight-orange">Family</span>.<br>
+          Learn with <span class="highlight-green">Verified Gurus</span>!
+        </h2>
+        <p>
+          Connect 1-on-1 with top-performing home educators in Jaipur. No hostel loneliness, no coaching pressure.
+        </p>
+      </div>
+
+      <!-- Center 3D/SVG Visual Illustration (Interactive & Animated) -->
+      <div class="auth-illustration-wrap">
+        <svg class="auth-svg-canvas" viewBox="0 0 360 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chairGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#F2E8DC"/>
+            </linearGradient>
+            <linearGradient id="phoneScreenGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#E2F1F8"/>
+              <stop offset="100%" stop-color="#CCE3EE"/>
+            </linearGradient>
+            <linearGradient id="tutorShirtGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+            <linearGradient id="studentGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1E40AF"/>
+              <stop offset="100%" stop-color="#1D4ED8"/>
+            </linearGradient>
+            <filter id="shadow3D" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#123C32" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Study Wall Shelf with Flask & Books -->
+          <rect x="30" y="80" width="120" height="6" rx="3" fill="#CAD8DF"/>
+          <!-- Little Plant / Flask on Shelf -->
+          <rect x="42" y="58" width="16" height="22" rx="4" fill="#B0E0E6" stroke="#89C4CD" stroke-width="1.5"/>
+          <path d="M50 58V50" stroke="#89C4CD" stroke-width="2"/>
+          <circle cx="50" cy="48" r="3" fill="#D4A437"/>
+          <!-- Books on Shelf -->
+          <rect x="70" y="52" width="10" height="28" rx="2" fill="#F43F5E"/>
+          <rect x="82" y="56" width="12" height="24" rx="2" fill="#10B981"/>
+          <rect x="96" y="50" width="10" height="30" rx="2" fill="#3B82F6"/>
+
+          <!-- Tablet / Phone Window (Interactive Live Session with Tutor) -->
+          <g filter="url(#shadow3D)">
+            <rect x="160" y="35" width="145" height="210" rx="20" fill="#FFFFFF" stroke="#CAD8DF" stroke-width="3"/>
+            <rect x="166" y="42" width="133" height="175" rx="14" fill="url(#phoneScreenGrad)"/>
+
+            <!-- Video Header: Tutor Name -->
+            <rect x="176" y="52" width="70" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="282" cy="57" r="4" fill="#10B981"/>
+
+            <!-- Online Verified Tutor inside Screen -->
+            <!-- Tutor Head & Hair -->
+            <circle cx="232" cy="98" r="24" fill="#6B3924"/>
+            <circle cx="232" cy="100" r="20" fill="#D4A373"/>
+            <!-- Glasses -->
+            <rect x="220" y="96" width="10" height="8" rx="2" fill="none" stroke="#2D3748" stroke-width="2"/>
+            <rect x="234" y="96" width="10" height="8" rx="2" fill="none" stroke="#2D3748" stroke-width="2"/>
+            <line x1="230" y1="100" x2="234" y2="100" stroke="#2D3748" stroke-width="2"/>
+            <!-- Yellow/Gold Sweater -->
+            <path d="M192 165 C192 135, 272 135, 272 165 Z" fill="url(#tutorShirtGrad)"/>
+            <circle cx="232" cy="136" r="6" fill="#FCD34D"/>
+
+            <!-- Accept / Connected Call Button -->
+            <g transform="translate(182, 180)">
+              <rect x="0" y="0" width="100" height="28" rx="14" fill="#10B981" filter="url(#shadow3D)"/>
+              <text x="50" y="18" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800" font-family="'Plus Jakarta Sans', sans-serif">✓ Connected</text>
+            </g>
+          </g>
+
+          <!-- Student sitting in Armchair -->
+          <!-- Armchair -->
+          <g filter="url(#shadow3D)">
+            <path d="M45 130 C45 110, 80 110, 80 140 L80 200 L45 200 Z" fill="url(#chairGrad)" stroke="#DFD3C3" stroke-width="2"/>
+            <rect x="42" y="170" width="65" height="34" rx="12" fill="url(#chairGrad)" stroke="#DFD3C3" stroke-width="2"/>
+            <!-- Wooden Chair Legs -->
+            <line x1="52" y1="204" x2="48" y2="245" stroke="#8C6D58" stroke-width="4" stroke-linecap="round"/>
+            <line x1="98" y1="204" x2="104" y2="245" stroke="#8C6D58" stroke-width="4" stroke-linecap="round"/>
+          </g>
+
+          <!-- Student Body -->
+          <g filter="url(#shadow3D)">
+            <!-- Head -->
+            <circle cx="95" cy="120" r="14" fill="#3E2723"/>
+            <circle cx="97" cy="122" r="12" fill="#E0AC69"/>
+            <!-- Blue Student Shirt -->
+            <path d="M78 140 C78 132, 116 132, 116 140 L112 185 L80 185 Z" fill="url(#studentGrad)"/>
+            <!-- Student Arms holding Notes -->
+            <path d="M88 152 Q125 155, 145 160" stroke="#1D4ED8" stroke-width="8" stroke-linecap="round"/>
+            <!-- Notes Paper in Hand -->
+            <rect x="142" y="145" width="22" height="28" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" transform="rotate(8 142 145)"/>
+            <line x1="148" y1="152" x2="158" y2="153" stroke="#94A3B8" stroke-width="1.5"/>
+            <line x1="148" y1="158" x2="156" y2="159" stroke="#94A3B8" stroke-width="1.5"/>
+            <!-- Student Jeans / Legs -->
+            <path d="M84 185 L120 195 L145 220" stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="142" y="220" width="18" height="8" rx="4" fill="#0F172A"/>
+          </g>
+
+          <!-- Potted Flowers on Floor -->
+          <g transform="translate(198, 205)">
+            <path d="M6 35 L26 35 L22 15 L10 15 Z" fill="#60A5FA"/>
+            <!-- Green Stems & Colorful Flowers -->
+            <path d="M12 15 Q10 2, 8 0" stroke="#10B981" stroke-width="2.5"/>
+            <path d="M16 15 Q16 2, 16 0" stroke="#10B981" stroke-width="2.5"/>
+            <path d="M20 15 Q22 2, 24 0" stroke="#10B981" stroke-width="2.5"/>
+            <!-- Flower Heads -->
+            <circle cx="8" cy="0" r="4" fill="#EF4444"/>
+            <circle cx="16" cy="0" r="4" fill="#F59E0B"/>
+            <circle cx="24" cy="0" r="4" fill="#EC4899"/>
+          </g>
+
+          <!-- Floating 3D Badge 1: Pencil (Yellow) -->
+          <g class="float-item-1" transform="translate(20, 95)" filter="url(#shadow3D)">
+            <rect x="0" y="0" width="38" height="38" rx="12" fill="#FFFFFF"/>
+            <path d="M10 28 L14 28 L26 16 L22 12 L10 24 Z" fill="#F59E0B"/>
+            <polygon points="10,28 14,28 10,24" fill="#374151"/>
+          </g>
+
+          <!-- Floating 3D Badge 2: Bookmark (Red) -->
+          <g class="float-item-2" transform="translate(285, 80)" filter="url(#shadow3D)">
+            <rect x="0" y="0" width="36" height="36" rx="11" fill="#FFFFFF"/>
+            <path d="M12 8 H24 V28 L18 24 L12 28 Z" fill="#EF4444"/>
+          </g>
+
+          <!-- Floating 3D Badge 3: Folder (Green) -->
+          <g class="float-item-3" transform="translate(30, 205)" filter="url(#shadow3D)">
+            <rect x="0" y="0" width="36" height="36" rx="11" fill="#FFFFFF"/>
+            <path d="M10 14 H16 L18 16 H26 V26 H10 Z" fill="#10B981"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Trust Badge Footer -->
+      <div class="auth-visual-footer">
+        <div class="trust-icon-shield">🛡️</div>
+        <div class="trust-text-wrap">
+          <strong>100% Verified Local Tutors</strong>
+          <span>Police background &amp; degree checks cleared. Anti-stress charter.</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT PANEL: Authentication Form -->
+    <section class="auth-form-panel">
+      
+      <!-- Logo Branding -->
+      <a href="index.html" class="auth-brand-row">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <!-- Tab Switcher (Log In / Sign Up) -->
+      <div class="auth-tab-switcher">
+        <button id="tabLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">
+          Student Log In
+        </button>
+        <button id="tabSignup" class="auth-tab-btn" onclick="switchAuthTab('signup')">
+          New Student Sign Up
+        </button>
+      </div>
+
+      <!-- Header Titles -->
+      <div class="auth-form-header">
+        <h1 id="authTitle">Welcome back, Student!</h1>
+        <p id="authSubtitle">
+          New to HomeGuru? <a href="#" onclick="switchAuthTab('signup'); return false;">Sign Up for Free</a>
+        </p>
+      </div>
+
+      <!-- FORM -->
+      <form id="studentAuthForm" onsubmit="handleAuthSubmit(event)">
+        
+        <!-- Field: Full Name (Visible only on Sign Up) -->
+        <div class="form-group" id="groupFullName" style="display:none;">
+          <label class="form-label">Student Full Name</label>
+          <div class="input-wrapper">
+            <input type="text" id="fieldName" class="input-field" placeholder="e.g. Aryan Sharma">
+          </div>
+        </div>
+
+        <!-- Field: Email or Phone -->
+        <div class="form-group">
+          <label class="form-label" id="labelIdentifier">Email or Student WhatsApp No.</label>
+          <div class="input-wrapper">
+            <input type="text" id="fieldIdentifier" class="input-field" placeholder="e.g. aryan.sharma@gmail.com" required value="aryan.sharma@gmail.com">
+          </div>
+        </div>
+
+        <!-- Field: Grade & City (Visible only on Sign Up) -->
+        <div class="form-group" id="groupGradeCity" style="display:none;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+            <div>
+              <label class="form-label">Class / Stream</label>
+              <select id="fieldGrade" class="input-field">
+                <option value="Class 12 - CBSE + JEE">Class 12 (JEE/CBSE)</option>
+                <option value="Class 11 - Science">Class 11 (Science)</option>
+                <option value="Class 10 - Board">Class 10 (Board)</option>
+                <option value="Class 9 - Foundations">Class 9 (Foundations)</option>
+                <option value="NEET Medical Dropper">NEET Medical Dropper</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">City</label>
+              <select id="fieldCity" class="input-field">
+                <option value="Jaipur" selected>Jaipur</option>
+                <option value="Delhi NCR">Delhi NCR</option>
+                <option value="Kota">Kota (Homes)</option>
+                <option value="Pune">Pune</option>
+                <option value="Bengaluru">Bengaluru</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field: Password -->
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="fieldPassword" class="input-field" placeholder="Enter your secret password" required value="••••••••">
+            <button type="button" class="input-icon-btn" onclick="togglePasswordVisibility()" title="Show/Hide Password">
+              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Extra Row: Remember device & Forgot password -->
+        <div class="auth-extra-row">
+          <label class="auth-remember-label">
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Remember this device</span>
+          </label>
+          <a href="#" onclick="alert('Password reset link sent to your WhatsApp & registered email.'); return false;" class="auth-forgot-link">
+            Forgot password?
+          </a>
+        </div>
+
+        <!-- Main Action Button -->
+        <button type="submit" class="auth-submit-btn" id="btnSubmit">
+          <span id="btnSubmitText">Log In to Student Portal →</span>
+        </button>
+
+        <!-- Instant 1-Click Demo Fill -->
+        <button type="button" class="demo-login-pill" onclick="demoLoginAryan()">
+          ⚡ Quick 1-Click Login as Aryan Sharma (Student)
+        </button>
+      </form>
+
+      <!-- Social Login Divider -->
+      <div class="auth-divider">
+        <span>Or connect with</span>
+      </div>
+
+      <!-- Social Logins (Google, Apple, Phone OTP) -->
+      <div class="social-btn-group">
+        <!-- Google -->
+        <button type="button" class="social-btn" onclick="socialLogin('Google')" title="Continue with Google">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+        </button>
+
+        <!-- Apple -->
+        <button type="button" class="social-btn" onclick="socialLogin('Apple')" title="Continue with Apple">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#000000">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.87.94-2.97-.93.04-2.09.63-2.73 1.39-.56.65-1.06 1.76-.93 2.83 1.04.08 2.11-.53 2.72-1.25z"/>
+          </svg>
+        </button>
+
+        <!-- Mobile OTP -->
+        <button type="button" class="social-btn" onclick="socialLogin('WhatsApp OTP')" title="Instant WhatsApp OTP" style="gap:6px; font-size:0.78rem; font-weight:700; color:var(--green-primary);">
+          <span>📱 OTP</span>
+        </button>
+      </div>
+
+      <!-- Legal footer -->
+      <p class="auth-legal-footer">
+        By continuing, you agree to HomeGuru's <a href="wellbeing.html">Student Wellbeing Charter</a> and <a href="rankings.html">Anti-Burnout Policy</a>.
+      </p>
+
+    </section>
+
+  </main>
+
+  <script src="shared-data.js"></script>
+  <script>
+    let currentAuthMode = 'login';
+
+    function switchAuthTab(mode) {
+      currentAuthMode = mode;
+      const tabLogin = document.getElementById('tabLogin');
+      const tabSignup = document.getElementById('tabSignup');
+      const groupFullName = document.getElementById('groupFullName');
+      const groupGradeCity = document.getElementById('groupGradeCity');
+      const authTitle = document.getElementById('authTitle');
+      const authSubtitle = document.getElementById('authSubtitle');
+      const btnSubmitText = document.getElementById('btnSubmitText');
+
+      if (mode === 'signup') {
+        tabLogin.classList.remove('active');
+        tabSignup.classList.add('active');
+        groupFullName.style.display = 'block';
+        groupGradeCity.style.display = 'block';
+        authTitle.innerText = 'Join HomeGuru as Student';
+        authSubtitle.innerHTML = 'Already have an account? <a href="#" onclick="switchAuthTab(\'login\'); return false;">Log In</a>';
+        btnSubmitText.innerText = 'Create Free Student Account →';
+        document.getElementById('fieldIdentifier').placeholder = 'Parent or Student WhatsApp Number';
+      } else {
+        tabLogin.classList.add('active');
+        tabSignup.classList.remove('active');
+        groupFullName.style.display = 'none';
+        groupGradeCity.style.display = 'none';
+        authTitle.innerText = 'Welcome back, Student!';
+        authSubtitle.innerHTML = 'New to HomeGuru? <a href="#" onclick="switchAuthTab(\'signup\'); return false;">Sign Up for Free</a>';
+        btnSubmitText.innerText = 'Log In to Student Portal →';
+        document.getElementById('fieldIdentifier').placeholder = 'e.g. aryan.sharma@gmail.com';
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const field = document.getElementById('fieldPassword');
+      const icon = document.getElementById('eyeIcon');
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        `;
+      } else {
+        field.type = 'password';
+        icon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        `;
+      }
+    }
+
+    function demoLoginAryan() {
+      switchAuthTab('login');
+      document.getElementById('fieldIdentifier').value = 'aryan.sharma@gmail.com';
+      document.getElementById('fieldPassword').value = 'HomeGuru2026';
+      
+      const btn = document.getElementById('btnSubmit');
+      btn.style.transform = 'scale(0.97)';
+      btn.innerHTML = '<span>Logging into Aryan Sharma\'s Desk...</span>';
+      
+      setTimeout(() => {
+        localStorage.setItem('homeguru_current_user', JSON.stringify({
+          name: 'Aryan Sharma',
+          role: 'student',
+          grade: 'Class 12 (JEE Main Aspirant)',
+          city: 'Jaipur',
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'
+        }));
+        window.location.href = 'profile.html';
+      }, 600);
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const identifier = document.getElementById('fieldIdentifier').value;
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = '<span>Verifying Credentials...</span>';
+
+      setTimeout(() => {
+        const studentName = currentAuthMode === 'signup' ? (document.getElementById('fieldName').value || 'Aryan Sharma') : 'Aryan Sharma';
+        localStorage.setItem('homeguru_current_user', JSON.stringify({
+          name: studentName,
+          role: 'student',
+          grade: 'Class 12',
+          city: 'Jaipur'
+        }));
+        
+        alert('🎉 Welcome, ' + studentName + '! Successfully signed into HomeGuru Student Sanctuary.');
+        window.location.href = 'profile.html';
+      }, 700);
+    }
+
+    function socialLogin(provider) {
+      alert('Connecting securely to ' + provider + ' for HomeGuru Student Verification...');
+      setTimeout(() => {
+        demoLoginAryan();
+      }, 500);
+    }
+
+    // Check URL parameters for tab
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'signup') {
+        switchAuthTab('signup');
+      }
+    });
+  </script>
+</body>
+</html>
