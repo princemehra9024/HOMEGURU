@@ -204,7 +204,7 @@
             <h4 style="font-size:0.95rem; font-weight:800; color:var(--green-primary);">${top3[1].name}</h4>
             <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px;">${top3[1].subjectCategory} • ${top3[1].cityName}</p>
             <div class="podium-score">${top3[1].ratingBreakdown.compositeScore}/100</div>
-            <a href="search.html" style="font-size:0.75rem; font-weight:700; color:var(--gold-hover); text-decoration:none; display:block; margin-top:6px;">Book Demo →</a>
+            <a href="tutor-profile.html?id=${top3[1].id}" style="font-size:0.75rem; font-weight:700; color:var(--gold-hover); text-decoration:none; display:block; margin-top:6px;">View Full Profile →</a>
           </div>
 
           <!-- Rank 1 (Gold) -->
@@ -214,7 +214,7 @@
             <h4 style="font-size:1.05rem; font-weight:800; color:var(--green-primary);">${top3[0].name}</h4>
             <p style="font-size:0.75rem; color:var(--gold-hover); font-weight:800; margin-bottom:8px;">${top3[0].badgeTitle}</p>
             <div class="podium-score" style="font-size:1.6rem; color:var(--green-primary);">${top3[0].ratingBreakdown.compositeScore}/100</div>
-            <a href="search.html" style="display:inline-block; margin-top:8px; padding:6px 16px; background:var(--green-primary); color:#FFF; border-radius:10px; font-size:0.75rem; font-weight:800; text-decoration:none;">Book #1 Tutor</a>
+            <a href="tutor-profile.html?id=${top3[0].id}" style="display:inline-block; margin-top:8px; padding:6px 16px; background:var(--green-primary); color:#FFF; border-radius:10px; font-size:0.75rem; font-weight:800; text-decoration:none;">View #1 Profile →</a>
           </div>
 
           <!-- Rank 3 (Bronze) -->
@@ -225,7 +225,7 @@
             <h4 style="font-size:0.95rem; font-weight:800; color:var(--green-primary);">${top3[2].name}</h4>
             <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px;">${top3[2].subjectCategory} • ${top3[2].cityName}</p>
             <div class="podium-score">${top3[2].ratingBreakdown.compositeScore}/100</div>
-            <a href="search.html" style="font-size:0.75rem; font-weight:700; color:var(--gold-hover); text-decoration:none; display:block; margin-top:6px;">Book Demo →</a>
+            <a href="tutor-profile.html?id=${top3[2].id}" style="font-size:0.75rem; font-weight:700; color:var(--gold-hover); text-decoration:none; display:block; margin-top:6px;">View Full Profile →</a>
           </div>
           ` : `<div></div>`}
         `;
@@ -244,7 +244,9 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <img src="${t.avatar}" style="width:38px; height:38px; border-radius:10px; object-fit:cover;" alt="${t.name}">
               <div>
-                <strong style="color:var(--text-dark); display:block;">${t.name}</strong>
+                <a href="tutor-profile.html?id=${t.id}" style="color:var(--text-dark); text-decoration:none; display:block; font-weight:800;">
+                  ${t.name}
+                </a>
                 <span style="font-size:0.7rem; color:#10B981; font-weight:700;">✓ Verified Degree</span>
               </div>
             </div>

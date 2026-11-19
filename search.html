@@ -328,9 +328,9 @@
             <button onclick="bookTutorDemo('${tutor.id}')" class="btn-book-demo">
               Book Free Demo →
             </button>
-            <button onclick="openTutorModal('${tutor.id}')" class="btn-view-profile">
-              View Profile
-            </button>
+            <a href="tutor-profile.html?id=${tutor.id}" class="btn-view-profile">
+              View Profile →
+            </a>
           </div>
         </div>
       `).join('');
