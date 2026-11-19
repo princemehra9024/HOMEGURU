@@ -256,53 +256,81 @@
 
       container.innerHTML = filtered.map(tutor => `
         <div class="tutor-profile-card">
+          <!-- Top Row: Badge & Price -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <span class="city-rank-pill">👑 ${tutor.badgeTitle}</span>
+            <div style="text-align:right;">
+              <span style="font-size:1.35rem; font-weight:800; color:var(--green-primary);">₹${tutor.hourlyRate}</span>
+              <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;"> / hr</span>
+            </div>
+          </div>
+
+          <!-- Tutor Avatar & Bio -->
           <div class="tutor-card-top">
             <div class="tutor-img-wrap">
               <img src="${tutor.avatar}" class="tutor-avatar-img" alt="${tutor.name}">
               ${tutor.verified ? `<div class="verified-seal" title="100% ID & Degree Verified">✓</div>` : ''}
             </div>
             <div style="flex:1;">
-              <span class="city-rank-pill">👑 ${tutor.badgeTitle}</span>
               <h3 class="tutor-card-name">${tutor.name}</h3>
-              <p class="tutor-card-subject">${tutor.experienceYears} Yrs Exp • ${tutor.subjects.slice(0, 2).join(', ')}</p>
-            </div>
-            <div style="text-align:right;">
-              <div style="font-size:1.2rem; font-weight:800; color:var(--green-primary);">₹${tutor.hourlyRate}</div>
-              <span style="font-size:0.68rem; color:var(--text-muted); font-weight:600;">/ 1-hr lesson</span>
+              <p class="tutor-card-subject">${tutor.experienceYears} Years Exp • ${tutor.degrees[0] || 'Senior Educator'}</p>
+              
+              <!-- Subject & Wellbeing Tags -->
+              <div class="tutor-tag-row">
+                ${tutor.subjects.slice(0, 3).map(s => `<span class="tutor-tag-pill">${s}</span>`).join('')}
+                ${tutor.wellbeingTrained ? `<span class="tutor-tag-pill wellbeing">🧠 Anti-Stress Certified</span>` : ''}
+              </div>
             </div>
           </div>
 
-          <!-- Formula Score Breakdown Bar -->
+          <!-- Transparent 4-Factor Scoring Breakdown Box -->
           <div class="tutor-formula-metrics">
-            <div class="formula-metric-item">
-              <span>Student (35%)</span>
-              <span style="color:var(--green-primary);">⭐ ${tutor.ratingBreakdown.studentScore}</span>
+            <div class="formula-metrics-header">
+              <span class="formula-metrics-title">Mathematical 4-Factor City Score</span>
+              <span class="formula-metrics-score">Composite: ${tutor.ratingBreakdown.compositeScore}/100</span>
             </div>
-            <div class="formula-metric-item">
-              <span>Parent (25%)</span>
-              <span style="color:#3B82F6;">⭐ ${tutor.ratingBreakdown.parentScore}</span>
-            </div>
-            <div class="formula-metric-item">
-              <span>Regular (20%)</span>
-              <span style="color:#8B5CF6;">${tutor.ratingBreakdown.attendance}%</span>
-            </div>
-            <div class="formula-metric-item">
-              <span>Result (20%)</span>
-              <span style="color:var(--gold-hover);">+${tutor.ratingBreakdown.improvement}%</span>
+            <div class="formula-metrics-grid">
+              <div class="formula-metric-item">
+                <span>Student (35%)</span>
+                <span style="color:var(--green-primary);">⭐ ${tutor.ratingBreakdown.studentScore}</span>
+              </div>
+              <div class="formula-metric-item">
+                <span>Parent (25%)</span>
+                <span style="color:#2563EB;">⭐ ${tutor.ratingBreakdown.parentScore}</span>
+              </div>
+              <div class="formula-metric-item">
+                <span>Regular (20%)</span>
+                <span style="color:#7C3AED;">${tutor.ratingBreakdown.attendance}%</span>
+              </div>
+              <div class="formula-metric-item">
+                <span>Result (20%)</span>
+                <span style="color:var(--gold-hover);">+${tutor.ratingBreakdown.improvement}%</span>
+              </div>
             </div>
           </div>
 
-          <p style="font-size:0.8rem; color:var(--text-body); line-height:1.45; margin-bottom:14px; font-style:italic;">
+          <!-- Philosophy Quote -->
+          <div class="tutor-quote-box">
             "${tutor.tagline}"
-          </p>
-
-          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:14px;">
-            <strong>📍 Areas:</strong> ${tutor.areas.slice(0, 3).join(', ')} (${tutor.cityName})
           </div>
 
+          <!-- Location & Timing -->
+          <div class="tutor-location-info">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-hover); flex-shrink:0;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span><strong>Home Visits:</strong> ${tutor.areas.slice(0, 3).join(', ')} (${tutor.cityName})</span>
+          </div>
+
+          <!-- Actions -->
           <div class="tutor-card-actions">
-            <button onclick="bookTutorDemo('${tutor.id}')" class="btn-book-demo">Book Free Demo</button>
-            <a href="profile.html" class="btn-view-profile" title="Check your enrolled subjects in student profile">My Profile</a>
+            <button onclick="bookTutorDemo('${tutor.id}')" class="btn-book-demo">
+              Book Free Demo →
+            </button>
+            <button onclick="openTutorModal('${tutor.id}')" class="btn-view-profile">
+              View Profile
+            </button>
           </div>
         </div>
       `).join('');
@@ -319,6 +347,38 @@
       renderFilteredTutors();
     }
 
+    let currentSelectedTutorId = null;
+
+    /* Modal handler for Tutor Details */
+    function openTutorModal(tutorId) {
+      currentSelectedTutorId = tutorId;
+      const tutor = getTutorById(tutorId);
+      if (!tutor) return;
+      document.getElementById('modalTutorImg').src = tutor.avatar;
+      document.getElementById('modalTutorBadge').innerText = '👑 ' + tutor.badgeTitle;
+      document.getElementById('modalTutorName').innerText = tutor.name;
+      document.getElementById('modalTutorMeta').innerText = tutor.experienceYears + ' Yrs Exp • ' + tutor.subjects.join(', ') + ' • ₹' + tutor.hourlyRate + '/hr';
+      document.getElementById('modalStudentScore').innerText = '⭐ ' + tutor.ratingBreakdown.studentScore;
+      document.getElementById('modalParentScore').innerText = '⭐ ' + tutor.ratingBreakdown.parentScore;
+      document.getElementById('modalAttendance').innerText = tutor.ratingBreakdown.attendance + '%';
+      document.getElementById('modalImprovement').innerText = '+' + tutor.ratingBreakdown.improvement + '%';
+      document.getElementById('modalTutorAbout').innerText = tutor.about;
+      document.getElementById('modalDegrees').innerHTML = tutor.degrees.map(d => `
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:#121816; margin-bottom:6px;">
+          <span style="color:#10B981; font-weight:900;">✓</span>
+          <span>${d}</span>
+        </div>
+      `).join('');
+      
+      const modal = document.getElementById('searchTeacherModal');
+      modal.style.display = 'flex';
+    }
+
+    function closeTutorModal() {
+      const modal = document.getElementById('searchTeacherModal');
+      modal.style.display = 'none';
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       if (params.get('city')) {
@@ -333,5 +393,64 @@
       renderFilteredTutors();
     });
   </script>
+
+  <!-- TEACHER PROFILE MODAL -->
+  <div id="searchTeacherModal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.6); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#FFFFFF; border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; padding:32px; box-shadow:0 20px 60px rgba(0,0,0,0.2); position:relative;">
+      
+      <button onclick="closeTutorModal()" style="position:absolute; top:20px; right:20px; width:36px; height:36px; border-radius:50%; background:#F0F3F6; border:none; font-size:1.1rem; font-weight:800; cursor:pointer;">
+        ✕
+      </button>
+
+      <div style="display:flex; gap:20px; align-items:center; margin-bottom:20px;">
+        <img id="modalTutorImg" src="" style="width:78px; height:78px; border-radius:20px; object-fit:cover; border:2.5px solid var(--gold);" alt="Tutor">
+        <div>
+          <span id="modalTutorBadge" style="font-size:0.75rem; font-weight:800; color:var(--gold-hover); background:var(--gold-soft); padding:3px 10px; border-radius:6px;"></span>
+          <h2 id="modalTutorName" style="font-size:1.45rem; font-weight:800; color:var(--green-primary); margin:6px 0 3px 0;"></h2>
+          <p id="modalTutorMeta" style="font-size:0.84rem; color:var(--text-muted);"></p>
+        </div>
+      </div>
+
+      <!-- Formula Metrics -->
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; background:#FAF7F2; border:1px solid rgba(18,60,50,0.08); border-radius:16px; padding:14px; text-align:center; margin-bottom:20px;">
+        <div>
+          <span style="font-size:0.68rem; color:var(--text-muted); display:block; margin-bottom:2px;">Student (35%)</span>
+          <span id="modalStudentScore" style="font-size:1rem; font-weight:800; color:var(--green-primary);"></span>
+        </div>
+        <div>
+          <span style="font-size:0.68rem; color:var(--text-muted); display:block; margin-bottom:2px;">Parent (25%)</span>
+          <span id="modalParentScore" style="font-size:1rem; font-weight:800; color:#2563EB;"></span>
+        </div>
+        <div>
+          <span style="font-size:0.68rem; color:var(--text-muted); display:block; margin-bottom:2px;">Regular (20%)</span>
+          <span id="modalAttendance" style="font-size:1rem; font-weight:800; color:#7C3AED;"></span>
+        </div>
+        <div>
+          <span style="font-size:0.68rem; color:var(--text-muted); display:block; margin-bottom:2px;">Result (20%)</span>
+          <span id="modalImprovement" style="font-size:1rem; font-weight:800; color:var(--gold-hover);"></span>
+        </div>
+      </div>
+
+      <h4 style="font-size:0.88rem; font-weight:800; color:var(--green-primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">
+        Teaching Philosophy &amp; Experience
+      </h4>
+      <p id="modalTutorAbout" style="font-size:0.88rem; color:var(--text-body); line-height:1.6; margin-bottom:18px;"></p>
+
+      <h4 style="font-size:0.88rem; font-weight:800; color:var(--green-primary); text-transform:uppercase; margin-bottom:10px; letter-spacing:0.04em;">
+        Verified Degrees &amp; Police Background Verification
+      </h4>
+      <div id="modalDegrees" style="display:flex; flex-direction:column; gap:6px; margin-bottom:24px;"></div>
+
+      <div style="display:flex; gap:14px;">
+        <button onclick="bookTutorDemo(currentSelectedTutorId || 'tutor-1'); closeTutorModal();" style="flex:1; padding:13px; background:var(--green-primary); color:#FFF; font-weight:800; font-size:0.9rem; border-radius:12px; border:none; cursor:pointer;">
+          Book Free 1-on-1 Demo →
+        </button>
+        <button onclick="closeTutorModal()" style="padding:13px 22px; background:#F0F3F8; color:var(--text-dark); font-weight:700; font-size:0.9rem; border-radius:12px; border:none; cursor:pointer;">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
 </body>
 </html>
