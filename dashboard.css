@@ -399,6 +399,31 @@ body {
   box-shadow: 0 4px 14px rgba(18, 60, 50, 0.18);
 }
 
+/* Setup Tutor ID Top-Right Corner Button */
+.header-tutor-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--gold);
+  color: #0A241E;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid rgba(212, 164, 55, 0.4);
+  box-shadow: 0 4px 14px rgba(212, 164, 55, 0.25);
+  transition: all 180ms ease;
+  white-space: nowrap;
+}
+
+.header-tutor-btn:hover {
+  background: #E2B245;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(212, 164, 55, 0.38);
+}
+
 /* ==========================================================================
    3. BENTO GRID LAYOUT (Exact 3-Section Proportions from Reference)
    ========================================================================== */
