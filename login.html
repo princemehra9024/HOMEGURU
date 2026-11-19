@@ -3,288 +3,308 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Login &amp; Sign Up | HomeGuru</title>
+  <title>Student Login &amp; Sign Up | HomeGuru Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dashboard.css">
   <style>
     /* ==========================================================================
-       HomeGuru Student Auth Split-Card Page (Exact Reference Design)
+       HOMEGURU MINIMALIST FULL-SPACE AUTH
+       Edge-to-edge, calm cream & forest green, authentic imagery, zero 3D clutter
        ========================================================================== */
-    body.auth-body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: #FAF7F2;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px 20px;
-      font-family: var(--font-main);
-      color: var(--text-dark);
-      position: relative;
+      color: #123C32;
       overflow-x: hidden;
     }
 
-    /* Ambient Background Watermark & Shapes */
-    .auth-bg-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .auth-bg-blob-1 {
-      width: 450px;
-      height: 450px;
-      background: rgba(212, 164, 55, 0.12);
-      top: -100px;
-      left: -100px;
-    }
-
-    .auth-bg-blob-2 {
-      width: 500px;
-      height: 500px;
-      background: rgba(18, 60, 50, 0.08);
-      bottom: -150px;
-      right: -100px;
-    }
-
-    /* Main Split Card */
-    .auth-card-container {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 1020px;
-      background: #FFFFFF;
-      border-radius: 32px;
-      box-shadow: 0 25px 70px rgba(18, 60, 50, 0.12);
-      border: 1px solid rgba(18, 60, 50, 0.08);
+    /* Full-Screen Split Workspace (Uses 100% of Viewport Space) */
+    .auth-viewport {
       display: grid;
-      grid-template-columns: 1.05fr 1.15fr;
-      overflow: hidden;
-      min-height: 640px;
-      animation: authCardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes authCardEnter {
-      from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      grid-template-columns: 1.1fr 1fr;
+      min-height: 100vh;
+      width: 100vw;
     }
 
     /* ==========================================================================
-       LEFT PANEL: Visual Brand Sanctuary (Matching Reference Artwork)
+       LEFT PANEL: Calm Editorial Photography & Wellbeing Sanctuary
        ========================================================================== */
-    .auth-visual-panel {
-      background: linear-gradient(145deg, #E9F1F5 0%, #DDEBF0 100%);
-      padding: 44px 38px;
+    .auth-image-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(18, 60, 50, 0.45) 0%, rgba(10, 36, 30, 0.88) 100%),
+                  url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
+      padding: 54px 60px;
+      color: #FAF7F2;
       overflow: hidden;
-      border-right: 1px solid rgba(18, 60, 50, 0.06);
     }
 
-    .auth-visual-header h2 {
-      font-size: 1.65rem;
-      font-weight: 800;
-      color: var(--green-primary);
-      line-height: 1.3;
-      letter-spacing: -0.025em;
-      margin-bottom: 8px;
+    /* Ambient Warm Glow */
+    .auth-image-panel::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 164, 55, 0.25) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .auth-visual-header h2 span.highlight-orange {
-      color: #E65100;
-    }
-
-    .auth-visual-header h2 span.highlight-green {
-      color: var(--green-primary);
-    }
-
-    .auth-visual-header p {
-      font-size: 0.88rem;
-      color: #48625A;
-      line-height: 1.5;
-    }
-
-    /* Illustration Wrapper with Floating 3D Elements */
-    .auth-illustration-wrap {
+    /* Top Left Nav / Tag */
+    .auth-image-header {
       position: relative;
-      width: 100%;
-      height: 310px;
+      z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 15px 0;
+      justify-content: space-between;
     }
 
-    .auth-svg-canvas {
-      width: 100%;
-      max-width: 360px;
-      height: 100%;
-      overflow: visible;
+    .auth-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FAF7F2;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 200ms ease;
     }
 
-    /* Floating Keyframes */
-    @keyframes floatElement {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(2deg); }
+    .auth-back-link:hover {
+      background: rgba(255, 255, 255, 0.28);
+      transform: translateX(-3px);
     }
 
-    @keyframes pulseRing {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.15); opacity: 0.35; }
+    .auth-sanctuary-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(212, 164, 55, 0.2);
+      border: 1px solid rgba(212, 164, 55, 0.4);
+      color: #F8D98C;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
-    .float-item-1 { animation: floatElement 4s ease-in-out infinite; }
-    .float-item-2 { animation: floatElement 3.5s ease-in-out infinite 0.7s; }
-    .float-item-3 { animation: floatElement 4.5s ease-in-out infinite 1.4s; }
-    .float-item-4 { animation: floatElement 3.8s ease-in-out infinite 2s; }
+    /* Bottom Story Content */
+    .auth-image-footer {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
 
-    /* Visual Footer Trust Pill */
-    .auth-visual-footer {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 12px 18px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+    .auth-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.85rem;
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: #FAF7F2;
+    }
+
+    .auth-headline em {
+      font-style: italic;
+      color: #F8D98C;
+    }
+
+    .auth-subline {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(250, 247, 242, 0.85);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    /* Minimalist Glass Stats Bar */
+    .auth-stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px 24px;
+      background: rgba(10, 36, 30, 0.55);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 24px;
+    }
+
+    .auth-stat-item h4 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #F8D98C;
+      margin-bottom: 2px;
+    }
+
+    .auth-stat-item p {
+      font-size: 0.76rem;
+      color: rgba(250, 247, 242, 0.75);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Parent Quote Snippet */
+    .auth-quote-card {
       display: flex;
       align-items: center;
-      gap: 12px;
-      box-shadow: 0 4px 16px rgba(18, 60, 50, 0.05);
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-left: 3px solid #D4A437;
     }
 
-    .trust-icon-shield {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: rgba(16, 185, 129, 0.15);
-      color: #059669;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
+    .auth-quote-card p {
+      font-size: 0.84rem;
+      font-style: italic;
+      color: rgba(250, 247, 242, 0.9);
+      line-height: 1.45;
     }
 
-    .trust-text-wrap strong {
-      font-size: 0.82rem;
-      color: var(--green-primary);
+    .auth-quote-card span {
+      font-style: normal;
+      font-weight: 700;
+      color: #F8D98C;
       display: block;
-    }
-
-    .trust-text-wrap span {
-      font-size: 0.73rem;
-      color: #556B63;
+      margin-top: 4px;
+      font-size: 0.76rem;
     }
 
     /* ==========================================================================
-       RIGHT PANEL: Interactive Form & Social Auth
+       RIGHT PANEL: Clean Minimalist Calm Authentication
        ========================================================================== */
     .auth-form-panel {
-      padding: 44px 48px;
+      background-color: #FAF7F2;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: #FFFFFF;
+      padding: 50px 70px;
       overflow-y: auto;
+      min-height: 100vh;
     }
 
-    /* Brand Logo on Right */
-    .auth-brand-row {
-      display: flex;
+    .auth-form-content {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Brand Logo Row */
+    .auth-brand-logo {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 12px;
       text-decoration: none;
+      margin-bottom: 28px;
     }
 
-    .auth-brand-row .logo-mark {
-      width: 34px;
-      height: 34px;
+    .auth-brand-logo .logo-mark {
+      width: 38px;
+      height: 38px;
     }
 
-    .auth-brand-row .logo-brand-text {
-      font-size: 1.3rem;
+    .auth-brand-logo .logo-brand-text {
+      font-size: 1.45rem;
       font-weight: 800;
-      color: var(--green-primary);
+      color: #123C32;
       letter-spacing: -0.03em;
     }
 
-    /* Tab Switcher (Log In vs Sign Up) */
-    .auth-tab-switcher {
+    /* Minimalist Tab Switcher */
+    .auth-tabs {
       display: flex;
-      background: #FAF7F2;
+      background: #EFEBE1;
       border-radius: 14px;
       padding: 4px;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
       border: 1px solid rgba(18, 60, 50, 0.08);
-      position: relative;
     }
 
-    .auth-tab-btn {
+    .auth-tab {
       flex: 1;
-      padding: 9px 16px;
+      padding: 10px 16px;
       border-radius: 11px;
       border: none;
       background: transparent;
       font-family: inherit;
       font-size: 0.88rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: #556B63;
       cursor: pointer;
       transition: all 180ms ease;
     }
 
-    .auth-tab-btn.active {
+    .auth-tab.active {
       background: #FFFFFF;
-      color: var(--green-primary);
+      color: #123C32;
       box-shadow: 0 4px 14px rgba(18, 60, 50, 0.08);
     }
 
-    /* Title & Subtitle */
-    .auth-form-header h1 {
-      font-size: 1.6rem;
+    /* Title & Greeting */
+    .auth-greeting-header {
+      margin-bottom: 24px;
+    }
+
+    .auth-greeting-header h1 {
+      font-size: 1.75rem;
       font-weight: 800;
-      color: var(--green-primary);
-      letter-spacing: -0.025em;
+      color: #123C32;
+      letter-spacing: -0.03em;
       margin-bottom: 6px;
     }
 
-    .auth-form-header p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 22px;
+    .auth-greeting-header p {
+      font-size: 0.9rem;
+      color: #64748B;
+      font-weight: 500;
     }
 
-    .auth-form-header p a {
-      color: var(--gold-hover);
+    .auth-greeting-header p a {
+      color: #D4A437;
       font-weight: 700;
       text-decoration: none;
     }
 
-    .auth-form-header p a:hover {
+    .auth-greeting-header p a:hover {
       text-decoration: underline;
     }
 
-    /* Form Fields */
+    /* Inputs */
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .form-label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text-dark);
-      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+      color: #475569;
+      margin-bottom: 8px;
     }
 
     .input-wrapper {
@@ -295,30 +315,30 @@
 
     .input-field {
       width: 100%;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 13px 18px;
+      border-radius: 14px;
       border: 1.5px solid #E2E8F0;
-      background: #FAF7F2;
+      background: #FFFFFF;
       font-family: inherit;
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 600;
-      color: var(--text-dark);
+      color: #123C32;
       outline: none;
       transition: all 180ms ease;
     }
 
     .input-field:focus {
-      background: #FFFFFF;
-      border-color: var(--green-primary);
+      border-color: #123C32;
       box-shadow: 0 0 0 4px rgba(18, 60, 50, 0.08);
+      background: #FFFFFF;
     }
 
     .input-icon-btn {
       position: absolute;
-      right: 12px;
+      right: 14px;
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: #94A3B8;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -327,19 +347,54 @@
     }
 
     .input-icon-btn:hover {
-      color: var(--text-dark);
+      color: #123C32;
+    }
+
+    /* Extra row: Remember & Forgot */
+    .auth-extra-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 14px 0 20px 0;
+      font-size: 0.82rem;
+    }
+
+    .auth-remember-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #334155;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .auth-remember-label input {
+      accent-color: #123C32;
+      width: 16px;
+      height: 16px;
+    }
+
+    .auth-forgot-link {
+      color: #64748B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .auth-forgot-link:hover {
+      color: #123C32;
+      text-decoration: underline;
     }
 
     /* Submit Button */
     .auth-submit-btn {
       width: 100%;
-      padding: 13px 20px;
-      background: var(--green-primary);
+      padding: 14px 22px;
+      background: #123C32;
       color: #FFFFFF;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
@@ -348,38 +403,38 @@
       gap: 8px;
       transition: all 180ms ease;
       box-shadow: 0 6px 20px rgba(18, 60, 50, 0.22);
-      margin-top: 6px;
     }
 
     .auth-submit-btn:hover {
-      background: var(--green-light);
+      background: #1B5648;
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(18, 60, 50, 0.3);
+      box-shadow: 0 10px 25px rgba(18, 60, 50, 0.32);
     }
 
-    /* Quick Demo Login Pill */
+    /* 1-Click Demo Pill */
     .demo-login-pill {
-      margin-top: 12px;
+      margin-top: 14px;
       width: 100%;
-      padding: 9px 14px;
+      padding: 11px 16px;
       background: rgba(212, 164, 55, 0.12);
-      border: 1px dashed var(--gold);
-      border-radius: 10px;
-      font-size: 0.78rem;
+      border: 1.5px dashed #D4A437;
+      border-radius: 12px;
+      font-size: 0.82rem;
       font-weight: 800;
-      color: var(--gold-hover);
+      color: #996B0A;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       transition: all 180ms ease;
     }
 
     .demo-login-pill:hover {
-      background: var(--gold);
+      background: #D4A437;
       color: #0A241E;
       border-style: solid;
+      transform: translateY(-1px);
     }
 
     /* Divider */
@@ -387,9 +442,9 @@
       display: flex;
       align-items: center;
       text-align: center;
-      margin: 18px 0;
-      color: var(--text-muted);
-      font-size: 0.75rem;
+      margin: 22px 0 18px 0;
+      color: #94A3B8;
+      font-size: 0.78rem;
       font-weight: 600;
     }
 
@@ -401,19 +456,19 @@
     }
 
     .auth-divider span {
-      padding: 0 12px;
+      padding: 0 14px;
     }
 
-    /* Social Buttons Row */
+    /* Social Buttons */
     .social-btn-group {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 22px;
     }
 
     .social-btn {
-      padding: 10px;
+      padding: 12px;
       border-radius: 12px;
       border: 1.5px solid #E2E8F0;
       background: #FFFFFF;
@@ -422,389 +477,264 @@
       justify-content: center;
       cursor: pointer;
       transition: all 180ms ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
     }
 
     .social-btn:hover {
-      background: #FAF7F2;
-      border-color: var(--green-primary);
+      background: #F8FAFC;
+      border-color: #123C32;
       transform: translateY(-1px);
     }
 
-    /* Extra row: Remember & Forgot */
-    .auth-extra-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 12px 0 16px 0;
-      font-size: 0.8rem;
-    }
-
-    .auth-remember-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-body);
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .auth-remember-label input {
-      accent-color: var(--green-primary);
-      width: 16px;
-      height: 16px;
-    }
-
-    .auth-forgot-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .auth-forgot-link:hover {
-      color: var(--green-primary);
-      text-decoration: underline;
-    }
-
+    /* Legal / Wellbeing Guarantee */
     .auth-legal-footer {
-      font-size: 0.7rem;
+      font-size: 0.74rem;
       color: #94A3B8;
       text-align: center;
-      line-height: 1.4;
-      margin-top: 14px;
+      line-height: 1.5;
     }
 
     .auth-legal-footer a {
-      color: var(--text-body);
+      color: #475569;
+      font-weight: 600;
       text-decoration: underline;
     }
 
-    /* Responsive */
-    @media (max-width: 860px) {
-      .auth-card-container {
+    /* ==========================================================================
+       RESPONSIVENESS (Seamless Mobile Experience)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .auth-viewport {
         grid-template-columns: 1fr;
       }
-      .auth-visual-panel {
-        display: none;
+      .auth-image-panel {
+        min-height: 380px;
+        padding: 36px 28px;
+      }
+      .auth-headline {
+        font-size: 2.1rem;
+      }
+      .auth-stats-bar {
+        grid-template-columns: 1fr 1fr;
       }
       .auth-form-panel {
-        padding: 36px 24px;
+        padding: 40px 24px;
+        min-height: auto;
       }
     }
   </style>
 </head>
-<body class="auth-body">
+<body>
 
-  <!-- Background Ambient Glows -->
-  <div class="auth-bg-blob auth-bg-blob-1"></div>
-  <div class="auth-bg-blob auth-bg-blob-2"></div>
+  <!-- Full-Screen Split Workspace (Uses all screen space) -->
+  <div class="auth-viewport">
 
-  <!-- Main Centered Split Card -->
-  <main class="auth-card-container">
-    
-    <!-- LEFT PANEL: Visual Brand Artwork -->
-    <section class="auth-visual-panel">
+    <!-- LEFT PANEL: Authentic Photography, Calm Aesthetic & Student Sanctuary -->
+    <aside class="auth-image-panel">
       
-      <!-- Top Text Header -->
-      <div class="auth-visual-header">
-        <h2>
-          Study close to <span class="highlight-orange">Family</span>.<br>
-          Learn with <span class="highlight-green">Verified Gurus</span>!
+      <!-- Top Bar -->
+      <div class="auth-image-header">
+        <a href="index.html" class="auth-back-link">
+          <span>← Back to Dashboard</span>
+        </a>
+        <div class="auth-sanctuary-pill">
+          <span>✨ Student Sanctuary</span>
+        </div>
+      </div>
+
+      <!-- Bottom Editorial Story & Verified Parent Proof -->
+      <div class="auth-image-footer">
+        <h2 class="auth-headline">
+          Study close to <em>family</em>.<br>
+          Learn with <em>verified mentors</em>.
         </h2>
-        <p>
-          Connect 1-on-1 with top-performing home educators in Jaipur. No hostel loneliness, no coaching pressure.
+        <p class="auth-subline">
+          No relocation anxiety. No crowded coaching factories. Connect 1-on-1 with Jaipur’s highest-rated home educators at your own study desk.
         </p>
-      </div>
 
-      <!-- Center 3D/SVG Visual Illustration (Interactive & Animated) -->
-      <div class="auth-illustration-wrap">
-        <svg class="auth-svg-canvas" viewBox="0 0 360 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="chairGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#FFFFFF"/>
-              <stop offset="100%" stop-color="#F2E8DC"/>
-            </linearGradient>
-            <linearGradient id="phoneScreenGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#E2F1F8"/>
-              <stop offset="100%" stop-color="#CCE3EE"/>
-            </linearGradient>
-            <linearGradient id="tutorShirtGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#F59E0B"/>
-              <stop offset="100%" stop-color="#D97706"/>
-            </linearGradient>
-            <linearGradient id="studentGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1E40AF"/>
-              <stop offset="100%" stop-color="#1D4ED8"/>
-            </linearGradient>
-            <filter id="shadow3D" x="-10%" y="-10%" width="120%" height="130%">
-              <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#123C32" flood-opacity="0.12"/>
-            </filter>
-          </defs>
+        <!-- Minimalist 3-Stat Glass Bar -->
+        <div class="auth-stats-bar">
+          <div class="auth-stat-item">
+            <h4>98.4%</h4>
+            <p>Parent Trust Rating</p>
+          </div>
+          <div class="auth-stat-item">
+            <h4>10,000+</h4>
+            <p>Home Classes Done</p>
+          </div>
+          <div class="auth-stat-item">
+            <h4>Zero</h4>
+            <p>Relocation Stress</p>
+          </div>
+        </div>
 
-          <!-- Study Wall Shelf with Flask & Books -->
-          <rect x="30" y="80" width="120" height="6" rx="3" fill="#CAD8DF"/>
-          <!-- Little Plant / Flask on Shelf -->
-          <rect x="42" y="58" width="16" height="22" rx="4" fill="#B0E0E6" stroke="#89C4CD" stroke-width="1.5"/>
-          <path d="M50 58V50" stroke="#89C4CD" stroke-width="2"/>
-          <circle cx="50" cy="48" r="3" fill="#D4A437"/>
-          <!-- Books on Shelf -->
-          <rect x="70" y="52" width="10" height="28" rx="2" fill="#F43F5E"/>
-          <rect x="82" y="56" width="12" height="24" rx="2" fill="#10B981"/>
-          <rect x="96" y="50" width="10" height="30" rx="2" fill="#3B82F6"/>
-
-          <!-- Tablet / Phone Window (Interactive Live Session with Tutor) -->
-          <g filter="url(#shadow3D)">
-            <rect x="160" y="35" width="145" height="210" rx="20" fill="#FFFFFF" stroke="#CAD8DF" stroke-width="3"/>
-            <rect x="166" y="42" width="133" height="175" rx="14" fill="url(#phoneScreenGrad)"/>
-
-            <!-- Video Header: Tutor Name -->
-            <rect x="176" y="52" width="70" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.8"/>
-            <circle cx="282" cy="57" r="4" fill="#10B981"/>
-
-            <!-- Online Verified Tutor inside Screen -->
-            <!-- Tutor Head & Hair -->
-            <circle cx="232" cy="98" r="24" fill="#6B3924"/>
-            <circle cx="232" cy="100" r="20" fill="#D4A373"/>
-            <!-- Glasses -->
-            <rect x="220" y="96" width="10" height="8" rx="2" fill="none" stroke="#2D3748" stroke-width="2"/>
-            <rect x="234" y="96" width="10" height="8" rx="2" fill="none" stroke="#2D3748" stroke-width="2"/>
-            <line x1="230" y1="100" x2="234" y2="100" stroke="#2D3748" stroke-width="2"/>
-            <!-- Yellow/Gold Sweater -->
-            <path d="M192 165 C192 135, 272 135, 272 165 Z" fill="url(#tutorShirtGrad)"/>
-            <circle cx="232" cy="136" r="6" fill="#FCD34D"/>
-
-            <!-- Accept / Connected Call Button -->
-            <g transform="translate(182, 180)">
-              <rect x="0" y="0" width="100" height="28" rx="14" fill="#10B981" filter="url(#shadow3D)"/>
-              <text x="50" y="18" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800" font-family="'Plus Jakarta Sans', sans-serif">✓ Connected</text>
-            </g>
-          </g>
-
-          <!-- Student sitting in Armchair -->
-          <!-- Armchair -->
-          <g filter="url(#shadow3D)">
-            <path d="M45 130 C45 110, 80 110, 80 140 L80 200 L45 200 Z" fill="url(#chairGrad)" stroke="#DFD3C3" stroke-width="2"/>
-            <rect x="42" y="170" width="65" height="34" rx="12" fill="url(#chairGrad)" stroke="#DFD3C3" stroke-width="2"/>
-            <!-- Wooden Chair Legs -->
-            <line x1="52" y1="204" x2="48" y2="245" stroke="#8C6D58" stroke-width="4" stroke-linecap="round"/>
-            <line x1="98" y1="204" x2="104" y2="245" stroke="#8C6D58" stroke-width="4" stroke-linecap="round"/>
-          </g>
-
-          <!-- Student Body -->
-          <g filter="url(#shadow3D)">
-            <!-- Head -->
-            <circle cx="95" cy="120" r="14" fill="#3E2723"/>
-            <circle cx="97" cy="122" r="12" fill="#E0AC69"/>
-            <!-- Blue Student Shirt -->
-            <path d="M78 140 C78 132, 116 132, 116 140 L112 185 L80 185 Z" fill="url(#studentGrad)"/>
-            <!-- Student Arms holding Notes -->
-            <path d="M88 152 Q125 155, 145 160" stroke="#1D4ED8" stroke-width="8" stroke-linecap="round"/>
-            <!-- Notes Paper in Hand -->
-            <rect x="142" y="145" width="22" height="28" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" transform="rotate(8 142 145)"/>
-            <line x1="148" y1="152" x2="158" y2="153" stroke="#94A3B8" stroke-width="1.5"/>
-            <line x1="148" y1="158" x2="156" y2="159" stroke="#94A3B8" stroke-width="1.5"/>
-            <!-- Student Jeans / Legs -->
-            <path d="M84 185 L120 195 L145 220" stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="142" y="220" width="18" height="8" rx="4" fill="#0F172A"/>
-          </g>
-
-          <!-- Potted Flowers on Floor -->
-          <g transform="translate(198, 205)">
-            <path d="M6 35 L26 35 L22 15 L10 15 Z" fill="#60A5FA"/>
-            <!-- Green Stems & Colorful Flowers -->
-            <path d="M12 15 Q10 2, 8 0" stroke="#10B981" stroke-width="2.5"/>
-            <path d="M16 15 Q16 2, 16 0" stroke="#10B981" stroke-width="2.5"/>
-            <path d="M20 15 Q22 2, 24 0" stroke="#10B981" stroke-width="2.5"/>
-            <!-- Flower Heads -->
-            <circle cx="8" cy="0" r="4" fill="#EF4444"/>
-            <circle cx="16" cy="0" r="4" fill="#F59E0B"/>
-            <circle cx="24" cy="0" r="4" fill="#EC4899"/>
-          </g>
-
-          <!-- Floating 3D Badge 1: Pencil (Yellow) -->
-          <g class="float-item-1" transform="translate(20, 95)" filter="url(#shadow3D)">
-            <rect x="0" y="0" width="38" height="38" rx="12" fill="#FFFFFF"/>
-            <path d="M10 28 L14 28 L26 16 L22 12 L10 24 Z" fill="#F59E0B"/>
-            <polygon points="10,28 14,28 10,24" fill="#374151"/>
-          </g>
-
-          <!-- Floating 3D Badge 2: Bookmark (Red) -->
-          <g class="float-item-2" transform="translate(285, 80)" filter="url(#shadow3D)">
-            <rect x="0" y="0" width="36" height="36" rx="11" fill="#FFFFFF"/>
-            <path d="M12 8 H24 V28 L18 24 L12 28 Z" fill="#EF4444"/>
-          </g>
-
-          <!-- Floating 3D Badge 3: Folder (Green) -->
-          <g class="float-item-3" transform="translate(30, 205)" filter="url(#shadow3D)">
-            <rect x="0" y="0" width="36" height="36" rx="11" fill="#FFFFFF"/>
-            <path d="M10 14 H16 L18 16 H26 V26 H10 Z" fill="#10B981"/>
-          </g>
-        </svg>
-      </div>
-
-      <!-- Trust Badge Footer -->
-      <div class="auth-visual-footer">
-        <div class="trust-icon-shield">🛡️</div>
-        <div class="trust-text-wrap">
-          <strong>100% Verified Local Tutors</strong>
-          <span>Police background &amp; degree checks cleared. Anti-stress charter.</span>
+        <!-- Verified Parent Testimonial Quote -->
+        <div class="auth-quote-card">
+          <p>
+            "Aryan’s exam stress vanished once we brought Jaipur's top physics educator to our living room. Truly empowering."
+            <span>— Suman Joshi, Parent • Malviya Nagar, Jaipur</span>
+          </p>
         </div>
       </div>
 
-    </section>
+    </aside>
 
-    <!-- RIGHT PANEL: Authentication Form -->
-    <section class="auth-form-panel">
-      
-      <!-- Logo Branding -->
-      <a href="index.html" class="auth-brand-row">
-        <div class="logo-mark">
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
-          </svg>
-        </div>
-        <span class="logo-brand-text">HomeGuru</span>
-      </a>
-
-      <!-- Tab Switcher (Log In / Sign Up) -->
-      <div class="auth-tab-switcher">
-        <button id="tabLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">
-          Student Log In
-        </button>
-        <button id="tabSignup" class="auth-tab-btn" onclick="switchAuthTab('signup')">
-          New Student Sign Up
-        </button>
-      </div>
-
-      <!-- Header Titles -->
-      <div class="auth-form-header">
-        <h1 id="authTitle">Welcome back, Student!</h1>
-        <p id="authSubtitle">
-          New to HomeGuru? <a href="#" onclick="switchAuthTab('signup'); return false;">Sign Up for Free</a>
-        </p>
-      </div>
-
-      <!-- FORM -->
-      <form id="studentAuthForm" onsubmit="handleAuthSubmit(event)">
+    <!-- RIGHT PANEL: Calm, Minimalist & Spacious Form -->
+    <main class="auth-form-panel">
+      <div class="auth-form-content">
         
-        <!-- Field: Full Name (Visible only on Sign Up) -->
-        <div class="form-group" id="groupFullName" style="display:none;">
-          <label class="form-label">Student Full Name</label>
-          <div class="input-wrapper">
-            <input type="text" id="fieldName" class="input-field" placeholder="e.g. Aryan Sharma">
+        <!-- Brand Logo Row -->
+        <a href="index.html" class="auth-brand-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+              <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+            </svg>
           </div>
+          <span class="logo-brand-text">HomeGuru</span>
+        </a>
+
+        <!-- Minimalist Tab Switcher -->
+        <div class="auth-tabs">
+          <button id="tabLogin" class="auth-tab active" onclick="switchAuthTab('login')">
+            Student Sign In
+          </button>
+          <button id="tabSignup" class="auth-tab" onclick="switchAuthTab('signup')">
+            Create Free Account
+          </button>
         </div>
 
-        <!-- Field: Email or Phone -->
-        <div class="form-group">
-          <label class="form-label" id="labelIdentifier">Email or Student WhatsApp No.</label>
-          <div class="input-wrapper">
-            <input type="text" id="fieldIdentifier" class="input-field" placeholder="e.g. aryan.sharma@gmail.com" required value="aryan.sharma@gmail.com">
-          </div>
+        <!-- Title & Subtitle -->
+        <div class="auth-greeting-header">
+          <h1 id="authTitle">Welcome back, Student</h1>
+          <p id="authSubtitle">
+            New to HomeGuru? <a href="#" onclick="switchAuthTab('signup'); return false;">Sign Up for Free</a>
+          </p>
         </div>
 
-        <!-- Field: Grade & City (Visible only on Sign Up) -->
-        <div class="form-group" id="groupGradeCity" style="display:none;">
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-            <div>
-              <label class="form-label">Class / Stream</label>
-              <select id="fieldGrade" class="input-field">
-                <option value="Class 12 - CBSE + JEE">Class 12 (JEE/CBSE)</option>
-                <option value="Class 11 - Science">Class 11 (Science)</option>
-                <option value="Class 10 - Board">Class 10 (Board)</option>
-                <option value="Class 9 - Foundations">Class 9 (Foundations)</option>
-                <option value="NEET Medical Dropper">NEET Medical Dropper</option>
-              </select>
+        <!-- AUTH FORM -->
+        <form id="studentAuthForm" onsubmit="handleAuthSubmit(event)">
+          
+          <!-- Field: Full Name (Visible on Sign Up) -->
+          <div class="form-group" id="groupFullName" style="display:none;">
+            <label class="form-label">Student Full Name</label>
+            <div class="input-wrapper">
+              <input type="text" id="fieldName" class="input-field" placeholder="e.g. Aryan Sharma">
             </div>
-            <div>
-              <label class="form-label">City</label>
-              <select id="fieldCity" class="input-field">
-                <option value="Jaipur" selected>Jaipur</option>
-                <option value="Delhi NCR">Delhi NCR</option>
-                <option value="Kota">Kota (Homes)</option>
-                <option value="Pune">Pune</option>
-                <option value="Bengaluru">Bengaluru</option>
-              </select>
+          </div>
+
+          <!-- Field: Identifier -->
+          <div class="form-group">
+            <label class="form-label" id="labelIdentifier">Email or Student WhatsApp No.</label>
+            <div class="input-wrapper">
+              <input type="text" id="fieldIdentifier" class="input-field" placeholder="e.g. aryan.sharma@gmail.com" required value="aryan.sharma@gmail.com">
             </div>
           </div>
-        </div>
 
-        <!-- Field: Password -->
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <div class="input-wrapper">
-            <input type="password" id="fieldPassword" class="input-field" placeholder="Enter your secret password" required value="••••••••">
-            <button type="button" class="input-icon-btn" onclick="togglePasswordVisibility()" title="Show/Hide Password">
-              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-            </button>
+          <!-- Field: Grade & City (Visible on Sign Up) -->
+          <div class="form-group" id="groupGradeCity" style="display:none;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+              <div>
+                <label class="form-label">Class / Stream</label>
+                <select id="fieldGrade" class="input-field">
+                  <option value="Class 12 - CBSE + JEE">Class 12 (JEE/CBSE)</option>
+                  <option value="Class 11 - Science">Class 11 (Science)</option>
+                  <option value="Class 10 - Board">Class 10 (Board)</option>
+                  <option value="Class 9 - Foundations">Class 9 (Foundations)</option>
+                  <option value="NEET Medical Dropper">NEET Medical Dropper</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">City</label>
+                <select id="fieldCity" class="input-field">
+                  <option value="Jaipur" selected>Jaipur</option>
+                  <option value="Delhi NCR">Delhi NCR</option>
+                  <option value="Kota">Kota (Homes)</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Bengaluru">Bengaluru</option>
+                </select>
+              </div>
+            </div>
           </div>
+
+          <!-- Field: Password -->
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-wrapper">
+              <input type="password" id="fieldPassword" class="input-field" placeholder="Enter your password" required value="••••••••">
+              <button type="button" class="input-icon-btn" onclick="togglePasswordVisibility()" title="Show/Hide Password">
+                <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Extra Options -->
+          <div class="auth-extra-row">
+            <label class="auth-remember-label">
+              <input type="checkbox" id="rememberMe" checked>
+              <span>Remember this device</span>
+            </label>
+            <a href="#" onclick="alert('Password reset link sent to your registered WhatsApp.'); return false;" class="auth-forgot-link">
+              Forgot password?
+            </a>
+          </div>
+
+          <!-- Main CTA Submit Button -->
+          <button type="submit" class="auth-submit-btn" id="btnSubmit">
+            <span id="btnSubmitText">Sign In to Student Portal →</span>
+          </button>
+
+          <!-- 1-Click Demo Fill Pill -->
+          <button type="button" class="demo-login-pill" onclick="demoLoginAryan()">
+            ⚡ 1-Click Demo Login as Aryan Sharma (Class 12 CBSE)
+          </button>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>or continue with</span>
         </div>
 
-        <!-- Extra Row: Remember device & Forgot password -->
-        <div class="auth-extra-row">
-          <label class="auth-remember-label">
-            <input type="checkbox" id="rememberMe" checked>
-            <span>Remember this device</span>
-          </label>
-          <a href="#" onclick="alert('Password reset link sent to your WhatsApp & registered email.'); return false;" class="auth-forgot-link">
-            Forgot password?
-          </a>
+        <!-- Minimalist Social Auth (Google, Apple, Phone OTP) -->
+        <div class="social-btn-group">
+          <!-- Google -->
+          <button type="button" class="social-btn" onclick="socialLogin('Google')" title="Sign In with Google">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+          </button>
+
+          <!-- Apple -->
+          <button type="button" class="social-btn" onclick="socialLogin('Apple')" title="Sign In with Apple">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#123C32">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.87.94-2.97-.93.04-2.09.63-2.73 1.39-.56.65-1.06 1.76-.93 2.83 1.04.08 2.11-.53 2.72-1.25z"/>
+            </svg>
+          </button>
+
+          <!-- Mobile OTP -->
+          <button type="button" class="social-btn" onclick="socialLogin('WhatsApp OTP')" title="Instant WhatsApp OTP" style="gap:6px; font-size:0.8rem; font-weight:700; color:#123C32;">
+            <span>📱 OTP</span>
+          </button>
         </div>
 
-        <!-- Main Action Button -->
-        <button type="submit" class="auth-submit-btn" id="btnSubmit">
-          <span id="btnSubmitText">Log In to Student Portal →</span>
-        </button>
+        <!-- Wellbeing Guarantee -->
+        <p class="auth-legal-footer">
+          Protected by HomeGuru's <a href="wellbeing.html">Student Wellbeing Shield</a> and <a href="rankings.html">Anti-Burnout Charter</a>.
+        </p>
 
-        <!-- Instant 1-Click Demo Fill -->
-        <button type="button" class="demo-login-pill" onclick="demoLoginAryan()">
-          ⚡ Quick 1-Click Login as Aryan Sharma (Student)
-        </button>
-      </form>
-
-      <!-- Social Login Divider -->
-      <div class="auth-divider">
-        <span>Or connect with</span>
       </div>
+    </main>
 
-      <!-- Social Logins (Google, Apple, Phone OTP) -->
-      <div class="social-btn-group">
-        <!-- Google -->
-        <button type="button" class="social-btn" onclick="socialLogin('Google')" title="Continue with Google">
-          <svg width="20" height="20" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
-            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
-            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
-            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-          </svg>
-        </button>
-
-        <!-- Apple -->
-        <button type="button" class="social-btn" onclick="socialLogin('Apple')" title="Continue with Apple">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#000000">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.87.94-2.97-.93.04-2.09.63-2.73 1.39-.56.65-1.06 1.76-.93 2.83 1.04.08 2.11-.53 2.72-1.25z"/>
-          </svg>
-        </button>
-
-        <!-- Mobile OTP -->
-        <button type="button" class="social-btn" onclick="socialLogin('WhatsApp OTP')" title="Instant WhatsApp OTP" style="gap:6px; font-size:0.78rem; font-weight:700; color:var(--green-primary);">
-          <span>📱 OTP</span>
-        </button>
-      </div>
-
-      <!-- Legal footer -->
-      <p class="auth-legal-footer">
-        By continuing, you agree to HomeGuru's <a href="wellbeing.html">Student Wellbeing Charter</a> and <a href="rankings.html">Anti-Burnout Policy</a>.
-      </p>
-
-    </section>
-
-  </main>
+  </div>
 
   <script src="shared-data.js"></script>
   <script>
@@ -826,7 +756,7 @@
         groupFullName.style.display = 'block';
         groupGradeCity.style.display = 'block';
         authTitle.innerText = 'Join HomeGuru as Student';
-        authSubtitle.innerHTML = 'Already have an account? <a href="#" onclick="switchAuthTab(\'login\'); return false;">Log In</a>';
+        authSubtitle.innerHTML = 'Already have an account? <a href="#" onclick="switchAuthTab(\'login\'); return false;">Sign In</a>';
         btnSubmitText.innerText = 'Create Free Student Account →';
         document.getElementById('fieldIdentifier').placeholder = 'Parent or Student WhatsApp Number';
       } else {
@@ -834,9 +764,9 @@
         tabSignup.classList.remove('active');
         groupFullName.style.display = 'none';
         groupGradeCity.style.display = 'none';
-        authTitle.innerText = 'Welcome back, Student!';
+        authTitle.innerText = 'Welcome back, Student';
         authSubtitle.innerHTML = 'New to HomeGuru? <a href="#" onclick="switchAuthTab(\'signup\'); return false;">Sign Up for Free</a>';
-        btnSubmitText.innerText = 'Log In to Student Portal →';
+        btnSubmitText.innerText = 'Sign In to Student Portal →';
         document.getElementById('fieldIdentifier').placeholder = 'e.g. aryan.sharma@gmail.com';
       }
     }
@@ -865,8 +795,8 @@
       document.getElementById('fieldPassword').value = 'HomeGuru2026';
       
       const btn = document.getElementById('btnSubmit');
-      btn.style.transform = 'scale(0.97)';
-      btn.innerHTML = '<span>Logging into Aryan Sharma\'s Desk...</span>';
+      btn.style.transform = 'scale(0.98)';
+      btn.innerHTML = '<span>Entering Student Sanctuary...</span>';
       
       setTimeout(() => {
         localStorage.setItem('homeguru_current_user', JSON.stringify({
@@ -877,12 +807,11 @@
           avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'
         }));
         window.location.href = 'profile.html';
-      }, 600);
+      }, 500);
     }
 
     function handleAuthSubmit(e) {
       e.preventDefault();
-      const identifier = document.getElementById('fieldIdentifier').value;
       const btn = document.getElementById('btnSubmit');
       btn.innerHTML = '<span>Verifying Credentials...</span>';
 
@@ -895,16 +824,15 @@
           city: 'Jaipur'
         }));
         
-        alert('🎉 Welcome, ' + studentName + '! Successfully signed into HomeGuru Student Sanctuary.');
         window.location.href = 'profile.html';
-      }, 700);
+      }, 600);
     }
 
     function socialLogin(provider) {
       alert('Connecting securely to ' + provider + ' for HomeGuru Student Verification...');
       setTimeout(() => {
         demoLoginAryan();
-      }, 500);
+      }, 400);
     }
 
     // Check URL parameters for tab
