@@ -246,16 +246,6 @@ body {
   background: #E2B245;
   transform: translateY(-1px);
 }
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 180ms ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.promo-btn:hover {
-  background: #3B404C;
-  transform: translateY(-1px);
-}
 
 /* ==========================================================================
    2. MAIN WORKSPACE AREA & HEADER
@@ -377,6 +367,36 @@ body {
   border: 2px solid #FFFFFF;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.user-avatar-pill:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(18, 60, 50, 0.2);
+}
+
+.header-auth-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  background: rgba(18, 60, 50, 0.06);
+  color: var(--green-primary);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+
+.header-auth-btn:hover {
+  background: var(--green-primary);
+  color: #FFFFFF;
+  border-color: var(--green-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.18);
 }
 
 /* ==========================================================================
