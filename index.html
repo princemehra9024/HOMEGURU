@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NearTutor Dashboard | Verified Local Home Tutors</title>
+  <title>HomeGuru Dashboard | Verified Local Home Tutors</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
   <div class="app-layout">
     
-    <!-- 1. LEFT SIDEBAR (Matching reference image 2) -->
+    <!-- 1. LEFT SIDEBAR (Matching reference image with HomeGuru Forest Green & Gold) -->
     <aside class="app-sidebar">
       
-      <!-- Geometric Logo: ■ ● ▶ -->
-      <a href="index.html" class="sidebar-logo">
-        <div class="logo-symbols">
-          <div class="sym-square"></div>
-          <div class="sym-circle"></div>
-          <div class="sym-triangle"></div>
+      <!-- Original HomeGuru House + Graduation Cap Logo -->
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
         </div>
-        <span class="logo-brand-text">NearTutor</span>
+        <span class="logo-brand-text">HomeGuru</span>
       </a>
 
       <!-- Menu Navigation -->
@@ -45,13 +48,21 @@
           <span>Find Tutors</span>
         </a>
 
-        <!-- Tutor Profile Opening Page -->
+        <!-- City Rankings -->
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Student Profile (Shows student details & + boxes to hire teachers) -->
         <a href="profile.html" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
-          <span>Tutor Profile</span>
+          <span>Student Profile</span>
         </a>
 
         <!-- Wellbeing Shield -->
@@ -62,16 +73,8 @@
           <span>Wellbeing Shield</span>
         </a>
 
-        <!-- City Rankings -->
-        <a href="search.html#rankings" class="nav-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-          <span>City Rankings</span>
-        </a>
-
         <!-- Settings -->
-        <a href="#settings" onclick="alert('Settings modal open!')" class="nav-item">
+        <a href="#settings" onclick="alert('Student Settings')" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <circle cx="12" cy="12" r="3"></circle>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -80,12 +83,17 @@
         </a>
       </nav>
 
-      <!-- Bottom Dark Promo Card (Exact styling from image 1) -->
+      <!-- Bottom Promo Card in HomeGuru Theme -->
       <div class="sidebar-promo-card">
-        <div class="promo-illustration">🚀</div>
-        <h4 class="promo-title">Zero Hostel Isolation!</h4>
-        <p class="promo-sub">Study at home with family love and verified 1-on-1 tutors.</p>
-        <a href="search.html" class="promo-btn">Book Free Demo</a>
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <h4 class="promo-title">Living With Family</h4>
+        <p class="promo-sub">Zero isolation anxiety. Study at your own desk in your city.</p>
+        <a href="search.html" class="promo-btn">Hire Local Tutor →</a>
       </div>
 
     </aside>
@@ -116,7 +124,7 @@
           </div>
 
           <!-- Notification Pill -->
-          <button class="icon-pill-btn" aria-label="Notifications" onclick="alert('Notification: Dr. Rajeshwar Sharma confirmed demo class for tomorrow at 5:00 PM.')">
+          <button class="icon-pill-btn" aria-label="Notifications" onclick="alert('Notification: Dr. Rajeshwar Sharma confirmed demo class for tomorrow at 5:30 PM.')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
               <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -124,17 +132,19 @@
             <span class="badge-dot"></span>
           </button>
 
-          <!-- User Avatar Pill -->
-          <img 
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" 
-            alt="Student Avatar" 
-            class="user-avatar-pill" 
-            title="Aryan Sharma (Class 12 - Jaipur)"
-          >
+          <!-- User Avatar Pill linking to Student Profile -->
+          <a href="profile.html">
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" 
+              alt="Student Avatar" 
+              class="user-avatar-pill" 
+              title="Click to view Student Profile (Aryan Sharma)"
+            >
+          </a>
         </div>
       </header>
 
-      <!-- 3. BENTO GRID CONTAINER (Matching Image 1) -->
+      <!-- 3. BENTO GRID CONTAINER -->
       <div class="bento-grid">
         
         <!-- Left & Center Column -->
@@ -143,10 +153,10 @@
           <!-- Bento Hero Banner Card -->
           <section class="bento-hero-banner">
             <div class="hero-banner-content">
-              <span class="hero-banner-tag">★ Verified Local Mentorship</span>
+              <span class="hero-banner-tag">★ HomeGuru Verified Mentorship</span>
               <h2 class="hero-banner-title">Top home tutors in your own city.</h2>
               <p class="hero-banner-sub">
-                Students don’t have to leave home for Kota. Compare city rankings, watch demo lectures, and study peacefully.
+                Students don’t have to leave home for Kota. Compare city rankings, watch demo lectures, and study peacefully with family.
               </p>
               <a href="search.html" class="hero-banner-cta">
                 <span>Explore City Tutors</span>
@@ -154,7 +164,7 @@
               </a>
             </div>
 
-            <!-- 3D Graphic / Avatar Cluster -->
+            <!-- Graphic / Avatar -->
             <div class="hero-banner-graphic">
               <img 
                 src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" 
@@ -171,7 +181,7 @@
             <div class="dashboard-card">
               <div class="card-header-row">
                 <h3 class="card-header-title">Top Tutors In Jaipur</h3>
-                <a href="search.html?city=jaipur" class="card-header-link">View All →</a>
+                <a href="rankings.html" class="card-header-link">City Rankings →</a>
               </div>
 
               <div class="activity-list">
@@ -180,7 +190,7 @@
                   <div class="activity-info">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Dr. Rajeshwar">
                     <div>
-                      <h4 class="activity-name"><a href="profile.html?id=tutor-1" style="text-decoration:none; color:inherit;">Dr. Rajeshwar Sharma</a></h4>
+                      <h4 class="activity-name"><a href="search.html" style="text-decoration:none; color:inherit;">Dr. Rajeshwar Sharma</a></h4>
                       <p class="activity-meta">#1 Physics • Malviya Nagar</p>
                     </div>
                   </div>
@@ -192,37 +202,9 @@
                 <!-- Activity 2 -->
                 <div class="activity-item">
                   <div class="activity-info">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Er. Ananya">
-                    <div>
-                      <h4 class="activity-name"><a href="profile.html?id=tutor-2" style="text-decoration:none; color:inherit;">Er. Ananya Sengupta</a></h4>
-                      <p class="activity-meta">#1 Maths • South Ex</p>
-                    </div>
-                  </div>
-                  <div class="circular-progress-pill" title="97% City Ranking Score">
-                    97%
-                  </div>
-                </div>
-
-                <!-- Activity 3 -->
-                <div class="activity-item">
-                  <div class="activity-info">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Prof Vikas">
-                    <div>
-                      <h4 class="activity-name"><a href="profile.html?id=tutor-3" style="text-decoration:none; color:inherit;">Prof. Vikas Deshmukh</a></h4>
-                      <p class="activity-meta">#1 Chemistry • Kothrud</p>
-                    </div>
-                  </div>
-                  <div class="circular-progress-pill" title="96% City Ranking Score">
-                    96%
-                  </div>
-                </div>
-
-                <!-- Activity 4 -->
-                <div class="activity-item">
-                  <div class="activity-info">
                     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Pooja Rathore">
                     <div>
-                      <h4 class="activity-name"><a href="profile.html?id=tutor-4" style="text-decoration:none; color:inherit;">Pooja Rathore, M.Sc</a></h4>
+                      <h4 class="activity-name"><a href="search.html" style="text-decoration:none; color:inherit;">Pooja Rathore, M.Sc</a></h4>
                       <p class="activity-meta">#2 Biology • Raja Park</p>
                     </div>
                   </div>
@@ -230,10 +212,38 @@
                     95%
                   </div>
                 </div>
+
+                <!-- Activity 3 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Er. Ananya">
+                    <div>
+                      <h4 class="activity-name"><a href="search.html?city=delhi" style="text-decoration:none; color:inherit;">Er. Ananya Sengupta</a></h4>
+                      <p class="activity-meta">#1 Maths • Delhi NCR</p>
+                    </div>
+                  </div>
+                  <div class="circular-progress-pill" title="97% City Ranking Score">
+                    97%
+                  </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Prof Vikas">
+                    <div>
+                      <h4 class="activity-name"><a href="search.html?city=pune" style="text-decoration:none; color:inherit;">Prof. Vikas Deshmukh</a></h4>
+                      <p class="activity-meta">#1 Chemistry • Pune</p>
+                    </div>
+                  </div>
+                  <div class="circular-progress-pill" title="96% City Ranking Score">
+                    96%
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Card 2: Dark Sleek Pass Cards (Matching reference card styling) -->
+            <!-- Card 2: Dark Sleek Pass Cards (In Forest Green) -->
             <div class="dark-pass-stack">
               <!-- Pass Card 1 -->
               <div class="dark-pass-card">
@@ -246,28 +256,25 @@
                 </div>
                 <div class="pass-card-number">5894 •••• •••• 5624</div>
                 <div class="pass-card-bottom">
-                  <span style="font-size:0.75rem; color:#A0ABB9;">Valid: Class 12 Boards + JEE</span>
-                  <div class="pass-card-mastercard">
-                    <div class="mc-c1"></div>
-                    <div class="mc-c2"></div>
-                  </div>
+                  <span style="font-size:0.75rem; color:var(--gold-light);">Student: Aryan Sharma</span>
+                  <a href="profile.html" style="font-size:0.75rem; color:#FFF; font-weight:700; text-decoration:none;">View Profile →</a>
                 </div>
               </div>
 
-              <!-- Pass Card 2 (Quick Lesson Summary) -->
-              <div class="dark-pass-card" style="background: linear-gradient(135deg, #1C222D 0%, #10141B 100%);">
+              <!-- Pass Card 2: Hired Teacher & Next Lesson -->
+              <div class="dark-pass-card" style="background: linear-gradient(135deg, #1A4237 0%, #0E2821 100%);">
                 <div class="pass-card-top">
                   <div>
-                    <span class="pass-card-label">Next Scheduled Lesson</span>
+                    <span class="pass-card-label">Next Home Session</span>
                     <div class="pass-card-balance" style="font-size:1.15rem; margin-top:4px;">Tomorrow, 5:30 PM</div>
                   </div>
-                  <span class="pass-card-badge" style="background: rgba(59,130,246,0.2); color:#60A5FA;">Home Visit</span>
+                  <span class="pass-card-badge" style="background: rgba(212,164,55,0.2); color:var(--gold);">Dr. Rajeshwar</span>
                 </div>
-                <p style="font-size:0.78rem; color:#A0ABB9; margin-top:8px;">
-                  Dr. Rajeshwar Sharma • Ray Optics Numerical Practice
+                <p style="font-size:0.78rem; color:rgba(247,243,234,0.8); margin-top:8px;">
+                  Physics • Wave Optics Numerical Concept Session
                 </p>
                 <div class="pass-card-bottom">
-                  <a href="profile.html?id=tutor-1" style="color:#38BDF8; font-size:0.75rem; text-decoration:none; font-weight:700;">View Lesson Plan →</a>
+                  <a href="profile.html" style="color:var(--gold); font-size:0.75rem; text-decoration:none; font-weight:700;">Visit Teacher Profile →</a>
                   <span style="font-size:0.75rem; color:#6EE7B7;">100% Attendance</span>
                 </div>
               </div>
@@ -293,24 +300,21 @@
 
             <!-- Wave Line SVG Graphic with Tooltip Pill -->
             <div class="chart-container">
-              <div class="chart-tooltip-badge">Score: 94%</div>
+              <div class="chart-tooltip-badge">Stress: Low (94%)</div>
               <svg class="chart-svg" viewBox="0 0 300 120" fill="none">
-                <!-- Background subtle area fill -->
-                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20 L 300 120 L 0 120 Z" fill="url(#chartGrad)" opacity="0.12"></path>
-                <!-- Spline line -->
-                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20" stroke="#191B1F" stroke-width="2.8" stroke-linecap="round"></path>
-                <!-- Highlighted data point matching reference image -->
-                <circle cx="240" cy="85" r="4.5" fill="#FFFFFF" stroke="#191B1F" stroke-width="2.8"></circle>
-                <circle cx="300" cy="20" r="4.5" fill="#10B981" stroke="#FFFFFF" stroke-width="2"></circle>
+                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20 L 300 120 L 0 120 Z" fill="url(#chartGrad)" opacity="0.15"></path>
+                <path d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20" stroke="var(--green-primary)" stroke-width="2.8" stroke-linecap="round"></path>
+                <circle cx="240" cy="85" r="4.5" fill="#FFFFFF" stroke="var(--green-primary)" stroke-width="2.8"></circle>
+                <circle cx="300" cy="20" r="4.5" fill="var(--gold)" stroke="#FFFFFF" stroke-width="2"></circle>
                 <defs>
                   <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#191B1F"></stop>
+                    <stop offset="0%" stop-color="var(--green-primary)"></stop>
                     <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"></stop>
                   </linearGradient>
                 </defs>
               </svg>
 
-              <!-- Month / Week Labels -->
+              <!-- Month Labels -->
               <div class="chart-months-row">
                 <span>Dec</span>
                 <span>Jan</span>
@@ -332,14 +336,12 @@
             <!-- Donut SVG Ring -->
             <div class="donut-graphic-wrap">
               <svg class="donut-circle-svg" viewBox="0 0 100 100">
-                <!-- Track -->
                 <circle cx="50" cy="50" r="38" stroke="#E2E8F0" stroke-width="9" fill="none"></circle>
-                <!-- Progress Arc (85%) -->
                 <circle 
                   cx="50" 
                   cy="50" 
                   r="38" 
-                  stroke="#191B1F" 
+                  stroke="var(--green-primary)" 
                   stroke-width="9" 
                   stroke-dasharray="238" 
                   stroke-dashoffset="36" 
@@ -347,12 +349,11 @@
                   fill="none" 
                   transform="rotate(-90 50 50)"
                 ></circle>
-                <!-- Secondary Accent Arc -->
                 <circle 
                   cx="50" 
                   cy="50" 
                   r="38" 
-                  stroke="#3B82F6" 
+                  stroke="var(--gold)" 
                   stroke-width="9" 
                   stroke-dasharray="238" 
                   stroke-dashoffset="200" 
@@ -364,20 +365,19 @@
               </svg>
             </div>
 
-            <!-- Breakdown Rows -->
             <div class="breakdown-list">
               <div class="breakdown-row">
                 <span class="breakdown-label">
-                  <span class="breakdown-dot" style="background:#191B1F;"></span>
-                  Parent Peace of Mind
+                  <span class="breakdown-dot" style="background:var(--green-primary);"></span>
+                  Family Peace of Mind
                 </span>
                 <span class="breakdown-val">98%</span>
               </div>
 
               <div class="breakdown-row">
                 <span class="breakdown-label">
-                  <span class="breakdown-dot" style="background:#3B82F6;"></span>
-                  Stress-Free Learning
+                  <span class="breakdown-dot" style="background:var(--gold);"></span>
+                  Stress-Free Atmosphere
                 </span>
                 <span class="breakdown-val">88%</span>
               </div>
@@ -385,7 +385,7 @@
               <div class="breakdown-row">
                 <span class="breakdown-label">
                   <span class="breakdown-dot" style="background:#10B981;"></span>
-                  Marks Improvement
+                  Board / JEE Score Gains
                 </span>
                 <span class="breakdown-val">+24%</span>
               </div>

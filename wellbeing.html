@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Wellbeing Shield | NearTutor</title>
+  <title>Student Wellbeing Shield | HomeGuru</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
@@ -12,13 +12,16 @@
     
     <!-- 1. LEFT SIDEBAR -->
     <aside class="app-sidebar">
-      <a href="index.html" class="sidebar-logo">
-        <div class="logo-symbols">
-          <div class="sym-square"></div>
-          <div class="sym-circle"></div>
-          <div class="sym-triangle"></div>
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
         </div>
-        <span class="logo-brand-text">NearTutor</span>
+        <span class="logo-brand-text">HomeGuru</span>
       </a>
 
       <nav class="sidebar-nav">
@@ -40,12 +43,21 @@
           <span>Find Tutors</span>
         </a>
 
+        <!-- City Rankings -->
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Student Profile -->
         <a href="profile.html" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
-          <span>Tutor Profile</span>
+          <span>Student Profile</span>
         </a>
 
         <!-- Active Wellbeing Shield Pill -->
@@ -54,13 +66,6 @@
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
           <span>Wellbeing Shield</span>
-        </a>
-
-        <a href="search.html#rankings" class="nav-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-          <span>City Rankings</span>
         </a>
 
         <a href="#settings" onclick="alert('Settings')" class="nav-item">
@@ -73,10 +78,14 @@
       </nav>
 
       <div class="sidebar-promo-card">
-        <div class="promo-illustration">💙</div>
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
         <h4 class="promo-title">24x7 Helpline</h4>
-        <p class="promo-sub">Govt Tele-MANAS: 14416 • Always free, always listening.</p>
-        <a href="tel:14416" class="promo-btn">Call Helpline</a>
+        <p class="promo-sub">Govt Tele-MANAS: 14416 • Free confidential mental support.</p>
+        <a href="tel:14416" class="promo-btn">Call Helpline 14416 →</a>
       </div>
     </aside>
 
@@ -86,7 +95,7 @@
       <header class="app-header">
         <div class="header-greeting">
           <h1>Student Wellbeing Shield 🛡️</h1>
-          <p>Preventing youth depression, exam isolation, and academic burnout before it begins.</p>
+          <p>Preventing youth depression, exam anxiety, and academic isolation before it begins.</p>
         </div>
 
         <div class="header-actions">
@@ -105,7 +114,9 @@
             </svg>
           </button>
 
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="User">
+          <a href="profile.html">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="User" title="View Student Profile">
+          </a>
         </div>
       </header>
 
@@ -119,7 +130,7 @@
           <div class="dashboard-card">
             <div class="card-header-row">
               <div>
-                <span style="font-size:0.72rem; font-weight:800; color:#3B82F6; text-transform:uppercase;">
+                <span style="font-size:0.72rem; font-weight:800; color:var(--gold-hover); text-transform:uppercase;">
                   30-Second Check-in
                 </span>
                 <h3 class="card-header-title">How Are You Feeling This Week?</h3>
@@ -129,10 +140,10 @@
 
             <!-- Mood Slider -->
             <div style="margin-bottom:20px;">
-              <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; color:#495160; margin-bottom:8px;">
+              <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; color:var(--text-body); margin-bottom:8px;">
                 <span>Exhausted / Anxious</span>
-                <span id="moodLabelText" style="color:#191B1F; font-weight:800;">Doing Okay</span>
-                <span>Calm & Confident</span>
+                <span id="moodLabelText" style="color:var(--green-primary); font-weight:800;">Doing Good &amp; Balanced</span>
+                <span>Calm &amp; Confident</span>
               </div>
               <input 
                 type="range" 
@@ -141,10 +152,10 @@
                 max="5" 
                 value="4" 
                 step="1" 
-                style="width:100%; accent-color:#191B1F; cursor:pointer;"
+                style="width:100%; accent-color:var(--green-primary); cursor:pointer;"
                 oninput="updateMoodState(this.value)"
               >
-              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#828E9E; margin-top:4px;">
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-top:4px;">
                 <span>😢 1</span>
                 <span>😟 2</span>
                 <span>😐 3</span>
@@ -156,7 +167,7 @@
             <!-- Context Questions -->
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
               <div>
-                <label style="font-size:0.78rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Sleep in last 24h:</label>
+                <label style="font-size:0.78rem; font-weight:700; color:var(--text-body); display:block; margin-bottom:4px;">Sleep in last 24h:</label>
                 <select id="sleepInput" class="filter-select">
                   <option>Under 5 Hours (Sleep Debt)</option>
                   <option selected>7 to 8 Hours (Healthy)</option>
@@ -165,7 +176,7 @@
               </div>
 
               <div>
-                <label style="font-size:0.78rem; font-weight:700; color:#495160; display:block; margin-bottom:4px;">Biggest Worry:</label>
+                <label style="font-size:0.78rem; font-weight:700; color:var(--text-body); display:block; margin-bottom:4px;">Biggest Worry:</label>
                 <select id="worryInput" class="filter-select">
                   <option selected>Syllabus load before exam</option>
                   <option>Fear of disappointing parents</option>
@@ -175,7 +186,7 @@
               </div>
             </div>
 
-            <button onclick="submitMoodCheck()" style="width:100%; padding:14px; border-radius:12px; background:#191B1F; color:#FFF; font-weight:800; font-size:0.88rem; border:none; cursor:pointer;">
+            <button onclick="submitMoodCheck()" style="width:100%; padding:14px; border-radius:12px; background:var(--green-primary); color:#FFF; font-weight:800; font-size:0.88rem; border:none; cursor:pointer;">
               Submit Weekly Wellbeing Check →
             </button>
 
@@ -186,30 +197,30 @@
           <!-- Pomodoro Study & Break Timer Card -->
           <div class="dashboard-card">
             <div class="card-header-row">
-              <h3 class="card-header-title">Smart Study & Stretch Timer</h3>
-              <span id="timerBadge" style="background:#EBF1FB; color:#3B82F6; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:6px;">
+              <h3 class="card-header-title">Anti-Burnout Study &amp; Stretch Timer</h3>
+              <span id="timerBadge" style="background:var(--gold-soft); color:var(--gold-hover); font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:6px;">
                 25m Focus Block
               </span>
             </div>
 
-            <p style="font-size:0.8rem; color:#828E9E; margin-bottom:14px;">
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:14px;">
               Study in healthy 25-minute sprints. Take 5-minute family breaks to keep cortisol levels low.
             </p>
 
-            <div style="background:#F8FAFD; border-radius:16px; padding:24px; text-align:center; margin-bottom:16px;">
-              <div id="timerDisplay" style="font-size:3.5rem; font-weight:800; color:#121417; font-family:monospace; letter-spacing:0.04em;">
+            <div style="background:#F6F8F7; border-radius:16px; padding:24px; text-align:center; margin-bottom:16px;">
+              <div id="timerDisplay" style="font-size:3.5rem; font-weight:800; color:var(--green-primary); font-family:monospace; letter-spacing:0.04em;">
                 25:00
               </div>
-              <p id="timerMessage" style="font-size:0.8rem; color:#828E9E; margin-top:4px;">
+              <p id="timerMessage" style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">
                 Focus on 1 chapter without phone notifications.
               </p>
             </div>
 
             <div style="display:flex; gap:10px;">
-              <button id="toggleTimerBtn" onclick="toggleTimer()" style="flex:1; padding:12px; border-radius:10px; background:#191B1F; color:#FFF; font-weight:700; font-size:0.85rem; border:none; cursor:pointer;">
+              <button id="toggleTimerBtn" onclick="toggleTimer()" style="flex:1; padding:12px; border-radius:10px; background:var(--green-primary); color:#FFF; font-weight:700; font-size:0.85rem; border:none; cursor:pointer;">
                 ▶ Start 25m Focus
               </button>
-              <button onclick="resetTimer()" style="padding:12px 20px; border-radius:10px; background:#F0F3F8; color:#121417; font-weight:700; font-size:0.85rem; border:none; cursor:pointer;">
+              <button onclick="resetTimer()" style="padding:12px 20px; border-radius:10px; background:#F0F3F8; color:var(--text-dark); font-weight:700; font-size:0.85rem; border:none; cursor:pointer;">
                 Reset
               </button>
             </div>
@@ -228,19 +239,19 @@
             </div>
 
             <div style="display:flex; gap:14px; align-items:center; margin-bottom:14px;">
-              <img src="https://images.unsplash.com/photo-1594824813590-482a61361c77?auto=format&fit=crop&w=150&q=80" style="width:52px; height:52px; border-radius:14px; object-fit:cover;" alt="Counselor">
+              <img src="https://images.unsplash.com/photo-1594824813590-482a61361c77?auto=format&fit=crop&w=150&q=80" style="width:52px; height:52px; border-radius:14px; object-fit:cover; border:2px solid var(--gold);" alt="Counselor">
               <div>
-                <h4 style="font-size:0.95rem; font-weight:800; color:#121417;">Dr. Priya Saxena, M.Phil</h4>
-                <p style="font-size:0.75rem; color:#828E9E;">Child & Adolescent Psychologist</p>
-                <span style="font-size:0.7rem; color:#3B82F6; font-weight:700;">Specialist in Board & JEE Anxiety</span>
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--green-primary);">Dr. Priya Saxena, M.Phil</h4>
+                <p style="font-size:0.75rem; color:var(--text-muted);">Child &amp; Adolescent Psychologist</p>
+                <span style="font-size:0.7rem; color:var(--gold-hover); font-weight:800;">Specialist in Board &amp; JEE Anxiety</span>
               </div>
             </div>
 
-            <p style="font-size:0.8rem; color:#495160; line-height:1.45; margin-bottom:16px;">
+            <p style="font-size:0.8rem; color:var(--text-body); line-height:1.45; margin-bottom:16px;">
               Confidential, private video sessions to dissolve fear of exams and academic burnout.
             </p>
 
-            <button onclick="bookCounselorSession()" style="width:100%; padding:12px; border-radius:10px; background:#3B82F6; color:#FFF; font-weight:700; font-size:0.85rem; border:none; cursor:pointer; box-shadow:0 4px 14px rgba(59,130,246,0.3);">
+            <button onclick="bookCounselorSession()" style="width:100%; padding:12px; border-radius:10px; background:var(--green-primary); color:#FFF; font-weight:800; font-size:0.85rem; border:none; cursor:pointer; box-shadow:0 4px 14px rgba(18,60,50,0.25);">
               Book Free 45-Min Call →
             </button>
           </div>
@@ -272,7 +283,6 @@
 
   <script src="shared-data.js"></script>
   <script>
-    // Mood State
     const moodMeta = [
       { emoji: "😢", label: "Severe Anxiety / Depressed", isHighRisk: true },
       { emoji: "😟", label: "Overwhelmed & Lonely", isHighRisk: true },
@@ -302,7 +312,7 @@
         out.style.border = '1px solid #FCA5A5';
         out.style.color = '#991B1B';
         out.innerHTML = `
-          <strong>🚨 NearTutor Safeguard Triggered:</strong> You are not alone! We detected high stress regarding "${worry}". We have notified your verified home tutor to reduce pressure and reserved a priority counseling slot for you.
+          <strong>🚨 HomeGuru Safeguard Triggered:</strong> You are not alone! We detected high stress regarding "${worry}". We have notified your verified home tutor to reduce pressure and reserved a priority counseling slot for you.
           <div style="margin-top:10px;">
             <a href="tel:14416" style="display:inline-block; padding:6px 12px; background:#DC2626; color:#FFF; font-weight:700; border-radius:6px; text-decoration:none; font-size:0.75rem;">Call Govt Tele-MANAS: 14416</a>
           </div>
@@ -317,7 +327,6 @@
       }
     }
 
-    // Timer Logic
     let timerSeconds = 25 * 60;
     let timerRunning = false;
     let timerInterval = null;
@@ -367,4 +376,3 @@
   </script>
 </body>
 </html>
-

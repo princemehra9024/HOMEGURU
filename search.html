@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Verified Home Tutors | NearTutor Search</title>
+  <title>Find Verified Home Tutors | HomeGuru Search</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
@@ -12,13 +12,16 @@
     
     <!-- 1. LEFT SIDEBAR -->
     <aside class="app-sidebar">
-      <a href="index.html" class="sidebar-logo">
-        <div class="logo-symbols">
-          <div class="sym-square"></div>
-          <div class="sym-circle"></div>
-          <div class="sym-triangle"></div>
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
         </div>
-        <span class="logo-brand-text">NearTutor</span>
+        <span class="logo-brand-text">HomeGuru</span>
       </a>
 
       <nav class="sidebar-nav">
@@ -41,12 +44,21 @@
           <span>Find Tutors</span>
         </a>
 
+        <!-- City Rankings -->
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Student Profile -->
         <a href="profile.html" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
-          <span>Tutor Profile</span>
+          <span>Student Profile</span>
         </a>
 
         <a href="wellbeing.html" class="nav-item">
@@ -54,13 +66,6 @@
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
           <span>Wellbeing Shield</span>
-        </a>
-
-        <a href="search.html#rankings" class="nav-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-          <span>City Rankings</span>
         </a>
 
         <a href="#settings" onclick="alert('Settings')" class="nav-item">
@@ -73,10 +78,14 @@
       </nav>
 
       <div class="sidebar-promo-card">
-        <div class="promo-illustration">🛡️</div>
-        <h4 class="promo-title">Need Counseling?</h4>
-        <p class="promo-sub">Free 1-on-1 adolescent psychologist calls for student anxiety.</p>
-        <a href="wellbeing.html" class="promo-btn">Open Shield</a>
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h4 class="promo-title">Wellbeing Support</h4>
+        <p class="promo-sub">Free 1-on-1 counselor calls for exam and study stress.</p>
+        <a href="wellbeing.html" class="promo-btn">Open Shield →</a>
       </div>
     </aside>
 
@@ -87,7 +96,7 @@
       <header class="app-header">
         <div class="header-greeting">
           <h1>Find Home Tutors</h1>
-          <p>Verified, background-checked educators ranked by mathematical student & parent scores.</p>
+          <p>Verified, background-checked educators ranked by mathematical student &amp; parent scores.</p>
         </div>
 
         <div class="header-actions">
@@ -99,14 +108,16 @@
             <input type="text" id="searchInput" class="search-pill-input" placeholder="Search by name, subject, area..." oninput="renderFilteredTutors()">
           </div>
 
-          <button class="icon-pill-btn" onclick="alert('No new notifications')">
+          <button class="icon-pill-btn" onclick="alert('Notification')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
               <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
             </svg>
           </button>
 
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="User">
+          <a href="profile.html">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="Student Profile" title="View Student Profile">
+          </a>
         </div>
       </header>
 
@@ -135,7 +146,7 @@
               <option value="Mathematics">Mathematics</option>
               <option value="Chemistry">Chemistry</option>
               <option value="Biology">Biology / NEET</option>
-              <option value="Coding">Coding & AI</option>
+              <option value="Coding">Coding &amp; AI</option>
             </select>
           </div>
 
@@ -143,7 +154,7 @@
             <h4 class="filter-title">Max Hourly Fee</h4>
             <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; margin-bottom:6px;">
               <span>₹400</span>
-              <span id="budgetValue" style="color:#10B981;">₹1,000/hr</span>
+              <span id="budgetValue" style="color:var(--gold-hover); font-weight:800;">₹1,000/hr</span>
             </div>
             <input 
               type="range" 
@@ -152,7 +163,7 @@
               max="1200" 
               step="50" 
               value="1000" 
-              style="width:100%; accent-color:#191B1F; cursor:pointer;"
+              style="width:100%; accent-color:var(--green-primary); cursor:pointer;"
               oninput="document.getElementById('budgetValue').innerText = '₹' + this.value + '/hr'; renderFilteredTutors();"
             >
           </div>
@@ -161,7 +172,7 @@
             <h4 class="filter-title">Verification Badges</h4>
             <label class="filter-checkbox-label">
               <input type="checkbox" id="verifiedOnlyCheck" onchange="renderFilteredTutors()">
-              <span>✓ 100% ID & Degree Verified</span>
+              <span>✓ 100% ID &amp; Degree Verified</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" id="wellbeingCheck" onchange="renderFilteredTutors()">
@@ -171,7 +182,7 @@
 
           <button 
             onclick="resetFilters()" 
-            style="width:100%; padding:9px; border-radius:10px; border:1px solid #E2E8F0; background:#FAFAFC; font-size:0.8rem; font-weight:700; cursor:pointer;"
+            style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(18,60,50,0.1); background:#FAFAF8; font-size:0.8rem; font-weight:700; cursor:pointer;"
           >
             Reset All Filters
           </button>
@@ -181,12 +192,12 @@
         <section>
           <!-- Results Header & Counter -->
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
-            <div style="font-size:0.9rem; font-weight:700; color:#495160;">
-              Showing <span id="resultsCount" style="color:#121417; font-weight:800;">6</span> verified local educators
+            <div style="font-size:0.9rem; font-weight:700; color:var(--text-body);">
+              Showing <span id="resultsCount" style="color:var(--green-primary); font-weight:800;">6</span> verified educators
             </div>
-            <div style="font-size:0.8rem; color:#828E9E;">
-              Sorting: <strong>City Rank (4-Factor Weighted)</strong>
-            </div>
+            <a href="rankings.html" style="font-size:0.8rem; color:var(--gold-hover); font-weight:700; text-decoration:none;">
+              View City Leaderboard Table →
+            </a>
           </div>
 
           <!-- Tutor Cards Grid -->
@@ -233,11 +244,11 @@
 
       if (filtered.length === 0) {
         container.innerHTML = `
-          <div style="grid-column: 1/-1; background:#FFFFFF; border-radius:24px; padding:48px; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+          <div style="grid-column: 1/-1; background:#FFFFFF; border-radius:24px; padding:48px; text-align:center; border:1px solid rgba(18,60,50,0.08);">
             <div style="font-size:2.5rem; margin-bottom:12px;">🔍</div>
-            <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:6px;">No tutors match this exact combination</h3>
-            <p style="font-size:0.85rem; color:#828E9E; max-width:380px; margin:0 auto 16px auto;">Try increasing your budget slider or switching to 'All Cities' to see top educators.</p>
-            <button onclick="resetFilters()" style="padding:10px 20px; background:#191B1F; color:#FFF; border-radius:12px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer;">Reset Filters</button>
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--green-primary); margin-bottom:6px;">No tutors match this filter</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); max-width:380px; margin:0 auto 16px auto;">Try raising your budget slider or picking 'All Cities' to discover top educators.</p>
+            <button onclick="resetFilters()" style="padding:10px 20px; background:var(--green-primary); color:#FFF; border-radius:12px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer;">Reset Filters</button>
           </div>
         `;
         return;
@@ -256,8 +267,8 @@
               <p class="tutor-card-subject">${tutor.experienceYears} Yrs Exp • ${tutor.subjects.slice(0, 2).join(', ')}</p>
             </div>
             <div style="text-align:right;">
-              <div style="font-size:1.2rem; font-weight:800; color:#191B1F;">₹${tutor.hourlyRate}</div>
-              <span style="font-size:0.68rem; color:#828E9E; font-weight:600;">/ 1-hr lesson</span>
+              <div style="font-size:1.2rem; font-weight:800; color:var(--green-primary);">₹${tutor.hourlyRate}</div>
+              <span style="font-size:0.68rem; color:var(--text-muted); font-weight:600;">/ 1-hr lesson</span>
             </div>
           </div>
 
@@ -265,33 +276,33 @@
           <div class="tutor-formula-metrics">
             <div class="formula-metric-item">
               <span>Student (35%)</span>
-              <span>⭐ ${tutor.ratingBreakdown.studentScore}</span>
+              <span style="color:var(--green-primary);">⭐ ${tutor.ratingBreakdown.studentScore}</span>
             </div>
             <div class="formula-metric-item">
               <span>Parent (25%)</span>
-              <span>⭐ ${tutor.ratingBreakdown.parentScore}</span>
+              <span style="color:#3B82F6;">⭐ ${tutor.ratingBreakdown.parentScore}</span>
             </div>
             <div class="formula-metric-item">
               <span>Regular (20%)</span>
-              <span>${tutor.ratingBreakdown.attendance}%</span>
+              <span style="color:#8B5CF6;">${tutor.ratingBreakdown.attendance}%</span>
             </div>
             <div class="formula-metric-item">
               <span>Result (20%)</span>
-              <span>+${tutor.ratingBreakdown.improvement}%</span>
+              <span style="color:var(--gold-hover);">+${tutor.ratingBreakdown.improvement}%</span>
             </div>
           </div>
 
-          <p style="font-size:0.8rem; color:#495160; line-height:1.45; margin-bottom:14px; font-style:italic;">
+          <p style="font-size:0.8rem; color:var(--text-body); line-height:1.45; margin-bottom:14px; font-style:italic;">
             "${tutor.tagline}"
           </p>
 
-          <div style="font-size:0.75rem; color:#828E9E; margin-bottom:14px;">
-            <strong>📍 Areas:</strong> ${tutor.areas.slice(0, 3).join(', ')}
+          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:14px;">
+            <strong>📍 Areas:</strong> ${tutor.areas.slice(0, 3).join(', ')} (${tutor.cityName})
           </div>
 
           <div class="tutor-card-actions">
-            <a href="profile.html?id=${tutor.id}" class="btn-view-profile">View Details →</a>
             <button onclick="bookTutorDemo('${tutor.id}')" class="btn-book-demo">Book Free Demo</button>
+            <a href="profile.html" class="btn-view-profile" title="Check your enrolled subjects in student profile">My Profile</a>
           </div>
         </div>
       `).join('');
@@ -308,11 +319,13 @@
       renderFilteredTutors();
     }
 
-    // Check URL params on load
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       if (params.get('city')) {
         document.getElementById('citySelect').value = params.get('city');
+      }
+      if (params.get('subject')) {
+        document.getElementById('subjectSelect').value = params.get('subject');
       }
       if (params.get('q')) {
         document.getElementById('searchInput').value = params.get('q');
@@ -322,4 +335,3 @@
   </script>
 </body>
 </html>
-
