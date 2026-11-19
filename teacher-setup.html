@@ -1164,7 +1164,12 @@
                     <span class="doc-badge-verified">✓ 100% ID Verified by HomeGuru</span>
                   </div>
                 </div>
-                <button type="button" class="doc-remove-btn" onclick="removeDoc('idCard')" title="Remove Document">✕</button>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <button type="button" class="chip-btn" style="padding:6px 12px; font-size:0.8rem;" onclick="document.getElementById('inputIdCard').click()">
+                    🔄 Replace File
+                  </button>
+                  <button type="button" class="doc-remove-btn" onclick="removeDoc('idCard')" title="Remove Document">✕</button>
+                </div>
               </div>
 
               <!-- Navigation -->
@@ -1180,91 +1185,216 @@
             <div class="wizard-card" id="cardStep6">
               <div class="card-header">
                 <div class="card-title-group">
-                  <h2>10th, 12th Marksheets &amp; Degree Certificates</h2>
-                  <p>Step 6 of 7 • Upload your academic foundation marksheets and university degrees.</p>
+                  <h2>10th, 12th Marksheets, Degrees &amp; Teaching Certificates</h2>
+                  <p>Step 6 of 7 • Upload your academic foundation marksheets, university degree certificates, and teaching credentials.</p>
                 </div>
                 <span class="card-step-badge">Step 6 / 7</span>
               </div>
 
-              <!-- 10th Marksheet -->
-              <div style="background:#FAF7F2; padding:20px; border-radius:18px; margin-bottom:20px; border:1px solid #E2E8F0;">
-                <h4 style="font-size:1.1rem; font-weight:800; color:#123C32; margin-bottom:12px;">1. Class 10th Board Marksheet</h4>
+              <!-- 1. Class 10th Marksheet Section -->
+              <div style="background:#FAF7F2; padding:22px; border-radius:20px; margin-bottom:24px; border:1.5px solid #E2E8F0;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#123C32; display:flex; align-items:center; gap:8px;">
+                    <span>📄</span>
+                    <span>1. Class 10th Board Marksheet</span>
+                  </h4>
+                  <span style="font-size:0.75rem; font-weight:800; color:#059669; background:rgba(16,185,129,0.12); padding:3px 10px; border-radius:6px;">
+                    Required Foundation Proof
+                  </span>
+                </div>
+
                 <div class="form-row-3">
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Board</label>
+                    <label class="form-label">Board <span class="req">*</span></label>
                     <input type="text" id="board10th" class="setup-input" value="CBSE Board">
                   </div>
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Passing Year</label>
+                    <label class="form-label">Passing Year <span class="req">*</span></label>
                     <input type="number" id="year10th" class="setup-input" value="2008">
                   </div>
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Score / CGPA</label>
+                    <label class="form-label">Score / CGPA <span class="req">*</span></label>
                     <input type="text" id="score10th" class="setup-input" value="94.2%">
                   </div>
                 </div>
+
+                <!-- 10th Marksheet Upload Dropzone -->
+                <div class="upload-dropzone has-file" id="dropzone10th" onclick="document.getElementById('input10thFile').click()">
+                  <div class="dropzone-icon">📄</div>
+                  <div class="dropzone-title">Upload Class 10th Marksheet Scan</div>
+                  <div class="dropzone-sub">Drop scanned PDF, JPG or PNG here, or click to browse (Max 10MB)</div>
+                  <input type="file" id="input10thFile" class="hidden-file-input" accept="image/*,.pdf" onchange="handleDocUpload('10th', event)">
+                </div>
+
+                <!-- 10th Marksheet Preview Card -->
                 <div class="doc-preview-card" id="previewCard10th" style="display:flex;">
                   <div class="doc-preview-left">
                     <img id="thumb10th" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=150&q=80" class="doc-thumb" alt="10th Marksheet">
                     <div class="doc-info">
-                      <h4>Class10_Board_Marksheet_Certified.pdf</h4>
-                      <p>2.4 MB • High-Res Scan</p>
-                      <span class="doc-badge-verified">✓ Board Seal Authenticated</span>
+                      <h4 id="title10th">Class10_Board_Marksheet_Certified.pdf</h4>
+                      <p id="size10th">2.4 MB • High-Res Official Scan</p>
+                      <span class="doc-badge-verified">✓ Board Seal Authenticated by HomeGuru</span>
                     </div>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <button type="button" class="chip-btn" style="padding:6px 12px; font-size:0.8rem;" onclick="document.getElementById('input10thFile').click()">
+                      🔄 Replace File
+                    </button>
+                    <button type="button" class="doc-remove-btn" onclick="removeDoc('10th')" title="Remove Document">✕</button>
                   </div>
                 </div>
               </div>
 
-              <!-- 12th Marksheet -->
-              <div style="background:#FAF7F2; padding:20px; border-radius:18px; margin-bottom:20px; border:1px solid #E2E8F0;">
-                <h4 style="font-size:1.1rem; font-weight:800; color:#123C32; margin-bottom:12px;">2. Class 12th Senior Secondary Marksheet</h4>
+              <!-- 2. Class 12th Marksheet Section -->
+              <div style="background:#FAF7F2; padding:22px; border-radius:20px; margin-bottom:24px; border:1.5px solid #E2E8F0;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#123C32; display:flex; align-items:center; gap:8px;">
+                    <span>📜</span>
+                    <span>2. Class 12th Senior Secondary Marksheet</span>
+                  </h4>
+                  <span style="font-size:0.75rem; font-weight:800; color:#059669; background:rgba(16,185,129,0.12); padding:3px 10px; border-radius:6px;">
+                    Subject Mastery Proof
+                  </span>
+                </div>
+
                 <div class="form-row-3">
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Board</label>
+                    <label class="form-label">Board <span class="req">*</span></label>
                     <input type="text" id="board12th" class="setup-input" value="CBSE New Delhi">
                   </div>
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Stream</label>
+                    <label class="form-label">Stream / Major <span class="req">*</span></label>
                     <input type="text" id="stream12th" class="setup-input" value="Science (PCM)">
                   </div>
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Percentage</label>
+                    <label class="form-label">Percentage <span class="req">*</span></label>
                     <input type="text" id="score12th" class="setup-input" value="96.8%">
                   </div>
                 </div>
+
+                <!-- 12th Marksheet Upload Dropzone -->
+                <div class="upload-dropzone has-file" id="dropzone12th" onclick="document.getElementById('input12thFile').click()">
+                  <div class="dropzone-icon">📜</div>
+                  <div class="dropzone-title">Upload Class 12th Senior Secondary Marksheet Scan</div>
+                  <div class="dropzone-sub">Drop scanned PDF, JPG or PNG here, or click to browse (Max 10MB)</div>
+                  <input type="file" id="input12thFile" class="hidden-file-input" accept="image/*,.pdf" onchange="handleDocUpload('12th', event)">
+                </div>
+
+                <!-- 12th Marksheet Preview Card -->
                 <div class="doc-preview-card" id="previewCard12th" style="display:flex;">
                   <div class="doc-preview-left">
                     <img id="thumb12th" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=150&q=80" class="doc-thumb" alt="12th Marksheet">
                     <div class="doc-info">
-                      <h4>Class12_Senior_Marksheet_Certified.pdf</h4>
-                      <p>3.1 MB • Authenticated</p>
-                      <span class="doc-badge-verified">✓ PCM 96.8% Verified</span>
+                      <h4 id="title12th">Class12_Senior_Marksheet_Certified.pdf</h4>
+                      <p id="size12th">3.1 MB • Authenticated Digital Scan</p>
+                      <span class="doc-badge-verified">✓ PCM 96.8% Verified by HomeGuru</span>
                     </div>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <button type="button" class="chip-btn" style="padding:6px 12px; font-size:0.8rem;" onclick="document.getElementById('input12thFile').click()">
+                      🔄 Replace File
+                    </button>
+                    <button type="button" class="doc-remove-btn" onclick="removeDoc('12th')" title="Remove Document">✕</button>
                   </div>
                 </div>
               </div>
 
-              <!-- Degree / Teaching Certificate -->
-              <div style="background:#FAF7F2; padding:20px; border-radius:18px; margin-bottom:16px; border:1px solid #E2E8F0;">
-                <h4 style="font-size:1.1rem; font-weight:800; color:#123C32; margin-bottom:12px;">3. Highest Degree / Teaching Certificate</h4>
+              <!-- 3. Highest University Degree / Convocation Certificate Section -->
+              <div style="background:#FAF7F2; padding:22px; border-radius:20px; margin-bottom:24px; border:1.5px solid #E2E8F0;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#123C32; display:flex; align-items:center; gap:8px;">
+                    <span>🎓</span>
+                    <span>3. Highest University Degree / Convocation Certificate</span>
+                  </h4>
+                  <span style="font-size:0.75rem; font-weight:800; color:#059669; background:rgba(16,185,129,0.12); padding:3px 10px; border-radius:6px;">
+                    Higher Academic Degree
+                  </span>
+                </div>
+
                 <div class="form-row-2">
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">Degree Name</label>
+                    <label class="form-label">Degree Title &amp; Specialization <span class="req">*</span></label>
                     <input type="text" id="degreeName" class="setup-input" value="Ph.D. in Physics &amp; M.Sc. Gold Medalist">
                   </div>
                   <div class="form-group" style="margin-bottom:12px;">
-                    <label class="form-label">University / Institute</label>
+                    <label class="form-label">University / Institute <span class="req">*</span></label>
                     <input type="text" id="degreeInstitute" class="setup-input" value="University of Rajasthan">
                   </div>
                 </div>
+
+                <!-- Degree Upload Dropzone -->
+                <div class="upload-dropzone has-file" id="dropzoneDegree" onclick="document.getElementById('inputDegreeFile').click()">
+                  <div class="dropzone-icon">🎓</div>
+                  <div class="dropzone-title">Upload University Degree / Convocation Certificate Scan</div>
+                  <div class="dropzone-sub">Drop scanned Convocation Degree, Provisional Certificate or Transcript (Max 10MB)</div>
+                  <input type="file" id="inputDegreeFile" class="hidden-file-input" accept="image/*,.pdf" onchange="handleDocUpload('degree', event)">
+                </div>
+
+                <!-- Degree Preview Card -->
                 <div class="doc-preview-card" id="previewCardDegree" style="display:flex;">
                   <div class="doc-preview-left">
                     <img id="thumbDegree" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=150&q=80" class="doc-thumb" alt="Degree Certificate">
                     <div class="doc-info">
-                      <h4>Doctor_of_Philosophy_Physics_Degree.pdf</h4>
-                      <p>4.2 MB • Convocation Certified</p>
+                      <h4 id="titleDegree">Doctor_of_Philosophy_Physics_Degree.pdf</h4>
+                      <p id="sizeDegree">4.2 MB • Convocation Certified</p>
                       <span class="doc-badge-verified">✓ 100% Academic Authenticity Clear</span>
                     </div>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <button type="button" class="chip-btn" style="padding:6px 12px; font-size:0.8rem;" onclick="document.getElementById('inputDegreeFile').click()">
+                      🔄 Replace File
+                    </button>
+                    <button type="button" class="doc-remove-btn" onclick="removeDoc('degree')" title="Remove Document">✕</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Additional Teaching Certifications & Pedagogical Awards Section -->
+              <div style="background:#FAF7F2; padding:22px; border-radius:20px; margin-bottom:16px; border:1.5px solid #E2E8F0;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#123C32; display:flex; align-items:center; gap:8px;">
+                    <span>🏅</span>
+                    <span>4. Additional Teaching Certifications &amp; Awards (Optional)</span>
+                  </h4>
+                  <span style="font-size:0.75rem; font-weight:800; color:#996B0A; background:var(--gold-soft); padding:3px 10px; border-radius:6px;">
+                    Bonus Credential Badge
+                  </span>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group" style="margin-bottom:12px;">
+                    <label class="form-label">Certification Title / Award</label>
+                    <input type="text" id="certName" class="setup-input" placeholder="e.g. B.Ed Degree / CTET / Olympiad Mentor / Gold Medalist" value="State University Physics Gold Medalist Award">
+                  </div>
+                  <div class="form-group" style="margin-bottom:12px;">
+                    <label class="form-label">Issuing Authority / Council</label>
+                    <input type="text" id="certInstitute" class="setup-input" placeholder="e.g. NCTE / CBSE / Rajasthan State University" value="Rajasthan State Higher Education Council">
+                  </div>
+                </div>
+
+                <!-- Certificate Upload Dropzone -->
+                <div class="upload-dropzone has-file" id="dropzoneCert" onclick="document.getElementById('inputCertFile').click()">
+                  <div class="dropzone-icon">🏅</div>
+                  <div class="dropzone-title">Upload Teaching Certificate / Award Scan</div>
+                  <div class="dropzone-sub">Drop scanned Certificate, B.Ed, CTET, NET-JRF or Merit Award (PDF, JPG, PNG)</div>
+                  <input type="file" id="inputCertFile" class="hidden-file-input" accept="image/*,.pdf" onchange="handleDocUpload('cert', event)">
+                </div>
+
+                <!-- Certificate Preview Card -->
+                <div class="doc-preview-card" id="previewCardCert" style="display:flex;">
+                  <div class="doc-preview-left">
+                    <img id="thumbCert" src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=150&q=80" class="doc-thumb" alt="Teaching Certificate">
+                    <div class="doc-info">
+                      <h4 id="titleCert">Gold_Medalist_Physics_Certificate.pdf</h4>
+                      <p id="sizeCert">1.9 MB • State University Gold Medalist</p>
+                      <span class="doc-badge-verified">✓ Special Merit Credential Verified</span>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <button type="button" class="chip-btn" style="padding:6px 12px; font-size:0.8rem;" onclick="document.getElementById('inputCertFile').click()">
+                      🔄 Replace File
+                    </button>
+                    <button type="button" class="doc-remove-btn" onclick="removeDoc('cert')" title="Remove Document">✕</button>
                   </div>
                 </div>
               </div>
@@ -1523,15 +1653,24 @@
       if (file) {
         const reader = new FileReader();
         reader.onload = function(evt) {
-          const previewCard = document.getElementById('previewCard' + capitalize(type));
-          const dropzone = document.getElementById('dropzone' + capitalize(type));
-          const title = document.getElementById('title' + capitalize(type));
-          const thumb = document.getElementById('thumb' + capitalize(type));
+          const key = capitalize(type);
+          const previewCard = document.getElementById('previewCard' + key);
+          const dropzone = document.getElementById('dropzone' + key);
+          const title = document.getElementById('title' + key);
+          const thumb = document.getElementById('thumb' + key);
+          const size = document.getElementById('size' + key);
 
           if (file.type.startsWith('image/')) {
-            thumb.src = evt.target.result;
+            if (thumb) thumb.src = evt.target.result;
+          } else {
+            if (thumb) thumb.src = "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=150&q=80";
           }
           if (title) title.innerText = file.name;
+          if (size) {
+            const kb = Math.round(file.size / 1024);
+            const mb = (file.size / (1024 * 1024)).toFixed(1);
+            size.innerText = (mb >= 1 ? mb + ' MB' : kb + ' KB') + ' • Uploaded & Ready for Verification';
+          }
           if (previewCard) previewCard.style.display = 'flex';
           if (dropzone) dropzone.classList.add('has-file');
         };
@@ -1540,8 +1679,11 @@
     }
 
     function removeDoc(type) {
-      const previewCard = document.getElementById('previewCard' + capitalize(type));
-      const dropzone = document.getElementById('dropzone' + capitalize(type));
+      const key = capitalize(type);
+      const previewCard = document.getElementById('previewCard' + key);
+      const dropzone = document.getElementById('dropzone' + key);
+      const input = document.getElementById('input' + key + 'File') || document.getElementById('input' + key);
+      if (input) input.value = '';
       if (previewCard) previewCard.style.display = 'none';
       if (dropzone) dropzone.classList.remove('has-file');
     }
@@ -1561,6 +1703,14 @@
       document.getElementById('teacherMonthlyFee').value = '8000';
       document.getElementById('checkPledge').checked = true;
 
+      // Ensure all preview cards are visible and dropzones marked
+      ['IdCard', '10th', '12th', 'Degree', 'Cert'].forEach(k => {
+        const p = document.getElementById('previewCard' + k);
+        const d = document.getElementById('dropzone' + k);
+        if (p) p.style.display = 'flex';
+        if (d) d.classList.add('has-file');
+      });
+
       // Mark all step buttons completed
       for (let i = 1; i <= totalSteps; i++) {
         const btn = document.getElementById('stepBtn' + i);
@@ -1568,7 +1718,7 @@
       }
 
       updateLivePreview();
-      jumpToStep(7);
+      jumpToStep(6); // Jump to step 6 so teacher can immediately see and interact with all marksheet and degree uploads!
 
       const demoBtn = document.querySelector('.header-actions .chip-btn');
       if (demoBtn) {
