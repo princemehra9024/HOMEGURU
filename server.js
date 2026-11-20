@@ -29,8 +29,11 @@ const server = http.createServer((req, res) => {
 
   let filePath = path.join(PUBLIC_DIR, reqPath);
 
-  // Security check to prevent directory traversal
-  if (!filePath.startsWith(PUBLIC_DIR)) {
+  // Security check to prevent directory traversal (case-insensitive for Windows)
+  const resolvedPublic = path.resolve(PUBLIC_DIR).toLowerCase();
+  const resolvedTarget = path.resolve(filePath).toLowerCase();
+
+  if (!resolvedTarget.startsWith(resolvedPublic)) {
     res.writeHead(403);
     res.end('Access Denied');
     return;
