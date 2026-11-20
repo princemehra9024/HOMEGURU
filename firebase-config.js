@@ -100,6 +100,7 @@
     signInWithGoogle: async function () {
       if (this.isConfigured() && auth && googleProvider) {
         try {
+          googleProvider.setCustomParameters({ prompt: 'select_account' });
           const result = await auth.signInWithPopup(googleProvider);
           const user = result.user;
           const studentProfile = {
@@ -109,10 +110,30 @@
             avatar: user.photoURL || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
             role: 'student',
             grade: 'Class 12',
-            city: 'Jaipur'
+            city: 'Jaipur',
+            lastLogin: new Date().toISOString()
           };
+
+          // Sync with Realtime Database
+          if (rtdb) {
+            try {
+              await rtdb.ref('students/' + user.uid).update(studentProfile);
+            } catch (rErr) {
+              console.warn('[Firebase RTDB] student sync notice:', rErr);
+            }
+          }
+
+          // Sync with Cloud Firestore
+          if (db) {
+            try {
+              await db.collection('students').doc(user.uid).set(studentProfile, { merge: true });
+            } catch (fErr) {
+              console.warn('[Firebase Firestore] student sync notice:', fErr);
+            }
+          }
+
           localStorage.setItem('homeguru_current_user', JSON.stringify(studentProfile));
-          return { success: true, user: studentProfile };
+          return { success: true, user: studentProfile, isLive: true };
         } catch (error) {
           console.error('[Firebase] Google sign-in error:', error);
           throw error;

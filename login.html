@@ -411,9 +411,37 @@
       box-shadow: 0 10px 25px rgba(18, 60, 50, 0.32);
     }
 
+    /* Primary Google Auth CTA */
+    .btn-google-auth {
+      width: 100%;
+      padding: 13px 20px;
+      background: #FFFFFF;
+      color: #123C32;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 180ms ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      margin-top: 14px;
+    }
+
+    .btn-google-auth:hover {
+      background: #FAF7F2;
+      border-color: #123C32;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(18, 60, 50, 0.12);
+    }
+
     /* 1-Click Demo Pill */
     .demo-login-pill {
-      margin-top: 14px;
+      margin-top: 12px;
       width: 100%;
       padding: 11px 16px;
       background: rgba(212, 164, 55, 0.12);
@@ -689,6 +717,17 @@
             <span id="btnSubmitText">Sign In to Student Portal →</span>
           </button>
 
+          <!-- Prominent 1-Click Google Auth CTA (Login & Sign Up) -->
+          <button type="button" class="btn-google-auth" onclick="handleGoogleAuth()" id="btnGoogleAuth" title="1-Click Login or Sign Up with your Google Account">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span id="googleBtnLabel">Continue with Google (Instant Login &amp; Sign Up)</span>
+          </button>
+
           <!-- 1-Click Demo Fill Pill -->
           <button type="button" class="demo-login-pill" onclick="demoLoginAryan()">
             ⚡ 1-Click Demo Login as Aryan Sharma (Class 12 CBSE)
@@ -704,7 +743,7 @@
         <!-- Minimalist Social Auth (Google, Apple, Phone OTP) -->
         <div class="social-btn-group">
           <!-- Google -->
-          <button type="button" class="social-btn" onclick="socialLogin('Google')" title="Sign In with Google">
+          <button type="button" class="social-btn" onclick="handleGoogleAuth()" title="Sign In with Google">
             <svg width="20" height="20" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
               <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
@@ -726,11 +765,15 @@
           </button>
         </div>
 
-        <!-- Firebase Status Pill -->
+        <!-- Firebase Status Pill & Quick Setup Link -->
         <div style="text-align: center; margin-top: 10px;">
           <div id="firebaseStatusPill" style="display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; color:#059669; background:rgba(16,185,129,0.1); padding:4px 12px; border-radius:9999px; border:1px solid rgba(16,185,129,0.2);">
-            <span>🔥 Firebase Auth &amp; Cloud Firestore Connected</span>
+            <span>🔥 Firebase Project: homeguru-5b281</span>
           </div>
+          <br>
+          <button type="button" onclick="openFirebaseConfigModal()" style="background:none; border:none; font-size:0.75rem; color:#64748B; text-decoration:underline; cursor:pointer; margin-top:6px;">
+            ⚙️ Paste Firebase Web API Key
+          </button>
         </div>
 
         <!-- Educator Setup Link -->
@@ -781,6 +824,8 @@
         authSubtitle.innerHTML = 'Already have an account? <a href="#" onclick="switchAuthTab(\'login\'); return false;">Sign In</a>';
         btnSubmitText.innerText = 'Create Free Student Account →';
         document.getElementById('fieldIdentifier').placeholder = 'Parent or Student WhatsApp / Email';
+        const googleLabel = document.getElementById('googleBtnLabel');
+        if (googleLabel) googleLabel.innerText = 'Sign Up with Google (1-Click Student Account)';
       } else {
         tabLogin.classList.add('active');
         tabSignup.classList.remove('active');
@@ -790,6 +835,8 @@
         authSubtitle.innerHTML = 'New to HomeGuru? <a href="#" onclick="switchAuthTab(\'signup\'); return false;">Sign Up for Free</a>';
         btnSubmitText.innerText = 'Sign In to Student Portal →';
         document.getElementById('fieldIdentifier').placeholder = 'e.g. aryan.sharma@gmail.com';
+        const googleLabel = document.getElementById('googleBtnLabel');
+        if (googleLabel) googleLabel.innerText = 'Continue with Google (Instant Login)';
       }
     }
 
@@ -860,23 +907,84 @@
       }, 500);
     }
 
-    async function socialLogin(provider) {
-      if (provider === 'Google' && window.HomeGuruFirebase) {
-        try {
+    async function handleGoogleAuth() {
+      const label = document.getElementById('googleBtnLabel');
+      const originalText = label ? label.innerText : '';
+      if (label) label.innerText = 'Connecting to Google Account...';
+
+      try {
+        if (window.HomeGuruFirebase) {
           const res = await window.HomeGuruFirebase.signInWithGoogle();
-          if (res.success) {
-            window.location.href = 'profile.html';
+          if (res && res.success) {
+            if (label) label.innerText = '✓ Welcome, ' + res.user.name;
+            setTimeout(() => {
+              window.location.href = 'profile.html';
+            }, 450);
             return;
           }
-        } catch (err) {
-          console.warn('Google sign in error:', err);
         }
+      } catch (err) {
+        console.error('Google Auth Error:', err);
+        if (err.code === 'auth/operation-not-allowed') {
+          alert('Google Sign-In is not enabled yet in your Firebase Console!\n\nTo enable it:\n1. Open Firebase Console -> Project homeguru-5b281\n2. Click "Authentication" -> "Sign-in method"\n3. Click "Google" and toggle "Enable", then click Save.');
+        } else if (err.code === 'auth/unauthorized-domain') {
+          alert('Localhost is not authorized yet in Firebase Console!\n\nTo add it:\n1. Open Firebase Console -> Authentication -> Settings -> Authorized domains\n2. Add "localhost".');
+        } else if (err.code === 'auth/popup-closed-by-user') {
+          if (label) label.innerText = originalText;
+          return;
+        } else {
+          alert('Firebase Notice: ' + err.message + '\n\nContinuing in Demo Student mode...');
+          demoLoginAryan();
+          return;
+        }
+      }
+
+      setTimeout(() => {
+        demoLoginAryan();
+      }, 500);
+    }
+
+    async function socialLogin(provider) {
+      if (provider === 'Google') {
+        return handleGoogleAuth();
       }
 
       alert('Connecting securely to ' + provider + ' for HomeGuru Student Verification...');
       setTimeout(() => {
         demoLoginAryan();
       }, 400);
+    }
+
+    // Modal helpers for pasting Firebase API key
+    function openFirebaseConfigModal() {
+      const modal = document.getElementById('firebaseConfigModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        const input = document.getElementById('modalApiKey');
+        if (input && window.HomeGuruFirebase) {
+          input.value = window.HomeGuruFirebase.config.apiKey.includes('DummyKey') ? '' : window.HomeGuruFirebase.config.apiKey;
+        }
+      }
+    }
+
+    function closeFirebaseModal() {
+      const modal = document.getElementById('firebaseConfigModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function saveFirebaseModalConfig() {
+      const apiKey = document.getElementById('modalApiKey').value.trim();
+      if (!apiKey) {
+        alert('Please enter your Firebase Web API Key.');
+        return;
+      }
+      if (window.HomeGuruFirebase) {
+        const updated = {
+          ...window.HomeGuruFirebase.config,
+          apiKey: apiKey
+        };
+        window.HomeGuruFirebase.updateConfig(updated);
+      }
     }
 
     // Check URL parameters for tab
@@ -890,10 +998,28 @@
       if (window.HomeGuruFirebase && window.HomeGuruFirebase.isConfigured()) {
         const pill = document.getElementById('firebaseStatusPill');
         if (pill) {
-          pill.innerHTML = '<span>🔥 Live Firebase Project: ' + window.HomeGuruFirebase.config.projectId + '</span>';
+          pill.innerHTML = '<span>🔥 Live Firebase Connected: ' + window.HomeGuruFirebase.config.projectId + '</span>';
         }
       }
     });
   </script>
+
+  <!-- Modal for Instant Firebase Credentials Entry -->
+  <div id="firebaseConfigModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,36,30,0.6); backdrop-filter:blur(6px); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#FFFFFF; border-radius:24px; padding:32px; max-width:500px; width:90%; box-shadow:0 20px 50px rgba(0,0,0,0.3); border:1px solid #CBD5E1;">
+      <h3 style="font-size:1.3rem; color:#123C32; margin-bottom:8px;">🔥 Firebase Configuration (homeguru-5b281)</h3>
+      <p style="font-size:0.85rem; color:#64748B; margin-bottom:16px;">
+        Paste your Firebase Web App API Key from Firebase Console (⚙️ Project settings > General > Your apps) to activate live Google Authentication.
+      </p>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:0.8rem; font-weight:700; color:#123C32;">Web API Key (apiKey)</label>
+        <input type="text" id="modalApiKey" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:inherit; margin-top:4px;" placeholder="AIzaSy...">
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" onclick="closeFirebaseModal()" style="padding:10px 18px; border-radius:10px; border:1.5px solid #CBD5E1; background:#FFFFFF; font-weight:700; cursor:pointer;">Cancel</button>
+        <button type="button" onclick="saveFirebaseModalConfig()" style="padding:10px 20px; border-radius:10px; border:none; background:#123C32; color:#FFFFFF; font-weight:800; cursor:pointer;">Save &amp; Activate Google Auth</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
