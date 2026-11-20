@@ -14,8 +14,8 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js"
   }
 }
