@@ -7,15 +7,15 @@
  */
 
 (function () {
-  // 1. Firebase Project Config
-  // Replace placeholders below with your actual project keys from Firebase Console (Project Settings > General > Your apps)
+  // 1. Firebase Project Config for HomeGuru (homeguru-5b281)
   const defaultFirebaseConfig = {
     apiKey: "AIzaSyDummyKeyReplaceWithYourActualFirebaseApiKey",
-    authDomain: "homeguru-app.firebaseapp.com",
-    projectId: "homeguru-app",
-    storageBucket: "homeguru-app.appspot.com",
+    authDomain: "homeguru-5b281.firebaseapp.com",
+    databaseURL: "https://homeguru-5b281-default-rtdb.firebaseio.com",
+    projectId: "homeguru-5b281",
+    storageBucket: "homeguru-5b281.appspot.com",
     messagingSenderId: "109876543210",
-    appId: "1:109876543210:web:9876543210abcdef"
+    appId: "1:109876543210:web:homeguru5b281"
   };
 
   // Allow custom override saved in localStorage
@@ -32,6 +32,7 @@
   let app = null;
   let auth = null;
   let db = null;
+  let rtdb = null;
   let storage = null;
   let googleProvider = null;
   let isRealFirebaseActive = false;
@@ -48,6 +49,10 @@
       if (firebase.auth) {
         auth = firebase.auth();
         googleProvider = new firebase.auth.GoogleAuthProvider();
+      }
+
+      if (firebase.database) {
+        rtdb = firebase.database();
       }
 
       if (firebase.firestore) {
@@ -77,6 +82,7 @@
     app: app,
     auth: auth,
     db: db,
+    rtdb: rtdb,
     storage: storage,
 
     // Check if live keys are present
