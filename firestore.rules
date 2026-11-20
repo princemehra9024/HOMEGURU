@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Student private accounts & profile settings
+    match /students/{studentId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == studentId;
+    }
+
+    // Public verified educator directory
+    match /educators/{educatorId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == educatorId;
+    }
+
+    // Home tutoring session bookings & schedules
+    match /bookings/{bookingId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Confidential Student Wellbeing & Calm Index reports
+    match /wellbeing_logs/{logId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

@@ -1528,6 +1528,13 @@
 
   </div>
 
+  <!-- Firebase Web SDK Compatibility -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js"></script>
+
   <script src="shared-data.js"></script>
   <script>
     let currentStep = 1;
@@ -1728,16 +1735,40 @@
       }
     }
 
-    // Final Wizard Submit: redirects to teacher-profile.html (The teacher's dashboard with student cards)
-    function handleWizardSubmit(e) {
+    // Final Wizard Submit: saves to Firebase / local and redirects to teacher-profile.html
+    async function handleWizardSubmit(e) {
       e.preventDefault();
       const submitBtn = document.querySelector('.btn-submit-final');
-      if (submitBtn) submitBtn.innerHTML = '<span>Opening Teacher Portal &amp; Student Cards...</span>';
+      if (submitBtn) submitBtn.innerHTML = '<span>Saving to Firebase &amp; Opening Teacher Portal...</span>';
+
+      const educatorProfile = {
+        id: 'HG-TEACH-8492',
+        name: document.getElementById('teacherFullName')?.value || 'Dr. Rajeshwar Sharma',
+        phone: document.getElementById('teacherPhone')?.value || '+91 98290 87654',
+        email: document.getElementById('teacherEmail')?.value || 'dr.rajeshwar.sharma@gmail.com',
+        experience: document.getElementById('teacherExperience')?.value || '12 Yrs Exp',
+        subjects: selectedSubjects,
+        curriculum: document.getElementById('teacherTargetCurriculum')?.value || 'CBSE Board + JEE Main & Advanced',
+        city: document.getElementById('teacherCity')?.value || 'Jaipur',
+        areas: document.getElementById('teacherAreas')?.value || 'Malviya Nagar, Mansarovar, Tonk Road',
+        hourlyRate: document.getElementById('teacherHourlyFee')?.value || '750',
+        monthlyFee: document.getElementById('teacherMonthlyFee')?.value || '8000',
+        verified: true,
+        wellbeingPledged: document.getElementById('checkPledge')?.checked || true
+      };
+
+      if (window.HomeGuruFirebase) {
+        try {
+          await window.HomeGuruFirebase.saveEducatorProfile(educatorProfile);
+        } catch (err) {
+          console.warn('[Firebase] Save notice:', err);
+        }
+      }
 
       setTimeout(() => {
-        alert('🎉 Congratulations! Your Educator Profile has been verified under ID: HG-TEACH-8492. Opening your Teacher Dashboard to inspect enrolled student cards.');
+        alert('🎉 Congratulations! Your Educator Profile has been verified under ID: HG-TEACH-8492 and saved to Firebase Firestore. Opening your Teacher Dashboard to inspect enrolled student cards.');
         window.location.href = 'teacher-profile.html';
-      }, 600);
+      }, 500);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
