@@ -1004,20 +1004,37 @@
     });
   </script>
 
-  <!-- Modal for Instant Firebase Credentials Entry -->
+  <!-- Modal for Instant Firebase Credentials Entry & Realtime Database Seed -->
   <div id="firebaseConfigModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,36,30,0.6); backdrop-filter:blur(6px); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:#FFFFFF; border-radius:24px; padding:32px; max-width:500px; width:90%; box-shadow:0 20px 50px rgba(0,0,0,0.3); border:1px solid #CBD5E1;">
+    <div style="background:#FFFFFF; border-radius:24px; padding:32px; max-width:540px; width:92%; box-shadow:0 20px 50px rgba(0,0,0,0.3); border:1px solid #CBD5E1; max-height:90vh; overflow-y:auto;">
       <h3 style="font-size:1.3rem; color:#123C32; margin-bottom:8px;">🔥 Firebase Configuration (homeguru-5b281)</h3>
-      <p style="font-size:0.85rem; color:#64748B; margin-bottom:16px;">
-        Paste your Firebase Web App API Key from Firebase Console (⚙️ Project settings > General > Your apps) to activate live Google Authentication.
+      <p style="font-size:0.88rem; color:#475569; margin-bottom:16px; line-height:1.5;">
+        Paste your Firebase Web App API Key from Firebase Console (⚙️ <strong>Project settings &gt; General &gt; Your apps</strong>) to activate live Google Authentication.
       </p>
-      <div style="margin-bottom:14px;">
-        <label style="font-size:0.8rem; font-weight:700; color:#123C32;">Web API Key (apiKey)</label>
-        <input type="text" id="modalApiKey" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:inherit; margin-top:4px;" placeholder="AIzaSy...">
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.85rem; font-weight:800; color:#123C32;">Web API Key (apiKey)</label>
+        <input type="text" id="modalApiKey" style="width:100%; padding:11px 14px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:inherit; margin-top:5px; font-size:0.92rem;" placeholder="AIzaSy...">
       </div>
-      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+
+      <!-- Realtime Database Quick Setup Guide (Fix for ": null") -->
+      <div style="background:#FAF7F2; border:1.5px solid rgba(212,164,55,0.4); border-radius:14px; padding:16px; margin-bottom:18px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="font-size:1.1rem;">📦</span>
+          <strong style="font-size:0.92rem; color:#123C32;">Populate Realtime Database (Fix ": null")</strong>
+        </div>
+        <p style="font-size:0.82rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+          Your database file <code>homeguru-initial-data.json</code> is prepared with all verified tutors, Aryan's student account, and rankings:
+        </p>
+        <ol style="font-size:0.82rem; color:#1E293B; padding-left:18px; line-height:1.6; font-weight:600;">
+          <li>In Firebase Console, click the <strong>three dots (⋮)</strong> next to your Realtime Database URL.</li>
+          <li>Click <strong>Import JSON</strong>.</li>
+          <li>Choose <code>D:\home-T\HOMEGURU\homeguru-initial-data.json</code> and confirm.</li>
+        </ol>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
         <button type="button" onclick="closeFirebaseModal()" style="padding:10px 18px; border-radius:10px; border:1.5px solid #CBD5E1; background:#FFFFFF; font-weight:700; cursor:pointer;">Cancel</button>
-        <button type="button" onclick="saveFirebaseModalConfig()" style="padding:10px 20px; border-radius:10px; border:none; background:#123C32; color:#FFFFFF; font-weight:800; cursor:pointer;">Save &amp; Activate Google Auth</button>
+        <button type="button" onclick="saveFirebaseModalConfig()" style="padding:10px 22px; border-radius:10px; border:none; background:#123C32; color:#FFFFFF; font-weight:800; cursor:pointer; box-shadow:0 4px 14px rgba(18,60,50,0.25);">Save &amp; Activate Google Auth</button>
       </div>
     </div>
   </div>
