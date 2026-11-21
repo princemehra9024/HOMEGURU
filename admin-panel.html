@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel &bull; Role-Based Access Control | HomeGuru</title>
+  <title>Admin Panel | HomeGuru Platform Management</title>
   <link rel="stylesheet" href="dashboard.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .admin-stat-icon {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+    }
+  </style>
 </head>
 <body>
 
@@ -42,7 +49,8 @@
         <!-- Admin Panel (Active) -->
         <a href="admin-panel.html" class="nav-item active">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
           </svg>
           <span>Admin Panel</span>
         </a>
@@ -56,7 +64,7 @@
         </a>
 
         <a href="parent-portal.html" class="nav-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
             <circle cx="9" cy="7" r="4"></circle>
             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -107,8 +115,8 @@
 
       <!-- Sidebar Promo Card -->
       <div class="sidebar-promo-card">
-        <h4 class="promo-title">Super Admin Mode</h4>
-        <p class="promo-sub">Full access across teachers, students, parents, and examination registries.</p>
+        <h4 class="promo-title">Administrator Mode</h4>
+        <p class="promo-sub">Manage user roles, verify educators, and monitor system activities.</p>
       </div>
     </aside>
 
@@ -118,17 +126,21 @@
       <!-- Top Header -->
       <header class="app-header">
         <div class="header-greeting">
-          <h1 style="display:flex; align-items:center; gap:10px;">
-            <span>HomeGuru Administration &amp; RBAC Control</span>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+            <h1 style="font-size:1.75rem; font-weight:800; color:var(--green-primary); letter-spacing:-0.03em;">
+              Platform Administration
+            </h1>
             <span class="badge-role-pill badge-role-admin">Super Admin</span>
-          </h1>
-          <p>Manage user roles, verify educators, link parent-student accounts, and audit all uploaded reports.</p>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; font-weight:500;">
+            Role-based access control, user directories, and parent-student relationship mappings.
+          </p>
         </div>
 
         <div class="header-actions">
           <!-- Role Switcher -->
           <div class="role-switcher-wrap">
-            <span style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">Switch View:</span>
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Switch View:</span>
             <select class="role-switcher-select" onchange="window.location.href=this.value">
               <option value="admin-panel.html" selected>Admin Panel</option>
               <option value="teacher-portal.html">Teacher Portal</option>
@@ -137,37 +149,68 @@
             </select>
           </div>
 
-          <a href="teacher-setup.html" class="header-tutor-btn">
-            <span>➕ Add New Educator</span>
+          <a href="teacher-setup.html" class="btn-portal-primary" style="padding:10px 18px; font-size:0.88rem; text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add Educator</span>
           </a>
         </div>
       </header>
 
-      <!-- Overview Stats -->
+      <!-- 1. Overview Stat Cards -->
       <section class="portal-stats-grid">
         <div class="portal-stat-card">
-          <div class="portal-stat-icon-wrap" style="background:rgba(37,99,235,0.12); color:#2563EB;">👨‍🏫</div>
+          <div class="portal-stat-icon-wrap" style="background:rgba(37,99,235,0.08); color:#2563EB;">
+            <svg class="admin-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
           <div class="portal-stat-info">
             <h3 id="admCountTeachers">2</h3>
             <p>Verified Teachers</p>
           </div>
         </div>
+
         <div class="portal-stat-card">
-          <div class="portal-stat-icon-wrap" style="background:rgba(16,185,129,0.12); color:#059669;">🎓</div>
+          <div class="portal-stat-icon-wrap" style="background:rgba(16,185,129,0.08); color:#059669;">
+            <svg class="admin-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
           <div class="portal-stat-info">
             <h3 id="admCountStudents">2</h3>
             <p>Active Students</p>
           </div>
         </div>
+
         <div class="portal-stat-card">
-          <div class="portal-stat-icon-wrap" style="background:rgba(212,164,55,0.18); color:#B45309;">👨‍👩‍👦</div>
+          <div class="portal-stat-icon-wrap" style="background:rgba(212,164,55,0.12); color:#B45309;">
+            <svg class="admin-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
           <div class="portal-stat-info">
             <h3 id="admCountParents">1</h3>
             <p>Linked Families</p>
           </div>
         </div>
+
         <div class="portal-stat-card">
-          <div class="portal-stat-icon-wrap" style="background:rgba(239,68,68,0.12); color:#DC2626;">📄</div>
+          <div class="portal-stat-icon-wrap" style="background:rgba(100,116,139,0.1); color:#475569;">
+            <svg class="admin-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
           <div class="portal-stat-info">
             <h3 id="admCountReports">2</h3>
             <p>Published Reports</p>
@@ -175,14 +218,28 @@
         </div>
       </section>
 
-      <!-- User & Role Management Table -->
+      <!-- 2. User & Role Management Table -->
       <section class="portal-panel-card">
         <div class="portal-panel-header">
           <div>
-            <h2 class="portal-panel-title">👥 User Accounts &amp; Role Assignments</h2>
-            <p class="portal-panel-subtitle">Manage platform permissions across Admin, Teacher, Parent, and Student accounts.</p>
+            <h2 class="portal-panel-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>User Accounts &amp; Permissions</span>
+            </h2>
+            <p class="portal-panel-subtitle">Manage user roles across Administrator, Educator, Parent, and Student accounts.</p>
           </div>
-          <button class="btn-download-pill" onclick="loadAdminUsers()">🔄 Refresh Accounts</button>
+          <button class="btn-download-pill" onclick="loadAdminUsers()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            <span>Refresh</span>
+          </button>
         </div>
 
         <div class="portal-table-wrap">
@@ -192,9 +249,9 @@
                 <th>User / Name</th>
                 <th>Email Address</th>
                 <th>Assigned Role</th>
-                <th>Linked Details</th>
+                <th>Academic Mapping</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th style="text-align:right;">Action</th>
               </tr>
             </thead>
             <tbody id="adminUsersTableBody">
@@ -204,33 +261,43 @@
         </div>
       </section>
 
-      <!-- Parent-Student Account Linker Tool -->
+      <!-- 3. Parent-Student Account Linker Tool -->
       <section class="portal-panel-card">
         <div class="portal-panel-header">
           <div>
-            <h2 class="portal-panel-title">🔗 Link Parent Account to Student</h2>
-            <p class="portal-panel-subtitle">Grant parents real-time visibility into their child's marks, attendance, and educator reports.</p>
+            <h2 class="portal-panel-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <span>Link Parent to Student</span>
+            </h2>
+            <p class="portal-panel-subtitle">Connect parent profiles to student records to grant access to marks, attendance, and progress reports.</p>
           </div>
         </div>
 
         <form id="linkParentForm" onsubmit="handleLinkParentSubmit(event)" style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end;">
-          <div class="form-group-custom" style="flex:1; min-width:220px;">
-            <label class="form-label-custom">Select Parent Account</label>
+          <div class="form-group-custom" style="flex:1; min-width:240px;">
+            <label class="form-label-custom">Select Parent</label>
             <select class="form-select-custom" id="linkParentSelect" required>
               <option value="parent_suman">Suman Joshi (suman.joshi@gmail.com)</option>
             </select>
           </div>
 
-          <div class="form-group-custom" style="flex:1; min-width:220px;">
-            <label class="form-label-custom">Select Student to Link</label>
+          <div class="form-group-custom" style="flex:1; min-width:240px;">
+            <label class="form-label-custom">Select Student</label>
             <select class="form-select-custom" id="linkStudentSelect" required>
               <option value="student_aryan">Aryan Sharma (Class 12A - Jaipur)</option>
               <option value="student_priya">Priya Joshi (Class 12B - Jaipur)</option>
             </select>
           </div>
 
-          <button type="submit" class="btn-portal-primary" style="height:48px;">
-            <span>🔗 Confirm Linkage</span>
+          <button type="submit" class="btn-portal-primary" style="height:46px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Save Linkage</span>
           </button>
         </form>
       </section>
@@ -265,29 +332,36 @@
       tbody.innerHTML = users.map(u => `
         <tr>
           <td>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <img src="${u.avatarUrl || u.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'}" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <img src="${u.avatarUrl || u.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'}" style="width:38px; height:38px; border-radius:10px; object-fit:cover; border:1px solid rgba(18,60,50,0.1);">
               <div>
-                <strong>${u.displayName || u.name}</strong>
-                <div style="font-size:0.75rem; color:var(--text-muted);">${u.uid}</div>
+                <strong style="color:var(--green-primary); font-size:0.95rem;">${u.displayName || u.name}</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">ID: ${u.uid}</div>
               </div>
             </div>
           </td>
-          <td>${u.email}</td>
+          <td style="color:var(--text-body); font-weight:600;">${u.email}</td>
           <td>
             <span class="badge-role-pill badge-role-${u.role}">${u.role.toUpperCase()}</span>
           </td>
-          <td style="font-size:0.85rem; color:var(--text-body);">
+          <td style="font-size:0.86rem; color:var(--text-body); font-weight:600;">
             ${u.role === 'teacher' ? (u.assignedClasses || ['Class 12']).join(', ') : 
-              u.role === 'parent' ? 'Linked to: ' + (u.linkedStudentIds || []).join(', ') : 
+              u.role === 'parent' ? 'Linked: ' + (u.linkedStudentIds || []).join(', ') : 
               u.grade || 'Student'}
           </td>
           <td>
-            <span style="color:#059669; font-weight:800; font-size:0.85rem;">● Active</span>
+            <span style="color:#059669; font-weight:700; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">
+              <span style="width:7px; height:7px; border-radius:50%; background:#059669;"></span>
+              Active
+            </span>
           </td>
-          <td>
-            <button class="btn-download-pill" onclick="changeRolePrompt('${u.uid}', '${u.role}')">
-              ⚙️ Modify Role
+          <td style="text-align:right;">
+            <button class="btn-download-pill" style="font-size:0.8rem; padding:6px 14px;" onclick="changeRolePrompt('${u.uid}', '${u.role}')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              <span>Edit Role</span>
             </button>
           </td>
         </tr>
@@ -295,12 +369,12 @@
     }
 
     function changeRolePrompt(uid, currentRole) {
-      const newRole = prompt(`Modify role for ${uid}:\nEnter: admin, teacher, parent, or student:`, currentRole);
+      const newRole = prompt(`Set permission role for user (${uid}):\nEnter: admin, teacher, parent, or student:`, currentRole);
       if (newRole && ['admin', 'teacher', 'parent', 'student'].includes(newRole.toLowerCase().trim())) {
         const users = window.HomeGuruFirebase.getLocalUsers();
         const updated = users.map(u => u.uid === uid ? { ...u, role: newRole.toLowerCase().trim() } : u);
         window.HomeGuruFirebase.saveLocalUsers(updated);
-        alert(`✅ User ${uid} updated to role: ${newRole}`);
+        alert(`User ${uid} updated to role: ${newRole}`);
         loadAdminUsers();
       }
     }
@@ -321,7 +395,7 @@
       });
 
       window.HomeGuruFirebase.saveLocalUsers(updated);
-      alert(`🎉 Parent successfully linked to student (${studentUid})!`);
+      alert(`Parent account linked to student (${studentUid}) successfully.`);
       loadAdminUsers();
     }
 
@@ -331,4 +405,3 @@
   </script>
 </body>
 </html>
-

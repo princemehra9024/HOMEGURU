@@ -1930,10 +1930,10 @@ body {
 
 .portal-stat-card {
   background: #FFFFFF;
-  border-radius: var(--radius-lg);
-  padding: 20px;
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
   border: 1px solid rgba(18, 60, 50, 0.08);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 2px 8px rgba(18, 60, 50, 0.03);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1942,18 +1942,17 @@ body {
 
 .portal-stat-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-elevated);
+  box-shadow: 0 8px 20px rgba(18, 60, 50, 0.06);
 }
 
 .portal-stat-icon-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 1.4rem;
 }
 
 .portal-stat-info h3 {
@@ -2199,16 +2198,33 @@ body {
   gap: 5px;
   padding: 4px 10px;
   border-radius: 9999px;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  border: 1px solid transparent;
 }
 
-.badge-role-teacher { background: rgba(37, 99, 235, 0.12); color: #1D4ED8; }
-.badge-role-parent { background: rgba(212, 164, 55, 0.2); color: #B45309; }
-.badge-role-student { background: rgba(16, 185, 129, 0.15); color: #047857; }
-.badge-role-admin { background: rgba(239, 68, 68, 0.15); color: #B91C1C; }
+.badge-role-teacher { 
+  background: rgba(37, 99, 235, 0.08); 
+  color: #1D4ED8; 
+  border-color: rgba(37, 99, 235, 0.2); 
+}
+.badge-role-parent { 
+  background: rgba(212, 164, 55, 0.12); 
+  color: #92400E; 
+  border-color: rgba(212, 164, 55, 0.25); 
+}
+.badge-role-student { 
+  background: rgba(16, 185, 129, 0.08); 
+  color: #047857; 
+  border-color: rgba(16, 185, 129, 0.2); 
+}
+.badge-role-admin { 
+  background: rgba(18, 60, 50, 0.08); 
+  color: var(--green-primary); 
+  border-color: rgba(18, 60, 50, 0.18); 
+}
 
 .badge-grade-pill {
   display: inline-flex;
@@ -2279,14 +2295,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 9px 16px;
-  border-radius: 9999px;
-  background: #F3EEE4;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
   color: var(--green-primary);
-  font-size: 0.86rem;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 700;
   text-decoration: none;
-  border: 1px solid rgba(18, 60, 50, 0.15);
+  border: 1px solid rgba(18, 60, 50, 0.18);
+  box-shadow: 0 1px 3px rgba(18, 60, 50, 0.03);
   transition: all 160ms ease;
   white-space: nowrap;
 }
@@ -2294,7 +2311,9 @@ body {
 .btn-download-pill:hover {
   background: var(--green-primary);
   color: #FFFFFF;
+  border-color: var(--green-primary);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(18, 60, 50, 0.12);
 }
 
 /* 9. Role Switcher Pill in Top Bar */

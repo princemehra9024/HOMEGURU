@@ -69,9 +69,9 @@
       // Check if user set non-dummy keys
       if (firebaseConfig.apiKey && !firebaseConfig.apiKey.includes('DummyKey')) {
         isRealFirebaseActive = true;
-        console.log('🔥 [Firebase] Live Firebase initialized for project:', firebaseConfig.projectId);
+        console.log('[Firebase] Live Firebase initialized for project:', firebaseConfig.projectId);
       } else {
-        console.log('⚡ [Firebase] Firebase initialized in Local Sandbox mode. Ready for live credentials.');
+        console.log('[Firebase] Firebase initialized in Local Sandbox mode. Ready for live credentials.');
       }
     }
   } catch (err) {

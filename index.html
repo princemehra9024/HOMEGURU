@@ -144,7 +144,6 @@
         <div class="header-greeting">
           <h1 style="display:flex; align-items:center; gap:8px;">
             <span>Hello, Aryan</span>
-            <span class="animated-wave-hand">👋</span>
           </h1>
           <p>Welcome back! Choose the right tutor in your own city.</p>
         </div>
@@ -192,11 +191,13 @@
           <!-- Setup Tutor ID Button (Top Right Corner) -->
           <a href="teacher-setup.html" class="header-tutor-btn" title="Setup &amp; Verify Tutor ID">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-              <line x1="12" y1="11" x2="12" y2="17"></line>
-              <line x1="9" y1="14" x2="15" y2="14"></line>
+              <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+              <circle cx="9" cy="10" r="2"></circle>
+              <line x1="15" y1="8" x2="17" y2="8"></line>
+              <line x1="15" y1="12" x2="17" y2="12"></line>
+              <line x1="7" y1="16" x2="17" y2="16"></line>
             </svg>
-            <span>🪪 Setup Tutor ID</span>
+            <span>Setup Tutor ID</span>
           </a>
 
           <!-- Student Sign In Pill -->
@@ -717,7 +718,7 @@
       document.getElementById('donutGaugeGreen').style.strokeDashoffset = (238 - (score / 100) * 238);
       
       closeCheckinModal();
-      alert('✅ Mood check-in recorded: ' + label + ' (' + score + '%). Your parents and verified mentor can see your calm progress.');
+      alert('Mood check-in recorded: ' + label + ' (' + score + '%). Your parents and verified mentor can see your calm progress.');
     }
 
     // Index Notifications
