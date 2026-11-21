@@ -1755,3 +1755,567 @@ body {
     gap: 16px;
   }
 }
+
+
+/* ==========================================================================
+   FAMILY COMMUNICATION & TEACHER PORTAL DESIGN EXTENSIONS
+   Brand Palette: Deep Forest Green (#123C32), Warm Cream (#FAF7F2), Golden Amber (#D4A437)
+   ========================================================================== */
+
+/* 1. Header Notification Dropdown */
+.notif-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.notif-badge-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #EF4444;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #FAF7F2;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+.notif-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 380px;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 48px rgba(18, 60, 50, 0.16);
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  animation: notifSlideDown 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notif-dropdown-panel.open {
+  display: flex;
+}
+
+@keyframes notifSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notif-panel-header {
+  padding: 16px 20px;
+  background: #FDFBF7;
+  border-bottom: 1px solid rgba(18, 60, 50, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notif-panel-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notif-mark-read-btn {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--green-soft);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 150ms ease;
+}
+
+.notif-mark-read-btn:hover {
+  background: rgba(18, 60, 50, 0.06);
+  color: var(--green-primary);
+}
+
+.notif-items-list {
+  max-height: 380px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-item {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(18, 60, 50, 0.06);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  transition: background 150ms ease;
+}
+
+.notif-item:hover {
+  background: rgba(18, 60, 50, 0.03);
+}
+
+.notif-item.unread {
+  background: rgba(212, 164, 55, 0.08);
+}
+
+.notif-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.notif-icon-circle.report { background: rgba(16, 185, 129, 0.15); color: #059669; }
+.notif-icon-circle.exam { background: rgba(37, 99, 235, 0.15); color: #2563EB; }
+.notif-icon-circle.syllabus { background: rgba(212, 164, 55, 0.2); color: #B45309; }
+.notif-icon-circle.announcement { background: rgba(139, 92, 246, 0.15); color: #7C3AED; }
+
+.notif-content-wrap {
+  flex: 1;
+}
+
+.notif-item-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.notif-item-msg {
+  font-size: 0.82rem;
+  color: var(--text-body);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.notif-item-time {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* 2. Portal Top Overview Stats Cards */
+.portal-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.portal-stat-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid rgba(18, 60, 50, 0.08);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.portal-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.portal-stat-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+}
+
+.portal-stat-info h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.portal-stat-info p {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 3. Portal Tab Navigation */
+.portal-tabs-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid rgba(18, 60, 50, 0.08);
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+
+.portal-tab-btn {
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1.5px solid transparent;
+  font-family: var(--font-main);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 180ms ease;
+  white-space: nowrap;
+}
+
+.portal-tab-btn:hover {
+  color: var(--green-primary);
+  background: rgba(18, 60, 50, 0.05);
+}
+
+.portal-tab-btn.active {
+  background: var(--green-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.25);
+  border-color: var(--green-primary);
+}
+
+.portal-tab-content {
+  display: none;
+}
+
+.portal-tab-content.active {
+  display: block;
+}
+
+/* 4. Portal Card Panels */
+.portal-panel-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  border: 1px solid rgba(18, 60, 50, 0.08);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 24px;
+}
+
+.portal-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.portal-panel-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.portal-panel-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 5. Clean Upload & Management Form */
+.portal-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.form-group-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label-custom {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  letter-spacing: -0.01em;
+}
+
+.form-input-custom,
+.form-select-custom,
+.form-textarea-custom {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-body);
+  background: #FDFBF7;
+  border: 1.5px solid rgba(18, 60, 50, 0.16);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  outline: none;
+  transition: all 180ms ease;
+  width: 100%;
+}
+
+.form-input-custom:focus,
+.form-select-custom:focus,
+.form-textarea-custom:focus {
+  border-color: var(--green-primary);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(18, 60, 50, 0.1);
+}
+
+.file-dropzone-custom {
+  border: 2px dashed rgba(18, 60, 50, 0.22);
+  border-radius: var(--radius-md);
+  padding: 28px 20px;
+  text-align: center;
+  background: #FAF7F2;
+  cursor: pointer;
+  transition: all 180ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-dropzone-custom:hover {
+  background: #F3EEE4;
+  border-color: var(--green-primary);
+}
+
+.file-dropzone-custom.has-file {
+  border-color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.btn-portal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: var(--green-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.96rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(18, 60, 50, 0.25);
+  transition: all 180ms ease;
+}
+
+.btn-portal-primary:hover {
+  background: var(--green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 60, 50, 0.35);
+}
+
+.btn-portal-gold {
+  background: var(--gold);
+  color: var(--green-dark);
+}
+
+.btn-portal-gold:hover {
+  background: var(--gold-hover);
+  color: #FFFFFF;
+}
+
+/* 6. High-Contrast Data Tables */
+.portal-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(18, 60, 50, 0.08);
+}
+
+.portal-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.portal-table th {
+  background: #F4EFE6;
+  color: var(--green-primary);
+  font-weight: 800;
+  padding: 14px 18px;
+  border-bottom: 2px solid rgba(18, 60, 50, 0.12);
+  white-space: nowrap;
+}
+
+.portal-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(18, 60, 50, 0.06);
+  color: var(--text-body);
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.portal-table tr:hover td {
+  background: rgba(18, 60, 50, 0.02);
+}
+
+/* 7. Status & Role Badges */
+.badge-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-role-teacher { background: rgba(37, 99, 235, 0.12); color: #1D4ED8; }
+.badge-role-parent { background: rgba(212, 164, 55, 0.2); color: #B45309; }
+.badge-role-student { background: rgba(16, 185, 129, 0.15); color: #047857; }
+.badge-role-admin { background: rgba(239, 68, 68, 0.15); color: #B91C1C; }
+
+.badge-grade-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.badge-grade-aplus { background: #DCFCE7; color: #15803D; }
+.badge-grade-a { background: #E0E7FF; color: #4338CA; }
+.badge-grade-b { background: #FEF3C7; color: #B45309; }
+
+/* 8. Family Communication Cards */
+.family-report-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid rgba(18, 60, 50, 0.08);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 180ms ease;
+}
+
+.family-report-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(18, 60, 50, 0.18);
+}
+
+.family-report-info h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  margin-bottom: 4px;
+}
+
+.family-report-info p {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.family-report-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.family-report-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 9999px;
+  background: #F3EEE4;
+  color: var(--green-primary);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid rgba(18, 60, 50, 0.15);
+  transition: all 160ms ease;
+  white-space: nowrap;
+}
+
+.btn-download-pill:hover {
+  background: var(--green-primary);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* 9. Role Switcher Pill in Top Bar */
+.role-switcher-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  box-shadow: 0 2px 8px rgba(18, 60, 50, 0.04);
+}
+
+.role-switcher-select {
+  border: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  outline: none;
+  cursor: pointer;
+}

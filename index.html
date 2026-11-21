@@ -48,6 +48,26 @@
           <span>Find Tutors</span>
         </a>
 
+        <!-- Teacher Portal -->
+        <a href="teacher-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Teacher Portal</span>
+        </a>
+
+        <!-- Family Portal -->
+        <a href="parent-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Family Portal</span>
+        </a>
+
         <!-- City Rankings -->
         <a href="rankings.html" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -63,6 +83,14 @@
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
           <span>Student Profile</span>
+        </a>
+
+        <!-- Admin Panel -->
+        <a href="admin-panel.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <span>Admin Panel</span>
         </a>
 
         <!-- Student Sign In / Auth -->
@@ -136,14 +164,30 @@
             >
           </div>
 
-          <!-- Notification Pill -->
-          <button class="icon-pill-btn" aria-label="Notifications" onclick="alert('Notification: Dr. Rajeshwar Sharma confirmed demo class for tomorrow at 5:30 PM.')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-            </svg>
-            <span class="badge-dot"></span>
-          </button>
+          <!-- Notification Bell with Dropdown -->
+          <div class="notif-dropdown-wrapper">
+            <button class="icon-pill-btn" id="notifBellBtn" aria-label="Notifications" onclick="toggleIndexNotif()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge-count" id="indexNotifCount">2</span>
+            </button>
+
+            <!-- Dropdown Panel -->
+            <div class="notif-dropdown-panel" id="indexNotifPanel">
+              <div class="notif-panel-header">
+                <div class="notif-panel-title">
+                  <span>Student Alerts</span>
+                  <span class="badge-role-pill badge-role-student" id="indexUnreadPill">2 New</span>
+                </div>
+                <button class="notif-mark-read-btn" onclick="markAllIndexNotifs()">Mark all read</button>
+              </div>
+              <div class="notif-items-list" id="indexNotifsList">
+                <!-- Loaded via JS -->
+              </div>
+            </div>
+          </div>
 
           <!-- Setup Tutor ID Button (Top Right Corner) -->
           <a href="teacher-setup.html" class="header-tutor-btn" title="Setup &amp; Verify Tutor ID">
@@ -675,6 +719,77 @@
       closeCheckinModal();
       alert('✅ Mood check-in recorded: ' + label + ' (' + score + '%). Your parents and verified mentor can see your calm progress.');
     }
+
+    // Index Notifications
+    function toggleIndexNotif() {
+      document.getElementById('indexNotifPanel').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      const wrap = document.querySelector('.notif-dropdown-wrapper');
+      if (wrap && !wrap.contains(e.target)) {
+        const p = document.getElementById('indexNotifPanel');
+        if (p) p.classList.remove('open');
+      }
+    });
+
+    function loadIndexNotifs() {
+      if (!window.HomeGuruFirebase) return;
+      const notifs = window.HomeGuruFirebase.getNotifications('student_aryan');
+      const unread = notifs.filter(n => !n.isRead);
+
+      const countEl = document.getElementById('indexNotifCount');
+      const pillEl = document.getElementById('indexUnreadPill');
+      const listEl = document.getElementById('indexNotifsList');
+
+      if (countEl) countEl.innerText = unread.length;
+      if (pillEl) pillEl.innerText = unread.length + ' New';
+
+      if (listEl) {
+        if (notifs.length === 0) {
+          listEl.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">No new notifications.</div>';
+          return;
+        }
+
+        listEl.innerHTML = notifs.map(n => `
+          <div class="notif-item ${n.isRead ? '' : 'unread'}" onclick="markIndexNotif('${n.id}')">
+            <div class="notif-icon-circle ${n.type}">
+              ${n.type === 'report' ? '📊' : n.type === 'exam_result' ? '📝' : n.type === 'syllabus' ? '📚' : '📢'}
+            </div>
+            <div class="notif-content-wrap">
+              <div class="notif-item-title">${n.title}</div>
+              <div class="notif-item-msg">${n.message}</div>
+              <div class="notif-item-time">${new Date(n.createdAt).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' })}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function markIndexNotif(id) {
+      if (window.HomeGuruFirebase) {
+        window.HomeGuruFirebase.markNotificationRead(id);
+        loadIndexNotifs();
+      }
+    }
+
+    function markAllIndexNotifs() {
+      if (window.HomeGuruFirebase) {
+        window.HomeGuruFirebase.markAllNotificationsRead('student_aryan');
+        loadIndexNotifs();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadIndexNotifs();
+    });
   </script>
+  <!-- Firebase Compatibility & HomeGuru Service -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="shared-data.js"></script>
 </body>
 </html>

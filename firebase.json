@@ -10,6 +10,9 @@
     "rewrites": [
       { "source": "/teacher-setup", "destination": "/teacher-setup.html" },
       { "source": "/teacher-profile", "destination": "/teacher-profile.html" },
+      { "source": "/teacher-portal", "destination": "/teacher-portal.html" },
+      { "source": "/parent-portal", "destination": "/parent-portal.html" },
+      { "source": "/admin-panel", "destination": "/admin-panel.html" },
       { "source": "/profile", "destination": "/profile.html" },
       { "source": "/search", "destination": "/search.html" },
       { "source": "/login", "destination": "/login.html" },
